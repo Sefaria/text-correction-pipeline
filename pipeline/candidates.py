@@ -30,10 +30,12 @@ class Candidate:
         return asdict(self)
 
     def excerpt(self, n: int = 25) -> str:
-        """Context with the span marked ⟦like this⟧, as the LLM judges see it."""
-        b = self.before.split()[-n:]
-        a = self.after.split()[:n]
-        return " ".join(b + [f"⟦{display_word(self.words) or self.words}⟧"] + a)
+        return excerpt(self.before, self.words, self.after, n)
+
+
+def excerpt(before: str, words: str, after: str, n: int = 25) -> str:
+    """Context with the span marked ⟦like this⟧, as the LLM judges see it."""
+    return " ".join(before.split()[-n:] + [f"⟦{display_word(words) or words}⟧"] + after.split()[:n])
 
 
 class CandidateFinder:

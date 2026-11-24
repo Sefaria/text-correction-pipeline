@@ -77,8 +77,13 @@ class ModelSpec:
 
     @property
     def spec(self) -> str:
-        """provider:model:effort:batch, the form app.jobs.parse_spec reads back."""
+        """provider:model:effort:batch, the form `parse` reads back."""
         return f"{self.provider}:{self.model}:{self.effort or ''}:{self.batch}"
+
+    @classmethod
+    def parse(cls, s: str) -> "ModelSpec":
+        provider, model, effort, batch = (s.split(":") + ["", "", "", "8"])[:4]
+        return cls(provider, model, effort or None, int(batch or 8))
 
     @property
     def label(self) -> str:
@@ -116,6 +121,16 @@ class Usage:
         self.input_tokens += i; self.output_tokens += o; self.calls += 1
         m = self.by_model.setdefault(model, [0, 0, 0])
         m[0] += i; m[1] += o; m[2] += 1
+
+    @classmethod
+    def from_dict(cls, d: dict) -> "Usage":
+        """Read back `to_dict` (so cost keeps adding up across a restart)."""
+        return cls(d.get("input_tokens", 0), d.get("output_tokens", 0), d.get("calls", 0),
+                   {m: list(v) for m, v in (d.get("by_model") or {}).items()})
+
+    def to_dict(self) -> dict:
+        return {"input_tokens": self.input_tokens, "output_tokens": self.output_tokens, "calls": self.calls, "by_model": self.by_model,
+                "cost_usd": self.cost()}
 
     def cost(self) -> Optional[float]:
         total = 0.0

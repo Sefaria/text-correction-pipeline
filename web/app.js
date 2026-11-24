@@ -1,5 +1,5 @@
 // Dashboard: start projects, watch their progress, open / export / rename / archive / delete them.
-import { api, esc, postJSON, progressHTML, toast } from "./common.js";
+import { api, esc, isActive, postJSON, progressHTML, toast } from "./common.js";
 
 const $ = (s) => document.querySelector(s);
 let projects = [];
@@ -106,7 +106,7 @@ function render() {
   $("#no-projects").hidden = projects.length > 0;
   tb.innerHTML = projects.map((p) => {
     const c = p.counts, pr = p.progress;
-    const running = pr.status === "running" || pr.status === "queued";
+    const running = isActive(pr);
     const cost = p.usage?.cost_usd != null ? ` · LLM $${p.usage.cost_usd.toFixed(2)}` : "";
     return `<tr data-id="${p.id}">
       <td><a href="/review?id=${p.id}"><b>${esc(p.name)}</b></a><div class="small muted">${esc(p.owner)}</div></td>

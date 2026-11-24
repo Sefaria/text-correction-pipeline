@@ -1,10 +1,12 @@
 """FastAPI app: projects, review API, CSV export, static UI, Google sign-in restricted to one domain."""
+import json
 import logging
-from contextlib import asynccontextmanager
 import os
 import secrets
 import time
+from contextlib import asynccontextmanager
 from pathlib import Path
+from urllib.parse import quote
 
 from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse, Response
@@ -14,10 +16,11 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from pipeline import sefaria_client
 from pipeline.csv_export import EmptySegmentError
+from pipeline.llm_filter import ModelSpec
 from pipeline.reference import load_text
 
 from . import db, review
-from .jobs import DEFAULT_LLM, Worker, parse_spec
+from .jobs import DEFAULT_LLM, Worker
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 WEB = Path(__file__).resolve().parent.parent / "web"
@@ -42,6 +45,11 @@ app = FastAPI(title="Text Correction Pipeline", lifespan=lifespan)
 app.add_middleware(SessionMiddleware, secret_key=SESSION_SECRET,
                    https_only=os.environ.get("SECURE_COOKIES", "true") == "true", same_site="lax", max_age=14 * 24 * 3600)
 worker = Worker()
+
+@app.exception_handler(review.ReviewError)
+async def review_error(_request: Request, e: review.ReviewError):
+    return JSONResponse({"detail": str(e)}, status_code=404 if isinstance(e, review.NotFound) else 400)
+
 
 oauth = None
 if os.environ.get("GOOGLE_CLIENT_ID"):
@@ -150,7 +158,6 @@ def _progress(p: dict) -> dict:
 
 
 def _summary(p: dict) -> dict:
-    import json
     return {k: p[k] for k in ("id", "owner", "name", "title", "version_title", "ref_filename", "threshold", "llm", "words", "archived",
                               "created_at", "updated_at")} | {"progress": _progress(p), "counts": review.counts(p["id"]),
                                                               "usage": json.loads(p["usage"] or "{}")}
@@ -168,7 +175,7 @@ async def create_project(title: str = Form(...), version_title: str = Form(...),
                          threshold: float | None = Form(None), llm: str = Form(""),
                          reference: UploadFile | None = File(None), u: str = Depends(user)):
     if llm:
-        parse_spec(llm)
+        ModelSpec.parse(llm)
     ref_text = None
     if reference is not None and reference.filename:
         data = await reference.read()
@@ -257,18 +264,12 @@ def delete_project(pid: int, u: str = Depends(user)):
 @app.get("/api/projects/{pid}/candidates")
 def candidates(pid: int, filter: str = "todo", u: str = Depends(user)):
     _project(pid)
-    try:
-        return review.list_candidates(pid, filter)
-    except review.ReviewError as e:
-        raise HTTPException(400, str(e))
+    return review.list_candidates(pid, filter)
 
 
 @app.get("/api/projects/{pid}/candidates/{cid}")
 def candidate(pid: int, cid: int, u: str = Depends(user)):
-    try:
-        return review.candidate_detail(pid, cid)
-    except review.ReviewError as e:
-        raise HTTPException(404, str(e))
+    return review.candidate_detail(pid, cid)
 
 
 class Decision(BaseModel):
@@ -279,10 +280,7 @@ class Decision(BaseModel):
 @app.post("/api/projects/{pid}/candidates/{cid}/decision")
 def decision(pid: int, cid: int, body: Decision, u: str = Depends(user)):
     _project(pid)
-    try:
-        return review.decide(pid, cid, body.action, u, body.text)
-    except review.ReviewError as e:
-        raise HTTPException(400, str(e))
+    return review.decide(pid, cid, body.action, u, body.text)
 
 
 @app.post("/api/projects/{pid}/undo")
@@ -307,7 +305,6 @@ def export(pid: int, u: str = Depends(user)):
         name, body = review.export(pid)
     except EmptySegmentError as e:
         raise HTTPException(409, str(e))
-    from urllib.parse import quote
     return Response(body.encode("utf-8"), media_type="text/csv; charset=utf-8",
                     headers={"Content-Disposition": f"attachment; filename*=UTF-8''{quote(name)}"})
 

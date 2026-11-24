@@ -42,6 +42,9 @@ export function toast(msg, ms = 2600) {
   toastTimer = setTimeout(() => (el.hidden = true), ms);
 }
 
+/** Still being processed (queued or running)? */
+export const isActive = (p) => p?.status === "running" || p?.status === "queued";
+
 export function fmtEta(s) {
   if (s == null) return "";
   if (s < 60) return "<1 min left";

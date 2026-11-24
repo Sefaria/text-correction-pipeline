@@ -28,16 +28,32 @@ class ReviewError(ValueError):
     pass
 
 
+class NotFound(ReviewError):
+    pass
+
+
 def _segment(c, pid: int, seg: int) -> dict:
     return db.row(c.execute("SELECT * FROM segments WHERE project_id = ? AND idx = ?", (pid, seg)).fetchone())
+
+
+def _candidate(c, pid: int, cid: int) -> dict:
+    cand = db.row(c.execute("SELECT * FROM candidates WHERE project_id = ? AND id = ?", (pid, cid)).fetchone())
+    if not cand:
+        raise NotFound("no such candidate")
+    return cand
+
+
+def _accepted_fixes(c, pid: int, seg: int, exclude: int | None = None) -> list[SpanFix]:
+    return [SpanFix(r["c0"], r["c1"], r["applied_fix"]) for r in c.execute(
+        "SELECT c0, c1, applied_fix FROM candidates WHERE project_id = ? AND seg = ? AND decision = 'accepted' AND id IS NOT ?",
+        (pid, seg, exclude))]
 
 
 def segment_text(c, pid: int, seg: int) -> str:
     s = _segment(c, pid, seg)
     if s["override"] is not None:
         return s["override"]
-    fixes = [SpanFix(r["c0"], r["c1"], r["applied_fix"]) for r in c.execute(
-        "SELECT c0, c1, applied_fix FROM candidates WHERE project_id = ? AND seg = ? AND decision = 'accepted'", (pid, seg))]
+    fixes = _accepted_fixes(c, pid, seg)
     return apply_fixes(s["original"], fixes) if fixes else s["original"]
 
 
@@ -69,9 +85,7 @@ def list_candidates(pid: int, flt: str) -> list[dict]:
 
 def candidate_detail(pid: int, cid: int) -> dict:
     c = db.conn()
-    cand = db.row(c.execute("SELECT * FROM candidates WHERE project_id = ? AND id = ?", (pid, cid)).fetchone())
-    if not cand:
-        raise ReviewError("no such candidate")
+    cand = _candidate(c, pid, cid)
     seg = _segment(c, pid, cand["seg"])
     current = segment_text(c, pid, cand["seg"])
     fix = cand["proposed_fix"]
@@ -90,10 +104,7 @@ def _with_fix(c, pid: int, cand: dict, replacement: str) -> str | None:
     s = _segment(c, pid, cand["seg"])
     if s["override"] is not None:
         return _patch_override(s["override"], cand["words"], cand["c0"], replacement)
-    fixes = [SpanFix(r["c0"], r["c1"], r["applied_fix"]) for r in c.execute(
-        "SELECT c0, c1, applied_fix FROM candidates WHERE project_id = ? AND seg = ? AND decision = 'accepted' AND id != ?",
-        (pid, cand["seg"], cand["id"]))]
-    return apply_fixes(s["original"], fixes + [SpanFix(cand["c0"], cand["c1"], replacement)])
+    return apply_fixes(s["original"], _accepted_fixes(c, pid, cand["seg"], exclude=cand["id"]) + [SpanFix(cand["c0"], cand["c1"], replacement)])
 
 
 def _state(c, pid: int, cand: dict) -> dict:
@@ -134,9 +145,7 @@ def decide(pid: int, cid: int, action: str, user: str, text: str | None = None) 
     """action: accept (proposed fix, or `text` as the replacement for the flagged words), reject, override (`text` = whole segment),
     reset (back to pending)."""
     with db.tx() as c:
-        cand = db.row(c.execute("SELECT * FROM candidates WHERE project_id = ? AND id = ?", (pid, cid)).fetchone())
-        if not cand:
-            raise ReviewError("no such candidate")
+        cand = _candidate(c, pid, cid)
         prev = _state(c, pid, cand)
         old_text = segment_text(c, pid, cand["seg"])
         nxt = dict(prev)
@@ -187,7 +196,7 @@ def undo(pid: int, user: str) -> dict | None:
                               (pid, user)).fetchone())
         if not ev:
             return None
-        cand = db.row(c.execute("SELECT * FROM candidates WHERE project_id = ? AND id = ?", (pid, ev["cand_id"])).fetchone())
+        cand = _candidate(c, pid, ev["cand_id"])
         _set_state(c, pid, cand, json.loads(ev["prev"]), user)
         c.execute("UPDATE events SET undone = 1 WHERE id = ?", (ev["id"],))
     return candidate_detail(pid, ev["cand_id"])

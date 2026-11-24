@@ -37,6 +37,7 @@ kbd {
   padding: 0 5px; white-space: nowrap;
 }
 .muted { color: var(--muted); }
+.note { font-family: var(--sans); font-size: 14px; }
 .small { font-size: 12.5px; }
 .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .spacer { flex: 1; }

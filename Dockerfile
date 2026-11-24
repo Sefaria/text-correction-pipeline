@@ -6,8 +6,9 @@ WORKDIR /app
 # CPU-only torch (the detector runs on CPU; the CUDA wheels would add ~4 GB)
 RUN pip install --no-cache-dir torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
 COPY pyproject.toml /app/
-RUN pip install --no-cache-dir "transformers==4.55.2" "huggingface_hub>=0.34" numpy "httpx>=0.27" "anthropic>=0.70" "google-genai>=1.30" \
-    "fastapi>=0.115" "uvicorn[standard]>=0.30" python-multipart "authlib>=1.3" itsdangerous python-docx pypdf
+# the rest of the dependencies straight from pyproject.toml (the CPU torch above already satisfies its torch requirement)
+RUN python -c "import tomllib; print('\n'.join(tomllib.load(open('pyproject.toml', 'rb'))['project']['dependencies']))" \
+    > /tmp/requirements.txt && pip install --no-cache-dir -r /tmp/requirements.txt && rm /tmp/requirements.txt
 
 # The error detector is public on Hugging Face; bake it into the image so startup needs no network or token.
 ARG DETECTOR_MODEL=Sefaria/BEREL_3.0-hebrew-error-detector

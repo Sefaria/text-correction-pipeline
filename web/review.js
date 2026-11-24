@@ -1,11 +1,13 @@
 // Review page: one candidate at a time, keyboard first. Every action is saved on the server immediately.
-import { api, diffHTML, esc, plain, postJSON, progressHTML, sefariaLink, toast } from "./common.js";
+import { api, diffHTML, esc, isActive, plain, postJSON, progressHTML, sefariaLink, toast } from "./common.js";
 
 const $ = (s) => document.querySelector(s);
 const pid = +new URLSearchParams(location.search).get("id");
 const FILTERS = [...$("#filter").options].map((o) => o.value);
 
 let project, list = [], idx = 0, cur = null, editing = null, busy = false;
+
+const fetchList = () => api(`/api/projects/${pid}/candidates?filter=${$("#filter").value}`);
 
 // ---- loading -------------------------------------------------------------------------------------------------------------------------
 async function loadProject() {
@@ -16,7 +18,7 @@ async function loadProject() {
 }
 
 async function loadList(keepId) {
-  list = await api(`/api/projects/${pid}/candidates?filter=${$("#filter").value}`);
+  list = await fetchList();
   idx = keepId != null ? Math.max(0, list.findIndex((c) => c.id === keepId)) : 0;
   await show();
 }
@@ -27,10 +29,8 @@ async function show() {
   if (!list.length) {
     cur = null;
     $("#cand").hidden = true;
-    const p = project?.progress;
-    const running = p && (p.status === "running" || p.status === "queued");
     $("#empty").hidden = false;
-    $("#empty").textContent = running
+    $("#empty").textContent = isActive(project?.progress)
       ? "Nothing here yet. Candidates appear as the detector works through the text; this list refreshes automatically."
       : $("#filter").value === "todo" ? "All candidates reviewed. Export the CSV when you're ready." : "No candidates in this view.";
     return;
@@ -54,6 +54,7 @@ const BUCKET = {
 const DECISION = { pending: ["Pending", "p-muted"], accepted: ["Accepted", "p-ok"], rejected: ["Rejected", "p-warn"],
   overridden: ["Edited", "p-info"] };
 const pill = ([t, c]) => `<span class="pill ${c}">${esc(t)}</span>`;
+const note = (html) => `<span class="note muted" dir="ltr">${html}</span>`;     // an English remark inside a Hebrew text box
 
 function markExcerpt(text) {
   // reference excerpt marks the aligned words ⟦like this⟧
@@ -81,11 +82,11 @@ function render() {
       diff = diffHTML(c.current, c.proposed_text);
       src = { reference: "from the reference", llm: "from the LLM", "reference+llm": "reference and LLM agree" }[c.fix_source] || "";
     } else {
-      diff = `<span class="muted" dir="ltr" style="font-family:var(--sans);font-size:14px">No proposed fix. Press <kbd>E</kbd> to write one, or <kbd>R</kbd> if it's not an error.</span>`;
+      diff = note("No proposed fix. Press <kbd>E</kbd> to write one, or <kbd>R</kbd> if it's not an error.");
     }
   } else {
     diff = c.current !== c.original ? diffHTML(c.original, c.current)
-      : `<span class="muted" dir="ltr" style="font-family:var(--sans);font-size:14px">Segment unchanged.</span>`;
+      : note("Segment unchanged.");
     src = c.decision === "pending" ? "" : "segment as it stands now";
   }
   $("#diff").innerHTML = diff;
@@ -94,10 +95,10 @@ function render() {
   // reference
   if (!project.ref_filename) {
     $("#refstatus").textContent = "";
-    $("#refctx").innerHTML = `<span class="muted" dir="ltr" style="font-family:var(--sans);font-size:14px">No reference text was uploaded for this project.</span>`;
+    $("#refctx").innerHTML = note("No reference text was uploaded for this project.");
   } else if (c.align_status === "not_found" || !c.ref_excerpt) {
     $("#refstatus").textContent = "passage not found";
-    $("#refctx").innerHTML = `<span class="muted" dir="ltr" style="font-family:var(--sans);font-size:14px">This passage could not be found in the reference.</span>`;
+    $("#refctx").innerHTML = note("This passage could not be found in the reference.");
   } else {
     $("#refstatus").textContent = c.align_status === "agrees" ? "same as Sefaria" : "differs from Sefaria";
     $("#refctx").innerHTML = markExcerpt(c.ref_excerpt);
@@ -147,7 +148,7 @@ async function undo() {
 async function jumpTo(cid) {
   let i = list.findIndex((x) => x.id === cid && !x.gone);
   if (i < 0) {                                   // not in the cached list: refresh this view, else fall back to "All"
-    list = await api(`/api/projects/${pid}/candidates?filter=${$("#filter").value}`);
+    list = await fetchList();
     i = list.findIndex((x) => x.id === cid);
     if (i < 0) { $("#filter").value = "all"; await loadList(cid); return; }
   }
@@ -194,8 +195,9 @@ async function loadHistory() {
         <span class="muted">${esc((e.user || "").split("@")[0])}</span></div>
       ${e.old_text !== e.new_text ? `<div class="he" lang="he">${diffHTML(e.old_text, e.new_text)}</div>` : ""}</li>`).join("");
 }
-$("#history").addEventListener("click", (e) => { const li = e.target.closest("li"); if (li) jumpTo(+li.dataset.cid); });
-$("#history").addEventListener("keydown", (e) => { if (e.key === "Enter") { const li = e.target.closest("li"); if (li) jumpTo(+li.dataset.cid); } });
+function openHistoryItem(e) { const li = e.target.closest("li"); if (li) jumpTo(+li.dataset.cid); }
+$("#history").addEventListener("click", openHistoryItem);
+$("#history").addEventListener("keydown", (e) => { if (e.key === "Enter") openHistoryItem(e); });
 
 async function loadCounts() {
   const p = await api(`/api/projects/${pid}/progress`);
@@ -209,9 +211,9 @@ async function loadCounts() {
 // poll while the pipeline is still running: merge new candidates and fresh LLM verdicts into the list without moving the reviewer
 async function poll() {
   const p = await loadCounts().catch(() => null);
-  const running = p && (p.status === "running" || p.status === "queued");
+  const running = isActive(p);
   if (running && !editing) {
-    const fresh = await api(`/api/projects/${pid}/candidates?filter=${$("#filter").value}`).catch(() => null);
+    const fresh = await fetchList().catch(() => null);
     if (fresh) mergeList(fresh);
   }
   setTimeout(poll, running ? 3000 : 20000);

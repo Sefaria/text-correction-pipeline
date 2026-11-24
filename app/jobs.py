@@ -16,7 +16,7 @@ import time
 import traceback
 
 from pipeline import sefaria_client
-from pipeline.candidates import CandidateFinder
+from pipeline.candidates import CandidateFinder, excerpt
 from pipeline.llm_filter import Item, Judge, ModelSpec, Stop, Usage
 from pipeline.reference import Reference
 from pipeline.windows import build_windows
@@ -28,11 +28,6 @@ DETECT_BLOCK = 64                     # windows per saved batch
 LLM_CONCURRENCY = int(os.environ.get("LLM_CONCURRENCY", "16"))
 # Default LLM pass (Phase 0, experiments/REPORT.md): Gemini 3.8 Flash, default thinking, 8 candidates per call.
 DEFAULT_LLM = os.environ.get("DEFAULT_LLM", "gemini:gemini-3.8-flash::8")
-
-
-def parse_spec(s: str) -> ModelSpec:
-    provider, model, effort, batch = (s.split(":") + ["", "", "", "8"])[:4]
-    return ModelSpec(provider, model, effort or None, int(batch or 8))
 
 
 class Cancelled(Exception):
@@ -95,8 +90,12 @@ class Worker:
                 log.exception("project %s failed", pid)
                 db.update_project(pid, status="failed", error=f"{type(e).__name__}: {e}\n{traceback.format_exc()[-1500:]}")
 
+    @staticmethod
+    def _cancel_requested(pid: int) -> bool:
+        return bool(db.conn().execute("SELECT cancel_requested FROM projects WHERE id = ?", (pid,)).fetchone()[0])
+
     def _check_cancel(self, pid: int):
-        if db.conn().execute("SELECT cancel_requested FROM projects WHERE id = ?", (pid,)).fetchone()[0]:
+        if self._cancel_requested(pid):
             raise Cancelled()
 
     def _stage(self, pid: int, stage: str, total: int, done: int = 0):
@@ -205,7 +204,7 @@ class Worker:
 
     async def _llm(self, pid: int):
         p = db.get_project(pid)
-        spec = parse_spec(p["llm"] or DEFAULT_LLM)
+        spec = ModelSpec.parse(p["llm"] or DEFAULT_LLM)
         if not p["llm"]:
             db.update_project(pid, llm=spec.spec)
         c = db.conn()
@@ -213,21 +212,14 @@ class Worker:
         todo = [dict(r) for r in c.execute(
             "SELECT * FROM candidates WHERE project_id = ? AND bucket = 'unchecked' ORDER BY seg, c0", (pid,))]
         self._stage(pid, "llm", total, total - len(todo))
-        usage = Usage()
-        prev = json.loads(p["usage"] or "{}")                 # keep cost from before a restart
-        for m, v in (prev.get("by_model") or {}).items():
-            usage.by_model[m] = list(v)
-        usage.input_tokens, usage.output_tokens, usage.calls = (prev.get(k, 0) for k in ("input_tokens", "output_tokens", "calls"))
-        cancelled = lambda: bool(db.conn().execute("SELECT cancel_requested FROM projects WHERE id = ?", (pid,)).fetchone()[0])
-        judge = Judge(spec, usage=usage, should_stop=cancelled)
+        usage = Usage.from_dict(json.loads(p["usage"] or "{}"))  # keep cost from before a restart
+        judge = Judge(spec, usage=usage, should_stop=lambda: self._cancel_requested(pid))
         judge.sem = self.sem                                   # one limit across all projects
         title = f"{p['title']} ({p['version_title']})"
         done = total - len(todo)
 
         def item(r):
-            from pipeline.candidates import Candidate
-            excerpt = Candidate(r["id"], r["seg"], r["ref"], 0, 0, 0, 0, r["words"], 0, r["before"], r["after"]).excerpt(25)
-            return Item(str(r["id"]), f"{r['ref']} ({p['version_title']})", excerpt,
+            return Item(str(r["id"]), f"{r['ref']} ({p['version_title']})", excerpt(r["before"], r["words"], r["after"]),
                         r["ref_excerpt"] if r["align_status"] == "differs" else None)
 
         by_id = {r["id"]: r for r in todo}
@@ -242,7 +234,7 @@ class Worker:
                 cx.executemany("UPDATE candidates SET llm_verdict = ?, llm_fix = ?, llm_confidence = ?, llm_reason = ?, llm_model = ?, "
                                "llm_error = ?, proposed_fix = ?, fix_source = ?, bucket = ? WHERE project_id = ? AND id = ?", rows)
             done += len(verdicts)
-            db.update_project(pid, stage_done=done, usage=db.dumps({**usage.__dict__, "cost_usd": usage.cost()}))
+            db.update_project(pid, stage_done=done, usage=db.dumps(usage.to_dict()))
 
         # one continuous pool (bounded by the shared semaphore): a slow call never holds up the others
         try:
