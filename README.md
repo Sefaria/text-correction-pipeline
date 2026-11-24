@@ -103,11 +103,11 @@ This follows the translation-review app: one container, one replica, and a volum
 
 **LLM cost.** The default Gemini 3.8 Flash pass costs about $5.50 per 1,000 candidates at the 2027 list price, and about half that until 2026-12-31. At 10 flags per 1,000 words, a 50,000-word version costs about $3. Per-project cost is shown on the dashboard.
 
-## Before relying on an export
+## Verified upload
 
-Upload a corrections CSV to a **cauldron sandbox** first, not prod. Then check two things:
-- Only the edited segments changed.
-- The upload decodes. `text_upload_api` passes the uploaded file straight to `csv.reader`, which I could not verify from the code alone.
+On 2026-11-24 an exported CSV was uploaded through modtools on the talmudit cauldron. Only the edited segment changed: of the 35
+segments of Abarbanel on Haggai, the one with the accepted fix, byte for byte. The Hebrew decoded correctly. For a version with HTML
+markup, try a cauldron first anyway.
 
 ## Layout
 
