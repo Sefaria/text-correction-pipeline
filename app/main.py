@@ -239,8 +239,13 @@ def cancel(pid: int, u: str = Depends(user)):
 @app.post("/api/projects/{pid}/retry")
 def retry(pid: int, u: str = Depends(user)):
     p = _project(pid)
+    unchecked = db.conn().execute("SELECT COUNT(*) FROM candidates WHERE project_id = ? AND bucket = 'unchecked'", (pid,)).fetchone()[0]
+    if p["status"] == "ready" and unchecked:                 # re-run the LLM check on candidates whose calls failed
+        db.update_project(pid, status="running", stage="llm", cancel_requested=0, error=None)
+        worker.wake.set()
+        return _progress(_project(pid))
     if p["status"] not in ("failed", "cancelled"):
-        raise HTTPException(409, "only failed or cancelled projects can be retried")
+        raise HTTPException(409, "only failed or cancelled projects, or ready ones with unchecked candidates, can be retried")
     status = "running" if p["stage"] == "llm" else "queued"
     db.update_project(pid, status=status, cancel_requested=0, error=None)
     worker.wake.set()

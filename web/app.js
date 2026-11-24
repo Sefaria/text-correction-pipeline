@@ -121,6 +121,7 @@ function render() {
         <button data-a="rename">Rename</button>
         ${running ? `<button data-a="cancel">Cancel</button>` : ""}
         ${pr.status === "failed" || pr.status === "cancelled" ? `<button data-a="retry">Retry</button>` : ""}
+        ${pr.status === "ready" && pr.error ? `<button data-a="retry">Retry LLM check</button>` : ""}
         <button data-a="archive">${p.archived ? "Unarchive" : "Archive"}</button>
         ${running ? "" : `<button data-a="delete" class="danger">Delete</button>`}
       </div></td></tr>`;

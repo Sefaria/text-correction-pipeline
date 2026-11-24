@@ -203,7 +203,7 @@ async function loadCounts() {
   const p = await api(`/api/projects/${pid}/progress`);
   const c = p.counts;
   $("#counts").textContent = `${c.todo} to review · ${c.accepted} accepted · ${c.rejected} rejected · ${c.overridden} edited · ${c.changed_segments} segments changed`;
-  $("#pprogress").innerHTML = p.status === "ready" ? "" : progressHTML(p);
+  $("#pprogress").innerHTML = p.status === "ready" && !p.error ? "" : progressHTML(p);
   if (project) project.progress = p;
   return p;
 }
