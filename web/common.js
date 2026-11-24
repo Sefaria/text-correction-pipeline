@@ -58,7 +58,10 @@ const UNITS = { detect: "windows", align: "candidates", llm: "candidates" };
 
 /** Progress bar + label for a project's progress object. */
 export function progressHTML(p) {
-  if (p.status === "ready") return `<span class="pill p-ok">Ready</span>`;
+  if (p.status === "ready") {
+    return p.error ? `<span class="pill p-warn" title="${esc(p.error)}">Ready · some unchecked</span><div class="small muted">${esc(p.error)}</div>`
+      : `<span class="pill p-ok">Ready</span>`;
+  }
   if (p.status === "failed") return `<span class="pill p-bad" title="${esc(p.error || "")}">Failed</span>`;
   if (p.status === "cancelled") return `<span class="pill p-muted">Cancelled</span>`;
   if (p.status === "queued") {

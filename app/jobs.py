@@ -240,7 +240,10 @@ class Worker:
             await judge.judge([item(r) for r in todo], on_done=save)
         except Stop:
             raise Cancelled()
-        db.update_project(pid, status="ready", stage="ready", stage_done=total, stage_total=total, stage_started=None)
+        failed = db.conn().execute("SELECT COUNT(*) FROM candidates WHERE project_id = ? AND bucket = 'unchecked'", (pid,)).fetchone()[0]
+        note = (f"{failed} candidate(s) could not be checked by the LLM (provider errors); they are in the review queue unchecked. "
+                "Retry LLM check runs only those.") if failed else None
+        db.update_project(pid, status="ready", stage="ready", stage_done=total - failed, stage_total=total, stage_started=None, error=note)
 
 
 def classify(r: dict, v) -> tuple:
@@ -249,13 +252,14 @@ def classify(r: dict, v) -> tuple:
     Reference agrees + LLM "correct" -> dismissed. Reference agrees + LLM "error" stays in the queue: in Phase 0 (experiments/REPORT.md)
     dismissing every agreeing candidate dropped real errors the reference shared or that differ only in punctuation (recall 0.83);
     this backstop kept recall at 0.96 with the same false-positive removal.
-    A failed call keeps the candidate in the queue, with the reference reading as the proposal when there is one."""
+    A failed call leaves the candidate unchecked (still in the review queue, with the reference reading as the proposal when there is
+    one) so "Retry LLM check" can run it again."""
     # an empty reference reading (nothing there, or punctuation only) is not a proposal: accepting it would delete the words
     ref_fix = (r["ref_words"] or None) if r["align_status"] == "differs" else None
     if r["align_status"] == "agrees" and v.verdict == "correct":
         return ("correct", None, v.confidence, v.reason, v.model, None, None, None, "dismissed")
     if v.verdict is None:
-        return (None, None, None, None, v.model, v.error, ref_fix, "reference" if ref_fix is not None else None, "likely_error")
+        return (None, None, None, None, v.model, v.error, ref_fix, "reference" if ref_fix is not None else None, "unchecked")
     if v.verdict == "correct":
         return ("correct", None, v.confidence, v.reason, v.model, None, ref_fix, "reference" if ref_fix is not None else None, "likely_ok")
     # An empty LLM fix is ambiguous (delete? unknown?), so it is not proposed: the reviewer edits instead. Deleting stays an explicit edit.

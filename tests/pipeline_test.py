@@ -158,3 +158,10 @@ def test_export_csv_round_trip_and_no_empty_cells():
     assert rows[0][0].strip().lower() != "version title" and [r[1] for r in rows[:5]][:3] == ["Rashi on Nedarim", "Vilna Edition", "he"]
     with pytest.raises(EmptySegmentError):
         export_csv("T", "V", "", "", [("T 1:1", "  ")])
+
+
+def test_overload_backoff_waits_longer():
+    from pipeline.llm_filter import backoff, overloaded
+    over = RuntimeError("ServerError: 503 UNAVAILABLE. This model is currently experiencing high demand")
+    assert overloaded(over) and not overloaded(ValueError("Expecting value: line 1 column 1"))
+    assert backoff(4, over) >= 30 and backoff(4, ValueError("x")) <= 8 * 1.25

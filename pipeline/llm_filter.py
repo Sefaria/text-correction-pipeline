@@ -157,6 +157,22 @@ def render(items: list[Item]) -> str:
     return head + "\n\n".join(parts)
 
 
+RETRIES = 8
+
+
+def overloaded(ex: Exception) -> bool:
+    """Provider overload or rate limit (HTTP 429/503/529): worth waiting out, unlike a malformed response."""
+    code = getattr(ex, "code", None) or getattr(ex, "status_code", None)
+    text = str(ex)
+    return code in (429, 503, 529) or any(t in text for t in ("429", "503", "529", "UNAVAILABLE", "RESOURCE_EXHAUSTED", "overloaded"))
+
+
+def backoff(attempt: int, ex: Exception) -> float:
+    """Seconds before the next try. Overload: 5, 10, 20, 40, 60, 60, 60 s (about 4 min in all), jittered; otherwise short."""
+    base = min(60.0, 5 * 2 ** attempt) if overloaded(ex) else min(8.0, 2 ** attempt)
+    return base * (0.75 + 0.5 * random.random())
+
+
 class Stop(Exception):
     """Raised inside judge() when `should_stop()` turns true; calls already running finish, no new ones start."""
 
@@ -212,7 +228,7 @@ class Judge:
         system = REFERENCE_SYSTEM if any(it.reference is not None for it in items) else SYSTEM
         user = render(items)
         last = ""
-        for attempt in range(4):
+        for attempt in range(RETRIES):
             try:
                 async with self.sem:
                     if self.should_stop and self.should_stop():
@@ -232,7 +248,8 @@ class Judge:
                 raise
             except Exception as ex:                     # retried: rate limits, transient 5xx, malformed JSON
                 last = f"{type(ex).__name__}: {str(ex)[:200]}"
-                await asyncio.sleep(2 ** attempt + random.random())
+                if attempt + 1 < RETRIES:
+                    await asyncio.sleep(backoff(attempt, ex))
         return [Verdict(it.key, None, model=self.spec.label, error=last) for it in items]
 
     async def judge(self, items: list[Item], on_done=None) -> list[Verdict]:

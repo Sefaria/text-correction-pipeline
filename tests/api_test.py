@@ -18,6 +18,7 @@ SEGMENTS = [
 ]
 FLAG = {"ישועח", "תספו", "תצעק"}           # the fake detector flags these words
 LLM = {"ישועח": ("error", "ישועת"), "תספו": ("correct", ""), "תצעק": ("error", "תצעק")}
+FAIL: set = set()                         # words whose fake LLM call fails (provider error)
 
 
 class FakeDetector:
@@ -42,6 +43,10 @@ def client(tmp_path, monkeypatch):
         out = []
         for it in items:
             word = it.excerpt.split("⟦")[1].split("⟧")[0]
+            calls.append(word)
+            if word in FAIL:
+                out.append(Verdict(it.key, None, model="fake", error="ServerError: 503 UNAVAILABLE"))
+                continue
             verdict, fix = LLM[word]
             out.append(Verdict(it.key, verdict, fix, 0.9, "fake", "fake"))
         if on_done:
@@ -51,6 +56,9 @@ def client(tmp_path, monkeypatch):
     main.worker = jobs.Worker(detector_factory=FakeDetector)
     with TestClient(main.app) as c:
         yield c
+
+
+calls: list = []
 
 
 def wait_ready(client, pid, timeout=20):
@@ -210,3 +218,23 @@ def test_missing_session_secret_refuses_to_start(monkeypatch, tmp_path):
         importlib.reload(main)
     monkeypatch.setenv("SESSION_SECRET", "x" * 32)
     importlib.reload(main)
+
+
+def test_failed_llm_calls_stay_unchecked_and_retry_runs_only_them(client):
+    FAIL.add("תספו")
+    try:
+        pid = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1"}).json()["id"]
+        p = wait_ready(client, pid)
+        assert p["status"] == "ready" and "could not be checked" in p["error"]
+        by = {c["words"]: c for c in client.get(f"/api/projects/{pid}/candidates?filter=all").json()}
+        assert by["תספו"]["bucket"] == "unchecked" and by["ישועח"]["bucket"] == "likely_error"
+        assert "תספו" in [c["words"] for c in client.get(f"/api/projects/{pid}/candidates?filter=todo").json()]
+    finally:
+        FAIL.clear()
+    calls.clear()
+    assert client.post(f"/api/projects/{pid}/retry").status_code == 200
+    p = wait_ready(client, pid)
+    assert p["status"] == "ready" and p["error"] is None
+    assert calls == ["תספו"]                                          # only the failed candidate was re-checked
+    by = {c["words"]: c for c in client.get(f"/api/projects/{pid}/candidates?filter=all").json()}
+    assert by["תספו"]["bucket"] == "likely_ok"
