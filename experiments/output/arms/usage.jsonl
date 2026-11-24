@@ -1,0 +1,8 @@
+{"arm": "sonnet-low-b8", "items": 549, "input_tokens": 200122, "output_tokens": 33508, "calls": 69, "by_model": {"claude-sonnet-5-5": [200122, 33508, 69]}}
+{"arm": "sonnet-medium-b8", "items": 549, "input_tokens": 200122, "output_tokens": 34412, "calls": 69, "by_model": {"claude-sonnet-5-5": [200122, 34412, 69]}}
+{"arm": "flash-low-b8", "items": 549, "input_tokens": 117480, "output_tokens": 26965, "calls": 69, "by_model": {"gemini-3.8-flash": [117480, 26965, 69]}}
+{"arm": "haiku-b8", "items": 549, "input_tokens": 200122, "output_tokens": 130370, "calls": 69, "by_model": {"claude-haiku-5-5": [200122, 130370, 69]}}
+{"arm": "sonnet-low-b1", "items": 549, "input_tokens": 615322, "output_tokens": 50348, "calls": 549, "by_model": {"claude-sonnet-5-5": [615322, 50348, 549]}}
+{"arm": "flash-b8", "items": 549, "input_tokens": 117480, "output_tokens": 376768, "calls": 69, "by_model": {"gemini-3.8-flash": [117480, 376768, 69]}}
+{"arm": "flash-b1", "items": 549, "input_tokens": 276360, "output_tokens": 336564, "calls": 549, "by_model": {"gemini-3.8-flash": [276360, 336564, 549]}}
+{"arm": "flash-medium-b8", "items": 549, "input_tokens": 117480, "output_tokens": 388854, "calls": 69, "by_model": {"gemini-3.8-flash": [117480, 388854, 69]}}

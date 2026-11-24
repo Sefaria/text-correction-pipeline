@@ -1,0 +1,31 @@
+[project]
+name = "text-correction-pipeline"
+version = "0.1.0"
+description = "Find and fix transcription errors in Sefaria Hebrew versions: error detector, LLM filter, reference comparison, review UI, modtools CSV export"
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.4",
+    "transformers==4.55.2",
+    "huggingface_hub>=0.34",
+    "numpy",
+    "httpx>=0.27",
+    "anthropic>=0.70",
+    "google-genai>=1.30",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-multipart",
+    "authlib>=1.3",
+    "itsdangerous",
+    "python-docx",
+    "pypdf",
+]
+
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["*_test.py"]
+
+[tool.setuptools]
+packages = ["pipeline", "app"]

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Review · Text Correction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono&family=Frank+Ruhl+Libre:wght@400;500&display=swap">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="top">
+  <a href="/" class="small">← Projects</a>
+  <h1 id="pname">…</h1>
+  <span class="small muted" id="pversion"></span>
+  <span class="spacer"></span>
+  <div id="pprogress" style="min-width:220px"></div>
+  <label class="small">Show
+    <select id="filter" aria-label="Filter candidates">
+      <option value="todo">To review</option>
+      <option value="accepted">Accepted</option>
+      <option value="rejected">Rejected</option>
+      <option value="overridden">Edited</option>
+      <option value="likely_ok">Likely OK (LLM)</option>
+      <option value="dismissed">Dismissed (reference agrees)</option>
+      <option value="all">All</option>
+    </select>
+  </label>
+  <button id="export" class="primary" title="Shift+E">Export CSV</button>
+</header>
+
+<div class="review">
+  <main>
+    <div class="navline">
+      <button id="prev" title="K">← Prev <kbd>K</kbd></button>
+      <span id="pos" class="small muted" aria-live="polite"></span>
+      <button id="next" title="J">Next <kbd>J</kbd> →</button>
+      <span class="spacer"></span>
+      <span id="counts" class="small muted"></span>
+    </div>
+
+    <div id="empty" class="card empty" hidden></div>
+
+    <div id="cand" hidden>
+      <section class="card" aria-labelledby="sef-h">
+        <div class="cardhead">
+          <h2 id="sef-h">Sefaria</h2>
+          <a id="ref" target="_blank" rel="noopener" class="small"></a>
+          <span id="badges"></span>
+        </div>
+        <div id="context" class="he ctx" lang="he"></div>
+        <div id="why" class="reason muted"></div>
+      </section>
+
+      <section class="card" aria-labelledby="chg-h">
+        <div class="cardhead"><h2 id="chg-h">Proposed change</h2><span id="source" class="small muted"></span></div>
+        <div id="diff" class="he diff" lang="he"></div>
+        <div id="edit" class="edit" hidden>
+          <div id="edit-span">
+            <label class="small muted" for="fix-input">Replacement for the marked words (empty deletes them)</label>
+            <input id="fix-input" class="he" lang="he" dir="rtl">
+          </div>
+          <div id="edit-seg" hidden>
+            <label class="small muted" for="seg-input">Whole segment text (HTML kept as is)</label>
+            <textarea id="seg-input" class="he" lang="he" dir="rtl"></textarea>
+          </div>
+          <div class="row" style="margin-top:8px">
+            <button class="primary" id="save-edit">Save <kbd>Ctrl+Enter</kbd></button>
+            <button id="cancel-edit">Cancel <kbd>Esc</kbd></button>
+            <button id="toggle-seg" class="small">Edit whole segment</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="ref-h">
+        <div class="cardhead"><h2 id="ref-h">Reference</h2><span id="refstatus" class="small muted"></span></div>
+        <div id="refctx" class="he ctx" lang="he"></div>
+      </section>
+
+      <div class="row">
+        <button class="primary" id="accept">Accept <kbd>A</kbd></button>
+        <button id="reject">Reject <kbd>R</kbd></button>
+        <button id="editbtn">Edit <kbd>E</kbd></button>
+        <button id="reset" hidden>Back to pending</button>
+        <span class="spacer"></span>
+        <span id="decision"></span>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+    <section class="card" aria-labelledby="keys-h">
+      <h2 id="keys-h">Shortcuts</h2>
+      <div class="shortcuts">
+        <span><kbd>J</kbd> / <kbd>K</kbd></span><span>Next / previous</span>
+        <span><kbd>A</kbd> or <kbd>Enter</kbd></span><span>Accept the fix, go to next</span>
+        <span><kbd>R</kbd> or <kbd>X</kbd></span><span>Reject (not an error), go to next</span>
+        <span><kbd>E</kbd></span><span>Edit the fix; <kbd>Ctrl+Enter</kbd> saves</span>
+        <span><kbd>S</kbd></span><span>Edit the whole segment</span>
+        <span><kbd>U</kbd> or <kbd>Ctrl+Z</kbd></span><span>Undo the last change</span>
+        <span><kbd>F</kbd></span><span>Next filter</span>
+        <span><kbd>Shift+E</kbd></span><span>Export CSV</span>
+        <span><kbd>?</kbd></span><span>Show or hide this panel</span>
+      </div>
+    </section>
+    <section class="card" aria-labelledby="hist-h">
+      <div class="row" style="margin-bottom:8px"><h2 id="hist-h" style="margin:0">Recent changes</h2><span class="spacer"></span>
+        <button id="undo" class="small">Undo <kbd>U</kbd></button></div>
+      <ul class="hist" id="history"></ul>
+      <p class="small muted" id="no-history">Nothing yet.</p>
+    </section>
+  </aside>
+</div>
+<script type="module" src="/static/review.js"></script>
+</body>
+</html>

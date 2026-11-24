@@ -1,0 +1,84 @@
+{
+ "opus-high-b8": {
+  "hand": {
+   "error->error": 18,
+   "correct->correct": 4,
+   "correct->error": 2,
+   "error->correct": 2
+  },
+  "corrected": {
+   "error->error": 19,
+   "error->correct": 6
+  },
+  "unedited": {
+   "correct->correct": 25
+  },
+  "accuracy": 0.868
+ },
+ "flash-b8": {
+  "hand": {
+   "error->error": 20,
+   "correct->correct": 4,
+   "correct->error": 2
+  },
+  "corrected": {
+   "error->error": 19,
+   "error->correct": 6
+  },
+  "unedited": {
+   "correct->correct": 25
+  },
+  "accuracy": 0.895
+ },
+ "flash-low-b8": {
+  "hand": {
+   "error->error": 19,
+   "correct->correct": 4,
+   "correct->error": 2,
+   "error->correct": 1
+  },
+  "corrected": {
+   "error->error": 15,
+   "error->correct": 10
+  },
+  "unedited": {
+   "correct->correct": 23,
+   "correct->error": 2
+  },
+  "accuracy": 0.803
+ },
+ "sonnet-low-b8": {
+  "hand": {
+   "error->error": 18,
+   "correct->correct": 3,
+   "error->correct": 2,
+   "correct->error": 3
+  },
+  "corrected": {
+   "error->error": 14,
+   "error->correct": 11
+  },
+  "unedited": {
+   "correct->correct": 22,
+   "correct->error": 3
+  },
+  "accuracy": 0.75
+ },
+ "haiku-b8": {
+  "hand": {
+   "error->error": 17,
+   "correct->correct": 3,
+   "correct->error": 3,
+   "error->correct": 3
+  },
+  "corrected": {
+   "error->error": 16,
+   "error->correct": 9
+  },
+  "unedited": {
+   "correct->correct": 22,
+   "correct->error": 3
+  },
+  "accuracy": 0.763
+ }
+}

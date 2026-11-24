@@ -1,0 +1,80 @@
+{"id": "Bekhor_Shor#0", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'the distinguished light' he called day; valid"}
+{"id": "Bekhor_Shor#1", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Topheth (Gehinnom) created on day 2, Isa 30:33 form"}
+{"id": "Bekhor_Shor#2", "label": "correct", "fix": "", "confidence": 0.55, "reason": "ר' as abbreviation for rabbis; awkward but plausible"}
+{"id": "Bekhor_Shor#3", "label": "correct", "fix": "", "confidence": 0.9, "reason": "מ\"פ = מלכות פרס (Dan 10:13)"}
+{"id": "Bekhor_Shor#14", "label": "correct", "fix": "", "confidence": 0.65, "reason": "commentator paraphrases ויאמר as אמר, as in preceding 'אמר לו איכה'"}
+{"id": "Bekhor_Shor#15", "label": "correct", "fix": "", "confidence": 0.85, "reason": "נחבית = defective spelling of נחבאת"}
+{"id": "Bekhor_Shor#22", "label": "error", "fix": "ופרק", "confidence": 0.65, "reason": "chapter reference: 'א' י' ופרק י' י\"ד'"}
+{"id": "Bekhor_Shor#32", "label": "correct", "fix": "", "confidence": 0.9, "reason": "נרא' = נראה abbreviation"}
+{"id": "Bekhor_Shor#39", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'כי מדרש אומר' valid"}
+{"id": "Bekhor_Shor#47", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid: that Canaan revealed him"}
+{"id": "Bekhor_Shor#51", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ever, end of sentence"}
+{"id": "Bekhor_Shor#65", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "'ולא בדק אחרי' awkward; may be אחריה, or elliptical"}
+{"id": "Bekhor_Shor#82", "label": "correct", "fix": "", "confidence": 0.85, "reason": "הק\"ב is this edition's regular abbreviation for הקב\"ה"}
+{"id": "Bekhor_Shor#83", "label": "error", "fix": "הק\"ב", "confidence": 0.6, "reason": "edition uses הק\"ב; הק\"ה looks like ב/ה misread"}
+{"id": "Bekhor_Shor#85", "label": "correct", "fix": "", "confidence": 0.85, "reason": "edition's abbreviation הק\"ב"}
+{"id": "Bekhor_Shor#100", "label": "correct", "fix": "", "confidence": 0.9, "reason": "ענן הגשמים valid"}
+{"id": "Bekhor_Shor#102", "label": "error", "fix": "פשוטו", "confidence": 0.75, "reason": "'וזהו פשוטו ועקרו'; letters transposed"}
+{"id": "Bekhor_Shor#118", "label": "correct", "fix": "", "confidence": 0.7, "reason": "Aramaic דומיא 'similar to'"}
+{"id": "Bekhor_Shor#121", "label": "correct", "fix": "", "confidence": 0.65, "reason": "'and they told Abraham of her'; valid"}
+{"id": "Bekhor_Shor#133", "label": "correct", "fix": "", "confidence": 0.85, "reason": "מבכאן = more than here, valid"}
+{"id": "Bekhor_Shor#161", "label": "error", "fix": "אלא", "confidence": 0.6, "reason": "'אלא אמ' לו מפני הנשים'; stray ו"}
+{"id": "Bekhor_Shor#163", "label": "correct", "fix": "", "confidence": 0.95, "reason": "quotes Gen 23:8 ופגעו לי בעפרון"}
+{"id": "Bekhor_Shor#169", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid"}
+{"id": "Bekhor_Shor#186", "label": "error", "fix": "ויאמר", "confidence": 0.65, "reason": "truncated word; 'אומר ויאמר ויאמר ב' פעמים'"}
+{"id": "Bekhor_Shor#192", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid"}
+{"id": "Bekhor_Shor#195", "label": "correct", "fix": "", "confidence": 0.95, "reason": "valid"}
+{"id": "Bekhor_Shor#196", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid"}
+{"id": "Bekhor_Shor#203", "label": "correct", "fix": "", "confidence": 0.95, "reason": "verse Gen 31:12"}
+{"id": "Bekhor_Shor#218", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid"}
+{"id": "Bekhor_Shor#228", "label": "correct", "fix": "", "confidence": 0.85, "reason": "edition's abbreviation הק\"ב"}
+{"id": "Bekhor_Shor#245", "label": "correct", "fix": "", "confidence": 0.5, "reason": "שריות = plene of שרות (noblewomen); plausible"}
+{"id": "Bekhor_Shor#265", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid"}
+{"id": "Bekhor_Shor#281", "label": "error", "fix": "הגבירות", "confidence": 0.85, "reason": "sons of handmaids vs sons of the mistresses; ו/י"}
+{"id": "Bekhor_Shor#286", "label": "error", "fix": "כלנו", "confidence": 0.9, "reason": "'שנאמר כלנו בשוה' as in following clause; ט/כ"}
+{"id": "Bekhor_Shor#309", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'the vision was not via the tendrils' plausible"}
+{"id": "Bekhor_Shor#319", "label": "correct", "fix": "", "confidence": 0.75, "reason": "plene of וכלה (Gen 41:30)"}
+{"id": "Bekhor_Shor#323", "label": "error", "fix": "לגלות", "confidence": 0.6, "reason": "infinitive לגלות misspelled"}
+{"id": "Bekhor_Shor#333", "label": "correct", "fix": "", "confidence": 0.85, "reason": "edition's abbreviation הק\"ב"}
+{"id": "Bekhor_Shor#342", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "מועללים odd form (מעוללים?), could be author's coinage"}
+{"id": "Bekhor_Shor#387", "label": "correct", "fix": "", "confidence": 0.85, "reason": "(ב\"ס) = Ben Sira citation"}
+{"id": "Bekhor_Shor#397", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid"}
+{"id": "Bekhor_Shor#406", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "סוחרים unexpected (אחרים?); could allude to Ishmaelite/Midianite merchants"}
+{"id": "Bekhor_Shor#411", "label": "correct", "fix": "", "confidence": 0.95, "reason": "footstool, valid"}
+{"id": "Bekhor_Shor#424", "label": "correct", "fix": "", "confidence": 0.7, "reason": "rhyming colophon, רקוב fits -קוב rhyme"}
+{"id": "Bekhor_Shor#425", "label": "correct", "fix": "", "confidence": 0.75, "reason": "rhyming colophon, 'ואשמתי תפר' rhymes with הספר"}
+{"id": "Bekhor_Shor#427", "label": "error", "fix": "תקראנה", "confidence": 0.92, "reason": "Ex 1:10 תקראנה; missing ר"}
+{"id": "Bekhor_Shor#428", "label": "correct", "fix": "", "confidence": 0.7, "reason": "Egypt as fem. singular subject; repeated קצה later"}
+{"id": "Bekhor_Shor#456", "label": "unsure", "fix": "", "confidence": 0.45, "reason": "כשהיו awkward (שהיו/ויש?), but readable"}
+{"id": "Bekhor_Shor#457", "label": "error", "fix": "דברים", "confidence": 0.85, "reason": "stray apostrophe fused onto word"}
+{"id": "Bekhor_Shor#458", "label": "error", "fix": "גדול", "confidence": 0.8, "reason": "גדול misspelled"}
+{"id": "Bekhor_Shor#463", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Josh 5:2 ref, Sefaria link format"}
+{"id": "Bekhor_Shor#478", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'master to strike' plausible"}
+{"id": "Bekhor_Shor#487", "label": "correct", "fix": "", "confidence": 0.55, "reason": "חשתה = plene 2nd person (חַשְׁתָּה) plausible"}
+{"id": "Bekhor_Shor#498", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "rhyming colophon word תחרא obscure"}
+{"id": "Bekhor_Shor#506", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'the festival being held' plausible"}
+{"id": "Bekhor_Shor#540", "label": "error", "fix": "בספל", "confidence": 0.85, "reason": "word wrongly split; Judg 5:25 בספל"}
+{"id": "Bekhor_Shor#541", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'and to the place of the Temple' plausible"}
+{"id": "Bekhor_Shor#561", "label": "error", "fix": "ובניו", "confidence": 0.5, "reason": "ולפיכך makes no sense; likely ובניו (verse) 'שהיו עמו'"}
+{"id": "Bekhor_Shor#574", "label": "error", "fix": "הריסה", "confidence": 0.65, "reason": "'אומר לשון הריסה כמו ... נהרסה'; garbled"}
+{"id": "Bekhor_Shor#581", "label": "correct", "fix": "", "confidence": 0.85, "reason": "valid"}
+{"id": "Bekhor_Shor#608", "label": "error", "fix": "עליה", "confidence": 0.7, "reason": "'מידי דקפצי עליה זבינא'"}
+{"id": "Bekhor_Shor#618", "label": "error", "fix": "שכר", "confidence": 0.7, "reason": "שומר שכר; extra yod"}
+{"id": "Bekhor_Shor#622", "label": "correct", "fix": "", "confidence": 0.65, "reason": "'כי is like שמא'"}
+{"id": "Bekhor_Shor#626", "label": "correct", "fix": "", "confidence": 0.7, "reason": "spelling variant of verse word"}
+{"id": "Bekhor_Shor#642", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Isa 18:2 ממשך ומורט; rhymes"}
+{"id": "Bekhor_Shor#648", "label": "error", "fix": "ואנעלך", "confidence": 0.95, "reason": "Ezek 16:10 ואנעלך; letters transposed"}
+{"id": "Bekhor_Shor#652", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid"}
+{"id": "Bekhor_Shor#664", "label": "correct", "fix": "", "confidence": 0.7, "reason": "סילוקו כסידורו (Menachot) defective"}
+{"id": "Bekhor_Shor#666", "label": "error", "fix": "מעץ", "confidence": 0.85, "reason": "Menachot 28: even of wood; ח/ע"}
+{"id": "Bekhor_Shor#678", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'in [the passage] ויקחו לי תרומה'"}
+{"id": "Bekhor_Shor#689", "label": "correct", "fix": "", "confidence": 0.85, "reason": "edition's abbreviation הק\"ב"}
+{"id": "Bekhor_Shor#691", "label": "unsure", "fix": "", "confidence": 0.35, "reason": "הדרין obscure; possibly Aramaic 'lifting' like מדרין"}
+{"id": "Bekhor_Shor#694", "label": "correct", "fix": "", "confidence": 0.65, "reason": "מוגמר = incense altar"}
+{"id": "Bekhor_Shor#705", "label": "error", "fix": "אותן:", "confidence": 0.8, "reason": "'כשנושאין אותן'"}
+{"id": "Bekhor_Shor#715", "label": "correct", "fix": "", "confidence": 0.7, "reason": "'בגד' = in Gad's blessing, then verse"}
+{"id": "Bekhor_Shor#718", "label": "error", "fix": "אעלה", "confidence": 0.9, "reason": "Ex 33:3 אעלה"}
+{"id": "Bekhor_Shor#726", "label": "correct", "fix": "", "confidence": 0.6, "reason": "plene spelling of מדותי"}
+{"id": "Bekhor_Shor#727", "label": "error", "fix": "באספקלריא", "confidence": 0.55, "reason": "באספקלריא המאירה; ד/ב"}
+{"id": "Bekhor_Shor#734", "label": "error", "fix": "שאמר", "confidence": 0.85, "reason": "missing מ"}
+{"id": "Bekhor_Shor#742", "label": "correct", "fix": "", "confidence": 0.9, "reason": "abbreviation רבותינו"}

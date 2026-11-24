@@ -1,0 +1,80 @@
+{"id": "Metzudat_Zion_on_Psalms#0", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword 'על' from Ps 1:3 'על פלגי מים'"}
+{"id": "Metzudat_Zion_on_Psalms#7", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'את חוק' plene gloss of חק; valid"}
+{"id": "Metzudat_Zion_on_Psalms#10", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 3:8 'הכית... לחי'"}
+{"id": "Metzudat_Zion_on_Psalms#17", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'שלוף' valid gloss of חלצה"}
+{"id": "Metzudat_Zion_on_Psalms#20", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 7:6 'ירדף אויב'; composite form discussed"}
+{"id": "Metzudat_Zion_on_Psalms#28", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 9:21 'שיתה ה' מורה להם'"}
+{"id": "Metzudat_Zion_on_Psalms#31", "label": "error", "fix": "ה׳):", "confidence": 0.9, "reason": "'ושמעה קול אלה' is Leviticus 5:1; ח misread for ה"}
+{"id": "Metzudat_Zion_on_Psalms#33", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 10:18 'יתום ודך'"}
+{"id": "Metzudat_Zion_on_Psalms#39", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'יחולק' valid word in context"}
+{"id": "Metzudat_Zion_on_Psalms#43", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'רגלינו' valid gloss of אשורנו (Ps 17:11)"}
+{"id": "Metzudat_Zion_on_Psalms#46", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Jer 46:7 'כנהרות יתגעשו מימיו' quoted correctly"}
+{"id": "Metzudat_Zion_on_Psalms#65", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 22:20 'אילותי לעזרתי'"}
+{"id": "Metzudat_Zion_on_Psalms#66", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'יחידה מול חלקי הגוף' readable (unique relative to body parts); possibly 'מכל' but plausible as is"}
+{"id": "Metzudat_Zion_on_Psalms#76", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'המצפים' valid gloss of השומרים (cf. Gen 37:11)"}
+{"id": "Metzudat_Zion_on_Psalms#82", "label": "error", "fix": "ברזל", "confidence": 0.75, "reason": "'כלי בחל' is not a word; context (bit placed in animal's mouth) suggests 'ברזל' (also following 'ההושם' garbled)"}
+{"id": "Metzudat_Zion_on_Psalms#83", "label": "correct", "fix": "", "confidence": 0.7, "reason": "'בהתבוננות רב' plausible as printed (loose gender agreement)"}
+{"id": "Metzudat_Zion_on_Psalms#93", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'בהתקצף' valid word (when angry)"}
+{"id": "Metzudat_Zion_on_Psalms#105", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'המסה' valid gloss of נמקו"}
+{"id": "Metzudat_Zion_on_Psalms#115", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'שמחה' valid"}
+{"id": "Metzudat_Zion_on_Psalms#119", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'מארב' valid; Josh 8:13 עקבו = ambush"}
+{"id": "Metzudat_Zion_on_Psalms#122", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'המיה' valid gloss of המון"}
+{"id": "Metzudat_Zion_on_Psalms#130", "label": "error", "fix": "ובדרז״ל", "confidence": 0.7, "reason": "'ובדח״ל' is not a standard abbreviation; Metzudat's formula is 'ובדרז״ל' (as elsewhere in this text)"}
+{"id": "Metzudat_Zion_on_Psalms#134", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'אופיר' proper name"}
+{"id": "Metzudat_Zion_on_Psalms#146", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 50:3 'אש לפניו תאכל'"}
+{"id": "Metzudat_Zion_on_Psalms#148", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'הזז' valid gloss of זיז"}
+{"id": "Metzudat_Zion_on_Psalms#153", "label": "correct", "fix": "", "confidence": 0.65, "reason": "Headword 'באזוב' from Ps 51:9 valid; only a separating colon before it may be missing"}
+{"id": "Metzudat_Zion_on_Psalms#154", "label": "correct", "fix": "", "confidence": 0.65, "reason": "'אתנן ומתן' valid words glossing ואתנה"}
+{"id": "Metzudat_Zion_on_Psalms#155", "label": "correct", "fix": "", "confidence": 0.75, "reason": "Headword יעז (Ps 52:9) in plene spelling יעוז; spelling convention"}
+{"id": "Metzudat_Zion_on_Psalms#169", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 58:3 'תפלסון'"}
+{"id": "Metzudat_Zion_on_Psalms#170", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Prov 30:14 'ומאכלות מתלעתיו' quoted correctly"}
+{"id": "Metzudat_Zion_on_Psalms#171", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'מה' = 'some, a certain' (שם שרץ מה), standard Metzudot idiom"}
+{"id": "Metzudat_Zion_on_Psalms#190", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 64:3 'מרגשת'"}
+{"id": "Metzudat_Zion_on_Psalms#195", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 65:14 'יתרועעו'"}
+{"id": "Metzudat_Zion_on_Psalms#196", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'ומעידת' valid (stumbling of the foot)"}
+{"id": "Metzudat_Zion_on_Psalms#198", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 67:5 'מישור'"}
+{"id": "Metzudat_Zion_on_Psalms#208", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'עריכת ומושב' valid construct pair"}
+{"id": "Metzudat_Zion_on_Psalms#213", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Judges 5:11 citation correct"}
+{"id": "Metzudat_Zion_on_Psalms#218", "label": "unsure", "fix": "", "confidence": 0.5, "reason": "'חולי כאוב' odd; may be 'חולי וכאב' but could be printed as is"}
+{"id": "Metzudat_Zion_on_Psalms#229", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'בליה' valid gloss of בלי"}
+{"id": "Metzudat_Zion_on_Psalms#235", "label": "correct", "fix": "", "confidence": 0.8, "reason": "Headword אשרי (Ps 73:2) in plene spelling; convention"}
+{"id": "Metzudat_Zion_on_Psalms#246", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'יבש' root gloss"}
+{"id": "Metzudat_Zion_on_Psalms#252", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Headword from Ps 76:13 'יבצר/יבצור' (holam), plene spelling"}
+{"id": "Metzudat_Zion_on_Psalms#257", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'חנינה' valid gloss of חנות"}
+{"id": "Metzudat_Zion_on_Psalms#258", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 78:2 'אביעה'"}
+{"id": "Metzudat_Zion_on_Psalms#259", "label": "correct", "fix": "", "confidence": 0.8, "reason": "Jer 4:29 'ורמה קשת' in plene spelling ורומה; convention"}
+{"id": "Metzudat_Zion_on_Psalms#264", "label": "correct", "fix": "", "confidence": 0.65, "reason": "Headword 'לרשפים' (Ps 78:48) valid; only a separating colon before it is missing"}
+{"id": "Metzudat_Zion_on_Psalms#265", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 78:50 'יפלס'"}
+{"id": "Metzudat_Zion_on_Psalms#271", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Gen 1:24 citation correct"}
+{"id": "Metzudat_Zion_on_Psalms#274", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 80:10 'פנית'"}
+{"id": "Metzudat_Zion_on_Psalms#291", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 88:15 'תזנח'"}
+{"id": "Metzudat_Zion_on_Psalms#293", "label": "error", "fix": "איל", "confidence": 0.55, "reason": "Ezek 31:11 reads 'איל גוים'; yod apparently dropped (though defective spelling possible)"}
+{"id": "Metzudat_Zion_on_Psalms#300", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'התאחרות' valid word"}
+{"id": "Metzudat_Zion_on_Psalms#306", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 91:1 'יתלונן'"}
+{"id": "Metzudat_Zion_on_Psalms#307", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'התמדה' valid"}
+{"id": "Metzudat_Zion_on_Psalms#311", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 92:11 'כראים'"}
+{"id": "Metzudat_Zion_on_Psalms#328", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 102:4 'כמוקד'"}
+{"id": "Metzudat_Zion_on_Psalms#335", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 104:7 'יחפזון'"}
+{"id": "Metzudat_Zion_on_Psalms#336", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'שפן' animal name"}
+{"id": "Metzudat_Zion_on_Psalms#347", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 106:19 'למסכה'"}
+{"id": "Metzudat_Zion_on_Psalms#373", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'עליכי' from Ps 116:7 itself, example of extra yod"}
+{"id": "Metzudat_Zion_on_Psalms#379", "label": "correct", "fix": "", "confidence": 0.8, "reason": "Headword השגים (Ps 119:21) in plene spelling"}
+{"id": "Metzudat_Zion_on_Psalms#382", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'שומן' valid gloss of טפש"}
+{"id": "Metzudat_Zion_on_Psalms#386", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'הלוכד' valid (net of the trapper)"}
+{"id": "Metzudat_Zion_on_Psalms#388", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 119:113 'סעפים'"}
+{"id": "Metzudat_Zion_on_Psalms#395", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Deut 32:21 citation correct"}
+{"id": "Metzudat_Zion_on_Psalms#405", "label": "error", "fix": "ידידה:", "confidence": 0.7, "reason": "ידיד means beloved, not 'נדידה' (wandering); נ misread for י"}
+{"id": "Metzudat_Zion_on_Psalms#406", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 129:3 'על גבי'"}
+{"id": "Metzudat_Zion_on_Psalms#408", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'אחור' correct in 2 Sam 1:22 quote"}
+{"id": "Metzudat_Zion_on_Psalms#409", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'קודם' valid"}
+{"id": "Metzudat_Zion_on_Psalms#412", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'(בראשי׳' abbreviation of Bereshit; normal"}
+{"id": "Metzudat_Zion_on_Psalms#414", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ps 110:1 cited as 'לעיל קי'; correct"}
+{"id": "Metzudat_Zion_on_Psalms#422", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Neh 5:13 'גם חצני נערתי' quoted correctly"}
+{"id": "Metzudat_Zion_on_Psalms#424", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'תליה' valid"}
+{"id": "Metzudat_Zion_on_Psalms#432", "label": "error", "fix": "(חולין", "confidence": 0.9, "reason": "Talmud tractate is Chullin 25 (גולמי כלי עץ); 'חולץ' is ץ/ן misreading"}
+{"id": "Metzudat_Zion_on_Psalms#435", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Deut 32:24 citation correct"}
+{"id": "Metzudat_Zion_on_Psalms#440", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'גם היא' refers to רוח (feminine); valid"}
+{"id": "Metzudat_Zion_on_Psalms#441", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'(ברא׳' abbreviation; Gen 2:7"}
+{"id": "Metzudat_Zion_on_Psalms#442", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'תכרית' valid gloss of תצמית"}
+{"id": "Metzudat_Zion_on_Psalms#444", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 144:2 'הרודד'"}
+{"id": "Metzudat_Zion_on_Psalms#453", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Headword from Ps 147:7 'ענו'"}
