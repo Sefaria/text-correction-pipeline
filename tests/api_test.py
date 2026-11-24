@@ -120,3 +120,93 @@ def test_project_management(client):
     assert [p["id"] for p in client.get("/api/projects?archived=true").json()] == [pid]
     assert client.delete(f"/api/projects/{pid}").status_code == 200
     assert client.get(f"/api/projects/{pid}").status_code == 404
+
+
+def test_classify_empty_reference_reading_is_not_a_proposal():
+    from app.jobs import classify
+    r = {"ref_words": "", "align_status": "differs"}            # reference has nothing here, or only punctuation
+    for v in (Verdict("1", "error", "", 0.9, "", "m"), Verdict("1", None, model="m", error="boom"), Verdict("1", "correct", model="m")):
+        row = classify(r, v)
+        assert row[6] is None and row[7] is None, v              # proposed_fix, fix_source: nothing to accept, so nothing deleted
+
+
+def two_flag_project(client, monkeypatch):
+    """A project with one segment holding two separately flagged words (ויאמינח, עבדח)."""
+    seg = ("Test Book 3:1", "ויאמינח בה' ובמשה עבדח אז ישיר")
+    monkeypatch.setitem(globals(), "SEGMENTS", [seg])
+    monkeypatch.setitem(globals(), "FLAG", {"ויאמינח", "עבדח"})
+    monkeypatch.setitem(globals(), "LLM", {"ויאמינח": ("error", "ויאמינו"), "עבדח": ("error", "עבדו")})
+    pid = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1"}).json()["id"]
+    assert wait_ready(client, pid)["status"] == "ready"
+    by = {c["words"]: c["id"] for c in client.get(f"/api/projects/{pid}/candidates?filter=all").json()}
+    return pid, seg[1], by["ויאמינח"], by["עבדח"]
+
+
+def decide(client, pid, cid, action, text=None):
+    return client.post(f"/api/projects/{pid}/candidates/{cid}/decision", json={"action": action, "text": text})
+
+
+def exported(client, pid):
+    return list(csv.reader(io.StringIO(client.get(f"/api/projects/{pid}/export.csv").text)))[5:]
+
+
+def test_reject_and_reset_take_their_change_out_of_an_override(client, monkeypatch):
+    pid, original, a, b = two_flag_project(client, monkeypatch)
+    decide(client, pid, a, "accept")
+    edited = "ויאמינו בה' ובמשה עבדו אז ישיר!"
+    assert decide(client, pid, b, "override", edited).json()["current"] == edited
+    # rejecting A reverses its fix inside the override, keeping B's hand edit
+    assert decide(client, pid, a, "reject").json()["current"] == "ויאמינח בה' ובמשה עבדו אז ישיר!"
+    assert exported(client, pid) == [["Test Book 3:1", "ויאמינח בה' ובמשה עבדו אז ישיר!"]]
+    # resetting B (the one that wrote the override) drops the override: nothing is left to export
+    r = decide(client, pid, b, "reset").json()
+    assert r["decision"] == "pending" and r["current"] == original and not r["overridden"]
+    assert exported(client, pid) == []
+
+
+def test_reaccepting_a_decided_candidate_is_refused(client, monkeypatch):
+    pid, _, a, _ = two_flag_project(client, monkeypatch)
+    assert "ויאמינו!" in decide(client, pid, a, "accept", "ויאמינו!").json()["current"]
+    r = decide(client, pid, a, "accept")                         # e.g. Enter pressed again on the reviewer's own fix
+    assert r.status_code == 400
+    assert "ויאמינו!" in client.get(f"/api/projects/{pid}/candidates/{a}").json()["current"]
+
+
+def test_markup_inside_the_span_is_not_auto_fixed(client, monkeypatch):
+    pid, _, a, _ = two_flag_project(client, monkeypatch)
+    from app import db
+    with db.tx() as c:                                           # as if the flagged span were '<b>ויאמינח</b> בה''
+        c.execute("UPDATE candidates SET words = '<b>ויאמינח</b> בה''' WHERE project_id = ? AND id = ?", (pid, a))
+    assert client.get(f"/api/projects/{pid}/candidates/{a}").json()["proposed_text"] is None
+    assert decide(client, pid, a, "accept", "ויאמינו בה'").status_code == 400
+
+
+def test_undo_only_undoes_your_own_change(client, monkeypatch):
+    pid, original, a, b = two_flag_project(client, monkeypatch)
+    from app import review
+    decide(client, pid, b, "reject")                             # tester@sefaria.org
+    review.decide(pid, a, "accept", "other@sefaria.org")         # another reviewer, later
+    assert client.post(f"/api/projects/{pid}/undo").json()["id"] == b
+    cands = {c["id"]: c["decision"] for c in client.get(f"/api/projects/{pid}/candidates?filter=all").json()}
+    assert cands == {a: "accepted", b: "pending"}
+
+
+def test_cancel_pending_at_restart_becomes_cancelled(client):
+    from app import db, jobs
+    pid = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1"}).json()["id"]
+    wait_ready(client, pid)
+    db.update_project(pid, status="running", stage="detect", cancel_requested=1)
+    jobs.Worker.recover()
+    assert db.get_project(pid)["status"] == "cancelled"
+    assert client.post(f"/api/projects/{pid}/retry").status_code == 200
+
+
+def test_missing_session_secret_refuses_to_start(monkeypatch, tmp_path):
+    monkeypatch.setenv("DATA_DIR", str(tmp_path))
+    monkeypatch.delenv("DEV_AUTH_EMAIL", raising=False)
+    monkeypatch.delenv("SESSION_SECRET", raising=False)
+    from app import main
+    with pytest.raises(RuntimeError, match="SESSION_SECRET"):
+        importlib.reload(main)
+    monkeypatch.setenv("SESSION_SECRET", "x" * 32)
+    importlib.reload(main)

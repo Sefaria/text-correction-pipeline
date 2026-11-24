@@ -268,8 +268,8 @@ document.addEventListener("keydown", (e) => {
     : letter ? (e.shiftKey ? letter.toUpperCase() : letter) : e.key;
   const handlers = {
     j: () => go(1), k: () => go(-1),
-    a: () => act("accept"), Enter: () => act("accept"),
-    r: () => act("reject"), x: () => act("reject"),
+    a: () => { if (!$("#accept").disabled) act("accept"); }, Enter: () => { if (!$("#accept").disabled) act("accept"); },
+    r: () => { if (!$("#reject").disabled) act("reject"); }, x: () => { if (!$("#reject").disabled) act("reject"); },
     e: () => startEdit(false), s: () => startEdit(true),
     u: undo,
     f: () => { const i = FILTERS.indexOf($("#filter").value); $("#filter").value = FILTERS[(i + 1) % FILTERS.length]; loadList(); },

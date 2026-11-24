@@ -2,6 +2,7 @@
 import logging
 from contextlib import asynccontextmanager
 import os
+import secrets
 import time
 from pathlib import Path
 
@@ -30,8 +31,15 @@ async def lifespan(_app):
     yield
 
 
+SESSION_SECRET = os.environ.get("SESSION_SECRET")
+if not SESSION_SECRET:
+    if not DEV_USER:
+        # a known fallback key would let anyone forge a signed-in session cookie
+        raise RuntimeError("SESSION_SECRET must be set (or DEV_AUTH_EMAIL, for local development only)")
+    SESSION_SECRET = secrets.token_urlsafe(32)
+
 app = FastAPI(title="Text Correction Pipeline", lifespan=lifespan)
-app.add_middleware(SessionMiddleware, secret_key=os.environ.get("SESSION_SECRET", "dev-only-secret"),
+app.add_middleware(SessionMiddleware, secret_key=SESSION_SECRET,
                    https_only=os.environ.get("SECURE_COOKIES", "true") == "true", same_site="lax", max_age=14 * 24 * 3600)
 worker = Worker()
 

@@ -52,10 +52,18 @@ class Worker:
     # ---- lifecycle ------------------------------------------------------------------------------------------------------------------
     def start(self):
         db.init()
-        # resume: anything mid-detection goes back to the detector queue, mid-llm projects are picked up by the LLM loop
-        db.conn().execute("UPDATE projects SET status = 'queued' WHERE status = 'running' AND stage IN ('queued', 'fetch', 'detect', 'align')")
+        self.recover()
         threading.Thread(target=self._detect_loop, name="detector", daemon=True).start()
         threading.Thread(target=self._llm_thread, name="llm", daemon=True).start()
+
+    @staticmethod
+    def recover():
+        """Put projects left mid-run by a restart back where the threads will pick them up."""
+        # a cancel that was pending when the process stopped is final: the detector loop never picks up a cancel_requested project
+        db.conn().execute("UPDATE projects SET status = 'cancelled', stage_started = NULL "
+                          "WHERE status IN ('running', 'queued') AND cancel_requested = 1")
+        # resume: anything mid-detection goes back to the detector queue, mid-llm projects are picked up by the LLM loop
+        db.conn().execute("UPDATE projects SET status = 'queued' WHERE status = 'running' AND stage IN ('queued', 'fetch', 'detect', 'align')")
 
     def detector(self):
         if self._detector is None:
@@ -251,7 +259,8 @@ def classify(r: dict, v) -> tuple:
     dismissing every agreeing candidate dropped real errors the reference shared or that differ only in punctuation (recall 0.83);
     this backstop kept recall at 0.96 with the same false-positive removal.
     A failed call keeps the candidate in the queue, with the reference reading as the proposal when there is one."""
-    ref_fix = r["ref_words"] if r["align_status"] == "differs" else None
+    # an empty reference reading (nothing there, or punctuation only) is not a proposal: accepting it would delete the words
+    ref_fix = (r["ref_words"] or None) if r["align_status"] == "differs" else None
     if r["align_status"] == "agrees" and v.verdict == "correct":
         return ("correct", None, v.confidence, v.reason, v.model, None, None, None, "dismissed")
     if v.verdict is None:

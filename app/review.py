@@ -77,7 +77,8 @@ def candidate_detail(pid: int, cid: int) -> dict:
     fix = cand["proposed_fix"]
     proposed = None
     if fix is not None and cand["decision"] == "pending":
-        proposed = _with_fix(c, pid, cand, replacement_for(cand["words"], fix))
+        rep = replacement_for(cand["words"], fix)
+        proposed = _with_fix(c, pid, cand, rep) if rep is not None else None
     others = [dict(r) for r in c.execute("SELECT id, words, decision, c0, c1 FROM candidates WHERE project_id = ? AND seg = ? AND id != ? "
                                          "ORDER BY c0", (pid, cand["seg"], cid))]
     return {**cand, "original": seg["original"], "current": current, "overridden": seg["override"] is not None,
@@ -106,6 +107,29 @@ def _set_state(c, pid: int, cand: dict, st: dict, user: str | None):
     c.execute("UPDATE segments SET override = ? WHERE project_id = ? AND idx = ?", (st["override"], pid, cand["seg"]))
 
 
+def _undo_in_override(c, pid: int, cand: dict, prev: dict) -> str | None:
+    """The segment override once this candidate's own change is taken out of it (for reject and reset).
+
+    Without an override the recomputed text drops the fix by itself. With one, the override was written on top of the accepted fixes, so
+    an accepted candidate's fix is reversed in it (its fix text back to the flagged words, nearest its position); and the candidate
+    that wrote the override takes it away, leaving the original plus the accepted fixes, unless another candidate's edit shares it."""
+    ov = prev["override"]
+    if ov is None:
+        return None
+    if cand["decision"] == "accepted":
+        patched = _patch_override(ov, prev["applied_fix"], cand["c0"], cand["words"]) if prev["applied_fix"] else None
+        if patched is None:
+            raise ReviewError("this fix can no longer be found in the segment's edited text; edit the segment instead")
+        return patched
+    if cand["decision"] == "overridden":
+        others = c.execute("SELECT COUNT(*) FROM candidates WHERE project_id = ? AND seg = ? AND decision = 'overridden' AND id != ?",
+                           (pid, cand["seg"], cand["id"])).fetchone()[0]
+        if others:
+            raise ReviewError("another candidate's edit of this segment includes this one; edit the segment instead")
+        return None
+    return ov
+
+
 def decide(pid: int, cid: int, action: str, user: str, text: str | None = None) -> dict:
     """action: accept (proposed fix, or `text` as the replacement for the flagged words), reject, override (`text` = whole segment),
     reset (back to pending)."""
@@ -117,25 +141,33 @@ def decide(pid: int, cid: int, action: str, user: str, text: str | None = None) 
         old_text = segment_text(c, pid, cand["seg"])
         nxt = dict(prev)
         if action == "accept":
+            if text is None and cand["decision"] != "pending":
+                # re-accepting the proposal would silently replace a fix the reviewer already chose (or typed)
+                raise ReviewError("this candidate is already decided; reset it or edit the fix instead")
             fix = text if text is not None else cand["proposed_fix"]
             if fix is None:
                 raise ReviewError("no proposed fix to accept; edit the text instead")
             rep = replacement_for(cand["words"], fix.strip())
+            if rep is None:
+                raise ReviewError("the flagged words contain markup, so the fix can't be placed safely; edit the segment instead")
             if prev["override"] is not None:
-                patched = _patch_override(prev["override"], cand["words"], cand["c0"], rep)
+                # the edited text holds this candidate's earlier fix if it was accepted before, else the flagged words
+                here = prev["applied_fix"] if cand["decision"] == "accepted" else cand["words"]
+                patched = _patch_override(prev["override"], here, cand["c0"], rep) if here else None
                 if patched is None:
                     raise ReviewError("the flagged words are no longer in this segment's edited text; edit the segment instead")
                 nxt.update(decision="accepted", applied_fix=rep, override=patched)
             else:
                 nxt.update(decision="accepted", applied_fix=rep)
         elif action == "reject":
-            nxt.update(decision="rejected", applied_fix=None)     # an earlier accepted fix drops out of the recomputed text
+            nxt.update(decision="rejected", applied_fix=None,     # an earlier accepted fix drops out of the recomputed text
+                       override=_undo_in_override(c, pid, cand, prev))
         elif action == "override":
             if text is None or not text.strip():
                 raise ReviewError("override needs the full segment text (an empty segment would blank it on Sefaria)")
             nxt.update(decision="overridden", applied_fix=None, override=text.strip())
         elif action == "reset":
-            nxt.update(decision="pending", applied_fix=None)
+            nxt.update(decision="pending", applied_fix=None, override=_undo_in_override(c, pid, cand, prev))
         else:
             raise ReviewError(f"unknown action {action}")
         _set_state(c, pid, cand, nxt, user)
@@ -148,9 +180,11 @@ def decide(pid: int, cid: int, action: str, user: str, text: str | None = None) 
 
 
 def undo(pid: int, user: str) -> dict | None:
-    """Undo the latest not-yet-undone event of this project. Returns the candidate it touched."""
+    """Undo this user's latest not-yet-undone event in this project (projects are shared, so never another reviewer's).
+    Returns the candidate it touched."""
     with db.tx() as c:
-        ev = db.row(c.execute("SELECT * FROM events WHERE project_id = ? AND undone = 0 ORDER BY id DESC LIMIT 1", (pid,)).fetchone())
+        ev = db.row(c.execute("SELECT * FROM events WHERE project_id = ? AND user = ? AND undone = 0 ORDER BY id DESC LIMIT 1",
+                              (pid, user)).fetchone())
         if not ev:
             return None
         cand = db.row(c.execute("SELECT * FROM candidates WHERE project_id = ? AND id = ?", (pid, ev["cand_id"])).fetchone())

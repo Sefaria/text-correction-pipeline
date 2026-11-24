@@ -26,8 +26,24 @@ MIN_VOTES = 2
 
 # ---- loading -------------------------------------------------------------------------------------------------------------------------
 
+def _utf16(data: bytes) -> str | None:
+    """The UTF-16 codec, if the bytes look like UTF-16: a BOM, or (BOM-less) nearly every high byte is 0x00 or 0x05 (ASCII or Hebrew; no
+    text in UTF-8 or cp1255 has NUL or 0x05 at every other byte). Trying UTF-16 blindly is wrong: it decodes almost any even-length bytes without error, e.g. a cp1255 file."""
+    if data[:2] in (b"\xff\xfe", b"\xfe\xff"):
+        return "utf-16"
+    sample = data[:4000]
+    if len(data) % 2 or len(sample) < 2:
+        return None
+    for enc, hi in (("utf-16-le", sample[1::2]), ("utf-16-be", sample[0::2])):
+        if sum(b in (0x00, 0x05) for b in hi) > 0.9 * len(hi):
+            return enc
+    return None
+
+
 def _txt(data: bytes) -> str:
-    for enc in ("utf-8-sig", "utf-16", "cp1255"):
+    """UTF-16 when the bytes look like it (checked first: ASCII in UTF-16 is also valid UTF-8), then UTF-8, then Windows Hebrew (cp1255)."""
+    encs = [_utf16(data), "utf-8-sig", "cp1255"]
+    for enc in filter(None, encs):
         try:
             return data.decode(enc)
         except UnicodeError:

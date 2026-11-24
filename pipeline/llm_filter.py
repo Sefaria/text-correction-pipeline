@@ -219,5 +219,18 @@ class Judge:
                 on_done(v)
             return v
 
-        results = await asyncio.gather(*(run(g) for g in groups))
+        # Never return while a group is still running: left behind, it would keep calling the model after the caller has given up, and a
+        # quick retry would judge (and pay for) the same items twice. On Stop, the calls already running finish and are saved, and the
+        # waiting groups raise Stop themselves (should_stop stays true until the caller handles this); on any other failure, cancel them.
+        tasks = [asyncio.ensure_future(run(g)) for g in groups]
+        try:
+            results = await asyncio.gather(*tasks)
+        except Stop:
+            await asyncio.gather(*tasks, return_exceptions=True)
+            raise
+        except BaseException:
+            for t in tasks:
+                t.cancel()
+            await asyncio.gather(*tasks, return_exceptions=True)
+            raise
         return [v for g in results for v in g]

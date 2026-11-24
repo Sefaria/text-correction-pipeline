@@ -1,3 +1,4 @@
+import asyncio
 import csv
 import io
 
@@ -6,6 +7,7 @@ import pytest
 from pipeline.candidates import find_candidates
 from pipeline.csv_export import EmptySegmentError, export_csv
 from pipeline.edits import SpanFix, apply_fixes, replacement_for
+from pipeline.llm_filter import Item, Judge, ModelSpec, Stop, Verdict
 from pipeline.reference import Reference, load_text
 from pipeline.sefaria_client import parse_version_csv
 from pipeline.text import match_key
@@ -55,6 +57,22 @@ def test_apply_fixes_multiple_and_deletion():
     assert replacement_for("<b>שתים</b>", "שנים") == "<b>שנים</b>"
 
 
+
+def test_apply_fixes_leaves_whitespace_outside_the_edit_alone():
+    t = " אחד  שתים שלש "
+    assert apply_fixes(t, [SpanFix(6, 10, "שנים")]) == " אחד  שנים שלש "      # double space and outer spaces untouched
+    assert apply_fixes(t, [SpanFix(6, 10, "")]) == " אחד  שלש "               # deletion drops one of the spaces it leaves
+    assert apply_fixes("אחד שתים", [SpanFix(4, 8, "")]) == "אחד"
+    assert apply_fixes("אחד שתים", [SpanFix(0, 3, "")]) == "שתים"
+
+
+def test_replacement_for_refuses_markup_inside_the_span():
+    assert replacement_for("<b>שתים</b> שלש", "שנים שלש") is None
+    assert replacement_for("שתים<br>שלש", "שנים שלש") is None
+    assert replacement_for("<i><b>שתים</b></i>", "שנים") == "<i><b>שנים</b></i>"
+    assert replacement_for("<b>שתים</b> שלש", "<b>שנים</b> שלש") == "<b>שנים</b> שלש"     # markup in the fix: used as written
+
+
 def test_match_key_ignores_niqqud_punct_finals():
     assert match_key("בְּרֵאשִׁית,") == match_key("בראשית")
     assert match_key('ר"ל') == match_key("רל")
@@ -82,6 +100,52 @@ def test_load_text_html_and_csv():
     assert "שלום" in load_text("a.html", "<p>שלום<br>עולם</p>".encode())
     c = "Index Title,X\nVersion Title,V\nLanguage,he\nVersion Source,s\nVersion Notes,\nX 1:1,שלום עולם\n"
     assert load_text("a.csv", c.encode()).strip() == "שלום עולם"
+
+
+def test_load_text_encodings():
+    heb = "שלום עולם"
+    even = heb + "!"                       # cp1255 is one byte per char: an even-length file used to decode as UTF-16 garbage
+    assert len(even.encode("cp1255")) % 2 == 0
+    assert load_text("a.txt", even.encode("cp1255")) == even
+    assert load_text("a.txt", heb.encode("cp1255")) == heb
+    assert load_text("a.txt", heb.encode("utf-16")) == heb                          # with BOM
+    assert load_text("a.txt", heb.encode("utf-16-le")) == heb                       # BOM-less
+    assert load_text("a.txt", "hello world".encode("utf-16-le")) == "hello world"
+
+
+def test_judge_waits_for_running_groups_on_stop():
+    """After Stop, no group may still be calling the model once judge() has raised."""
+    stop = {"now": False}
+    running, finished = set(), []
+
+    class FakeJudge(Judge):
+        def __init__(self):
+            self.spec = ModelSpec("gemini", "m", None, 1)
+            self.should_stop = lambda: stop["now"]
+            self.sem = asyncio.Semaphore(2)
+
+        async def _call(self, items):
+            async with self.sem:
+                if self.should_stop():
+                    raise Stop()
+                running.add(items[0].key)
+                if items[0].key == "0":
+                    await asyncio.sleep(0.01)          # "1" is mid-call when this one turns stop on
+                    running.discard("0")
+                    stop["now"] = True
+                    raise Stop()
+                await asyncio.sleep(0.05)
+                running.discard(items[0].key)
+                finished.append(items[0].key)
+                return [Verdict(items[0].key, "correct")]
+
+    async def go():
+        with pytest.raises(Stop):
+            await FakeJudge().judge([Item(str(i), "s", "e") for i in range(10)])
+        return set(running)
+
+    assert asyncio.run(go()) == set()       # the call running beside the one that stopped finished before judge() raised
+    assert finished == ["1"]                # and no group started after the stop
 
 
 def test_export_csv_round_trip_and_no_empty_cells():

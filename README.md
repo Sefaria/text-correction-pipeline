@@ -89,7 +89,7 @@ This follows the translation-review app: one container, one replica, and a volum
    | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` | OAuth client. Its redirect URI is `https://<host>/auth/callback` |
    | `GOOGLE_ALLOWED_DOMAIN` | `sefaria.org` (the default) |
    | `PUBLIC_URL` | `https://<host>`, so the OAuth redirect is right behind the proxy |
-   | `SESSION_SECRET` | random, at least 32 characters |
+   | `SESSION_SECRET` | random, at least 32 characters (required: the app will not start without it unless `DEV_AUTH_EMAIL` is set) |
    | `DEFAULT_LLM` | optional; default `gemini:gemini-3.8-flash::8` (provider:model:effort:batch) |
    | `LLM_CONCURRENCY` | optional; default 16 |
 
