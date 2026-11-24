@@ -154,6 +154,7 @@ class Reference:
         if r0 is None:                                              # nothing aligned to the span: reference omits it
             # place an empty marker at the boundary after the matched `before`
             r0 = r1 = lo + next((j2 for tag, i1, i2, j1, j2 in sm.get_opcodes() if i2 >= s0), 0)
+        assert r1 is not None                                       # r0 and r1 are always set together
         self.last = r0
         ref_keys = self.keys[r0:r1]
         w0 = self.kept[r0] if r0 < len(self.kept) else len(self.words)

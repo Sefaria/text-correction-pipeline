@@ -42,7 +42,7 @@ class Worker:
         self.stop = threading.Event()
         self.llm_loop: asyncio.AbstractEventLoop | None = None
         self.llm_running: set[int] = set()
-        self.sem: asyncio.Semaphore | None = None
+        self.sem = asyncio.Semaphore(LLM_CONCURRENCY)       # one limit across all projects' LLM calls (binds to the loop on first use)
 
     # ---- lifecycle ------------------------------------------------------------------------------------------------------------------
     def start(self):
@@ -118,7 +118,7 @@ class Worker:
                 c.execute("UPDATE projects SET version_source = ?, version_notes = ?, words = ?, detect_next_window = 0 WHERE id = ?",
                           (v.version_source, v.version_notes, v.words, pid))
             stage = "detect"
-            p = db.get_project(pid)
+            p = db.project(pid)
         segments = self._segments(pid)
         if stage == "detect":
             self._detect(p, segments)
@@ -175,7 +175,6 @@ class Worker:
     def _llm_thread(self):
         self.llm_loop = asyncio.new_event_loop()
         asyncio.set_event_loop(self.llm_loop)
-        self.sem = asyncio.Semaphore(LLM_CONCURRENCY)
         self.llm_loop.create_task(self._llm_poll())
         self.llm_loop.run_forever()
 
@@ -203,7 +202,7 @@ class Worker:
             self.llm_running.discard(pid)
 
     async def _llm(self, pid: int):
-        p = db.get_project(pid)
+        p = db.project(pid)
         spec = ModelSpec.parse(p["llm"] or DEFAULT_LLM)
         if not p["llm"]:
             db.update_project(pid, llm=spec.spec)

@@ -134,6 +134,14 @@ def get_project(pid: int) -> dict | None:
     return row(conn().execute("SELECT * FROM projects WHERE id = ?", (pid,)).fetchone())
 
 
+def project(pid: int) -> dict:
+    """A project that must exist (the worker's own, or one just created)."""
+    p = get_project(pid)
+    if p is None:
+        raise KeyError(f"project {pid} does not exist")
+    return p
+
+
 def ref_path(pid: int) -> Path:
     return DATA_DIR / "refs" / f"{pid}.txt"
 

@@ -194,10 +194,11 @@ async def create_project(title: str = Form(...), version_title: str = Form(...),
         (u, name.strip() or f"{title} — {version_title}", title, version_title, reference.filename if ref_text else None,
          threshold, llm or None, t, t))
     pid = cur.lastrowid
+    assert pid is not None                                      # always set after an INSERT
     if ref_text:
         db.ref_path(pid).write_text(ref_text, encoding="utf-8")
     worker.wake.set()
-    return _summary(db.get_project(pid))
+    return _summary(db.project(pid))
 
 
 @app.get("/api/projects/{pid}")

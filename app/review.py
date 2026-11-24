@@ -33,7 +33,10 @@ class NotFound(ReviewError):
 
 
 def _segment(c, pid: int, seg: int) -> dict:
-    return db.row(c.execute("SELECT * FROM segments WHERE project_id = ? AND idx = ?", (pid, seg)).fetchone())
+    s = db.row(c.execute("SELECT * FROM segments WHERE project_id = ? AND idx = ?", (pid, seg)).fetchone())
+    if s is None:
+        raise NotFound("no such segment")
+    return s
 
 
 def _candidate(c, pid: int, cid: int) -> dict:
@@ -225,6 +228,6 @@ def changed_segments(pid: int) -> list[tuple[str, str]]:
 
 
 def export(pid: int) -> tuple[str, str]:
-    p = db.get_project(pid)
+    p = db.project(pid)
     body = export_csv(p["title"], p["version_title"], p["version_source"] or "", p["version_notes"] or "", changed_segments(pid))
     return export_filename(p["title"], p["version_title"]), body

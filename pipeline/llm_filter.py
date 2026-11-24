@@ -10,7 +10,11 @@ import json
 import os
 import random
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import TYPE_CHECKING, Optional
+
+if TYPE_CHECKING:
+    import anthropic
+    from google import genai
 
 SYSTEM = """You check digitized Hebrew and Aramaic texts (rabbinic literature, commentaries, responsa, liturgy) for transcription errors.
 Each item is a short excerpt with one word or a few adjacent words marked ⟦like this⟧. Decide whether the marked text, as written, is an
@@ -163,12 +167,15 @@ class Judge:
         self.should_stop = should_stop
         self.sem = asyncio.Semaphore(concurrency)
         self.usage = usage or Usage()
+        # SDKs imported lazily, so a deploy needs only the provider it uses
+        self.anthropic: Optional["anthropic.AsyncAnthropic"] = None
+        self.gemini: Optional["genai.Client"] = None
         if spec.provider == "anthropic":
             import anthropic
-            self.client = anthropic.AsyncAnthropic(max_retries=4)
+            self.anthropic = anthropic.AsyncAnthropic(max_retries=4)
         elif spec.provider == "gemini":
             from google import genai
-            self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+            self.gemini = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
         else:
             raise ValueError(spec.provider)
 
@@ -178,7 +185,8 @@ class Judge:
             kw["output_config"] = {"effort": self.spec.effort, "format": {"type": "json_schema", "schema": BATCH_SCHEMA}}
         else:
             kw["output_config"] = {"format": {"type": "json_schema", "schema": BATCH_SCHEMA}}
-        r = await self.client.messages.create(model=self.spec.model, max_tokens=16000, system=system,
+        assert self.anthropic is not None
+        r = await self.anthropic.messages.create(model=self.spec.model, max_tokens=16000, system=system,
                                               messages=[{"role": "user", "content": user}], **kw)
         self.usage.add(self.spec.model, r.usage.input_tokens, r.usage.output_tokens)
         if r.stop_reason == "refusal":
@@ -188,13 +196,16 @@ class Judge:
 
     async def _gemini(self, system: str, user: str) -> dict:
         from google.genai import types
-        thinking = types.ThinkingConfig(thinking_level=self.spec.effort.upper()) if self.spec.effort else None
+        thinking = types.ThinkingConfig(thinking_level=types.ThinkingLevel(self.spec.effort.upper())) if self.spec.effort else None
         cfg = types.GenerateContentConfig(system_instruction=system, response_mime_type="application/json",
                                           response_json_schema=BATCH_SCHEMA, thinking_config=thinking)
-        r = await self.client.aio.models.generate_content(model=self.spec.model, contents=user, config=cfg)
+        assert self.gemini is not None
+        r = await self.gemini.aio.models.generate_content(model=self.spec.model, contents=user, config=cfg)
         um = r.usage_metadata
         out_tokens = (um.candidates_token_count or 0) + (getattr(um, "thoughts_token_count", 0) or 0)
         self.usage.add(self.spec.model, um.prompt_token_count or 0, out_tokens)
+        if not r.text:
+            raise RuntimeError(f"empty response (finish reason: {r.candidates[0].finish_reason if r.candidates else 'none'})")
         return json.loads(r.text)
 
     async def _call(self, items: list[Item]) -> list[Verdict]:
