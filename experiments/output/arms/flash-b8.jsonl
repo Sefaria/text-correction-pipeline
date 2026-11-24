@@ -1,0 +1,549 @@
+{"key": "Chiddushei_Ramban_on_Megillah#56", "verdict": "error", "fix": "וכן", "confidence": 0.98, "reason": "typo/OCR error (כ/ב confusion)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#57", "verdict": "error", "fix": "ליהנות", "confidence": 0.95, "reason": "OCR misreading of ליהנות", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#58", "verdict": "error", "fix": "בכל", "confidence": 0.99, "reason": "typo/OCR error (כ/ב confusion)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#59", "verdict": "error", "fix": "כגון", "confidence": 0.98, "reason": "typo/OCR error (כ/ב confusion)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#60", "verdict": "error", "fix": "המקום", "confidence": 0.98, "reason": "OCR misreading of המקום", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#61", "verdict": "error", "fix": "והיך", "confidence": 0.85, "reason": "OCR misreading of Aramaic והיך", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#62", "verdict": "error", "fix": "הימנה ולפיכך", "confidence": 0.98, "reason": "OCR misreading of הימנה ולפיכך", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#63", "verdict": "error", "fix": "לעצמו", "confidence": 0.98, "reason": "typo (י/ו confusion)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#32", "verdict": "error", "fix": "של", "confidence": 0.99, "reason": "scanning error, ג for ל", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#33", "verdict": "error", "fix": "כתב", "confidence": 0.99, "reason": "typo, ח for ת", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#34", "verdict": "error", "fix": "אחת", "confidence": 0.99, "reason": "OCR error, ר for ח and ח for ת", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#35", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "preposition מ ('from') prefixed to the biblical verse צו את בני ישראל", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#36", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "valid rabbinic Hebrew participle based on אין משיירין", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#37", "verdict": "error", "fix": "פסקיה", "confidence": 0.99, "reason": "misreading of Aramaic פסקיה (ם for יה)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#38", "verdict": "error", "fix": "ושלח", "confidence": 0.99, "reason": "typo/OCR error, ה for ח", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#39", "verdict": "error", "fix": "לפי", "confidence": 0.99, "reason": "OCR error, נ for ל", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#48", "verdict": "error", "fix": "כלומר", "confidence": 0.99, "reason": "OCR confusion of כ and ג", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#49", "verdict": "error", "fix": "ולהתנות", "confidence": 0.99, "reason": "OCR confusion of ל and נ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#50", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid word in rabbinic Hebrew meaning 'those who stipulate'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#51", "verdict": "correct", "fix": "", "confidence": 0.85, "reason": "valid rabbinic impersonal usage", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#52", "verdict": "error", "fix": "וראיתי", "confidence": 0.99, "reason": "typo for וראיתי", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#53", "verdict": "error", "fix": "קמן", "confidence": 0.99, "reason": "OCR confusion of final nun and final tzadi", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#54", "verdict": "error", "fix": "א\"נ", "confidence": 0.98, "reason": "OCR confusion of נ and ג in abbreviation for אי נמי", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#55", "verdict": "error", "fix": "לאו", "confidence": 0.99, "reason": "OCR confusion of ו and ב in standard phrase לאו למימרא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#8", "verdict": "error", "fix": "לדבר", "confidence": 0.99, "reason": "OCR error (ל misread as נ) in common idiom", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#9", "verdict": "error", "fix": "כל", "confidence": 0.99, "reason": "OCR error (ל misread as ו) in quotation from Megillah 2b", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#10", "verdict": "error", "fix": "הם", "confidence": 0.98, "reason": "OCR error (final mem misread as samekh)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#11", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid biblical/rabbinic noun form citing 'perazi' of the Torah", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#12", "verdict": "error", "fix": "תמן", "confidence": 0.99, "reason": "OCR error (ת misread as ח, final nun as vav) in Yerushalmi citation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#13", "verdict": "error", "fix": "קורין", "confidence": 0.99, "reason": "typo (yod misread as vav)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#14", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew word with pronominal suffix", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#15", "verdict": "error", "fix": "וזיל", "confidence": 0.96, "reason": "OCR error (vav and zayin merged into tav)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#24", "verdict": "error", "fix": "הארץ", "confidence": 0.99, "reason": "OCR misreading of ר as וי", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#25", "verdict": "error", "fix": "מנה וטעה", "confidence": 0.98, "reason": "OCR misreading of ו as י based on the Gemara in Megillah 12a", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#26", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew word with preposition ('and regarding the people')", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#27", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "exact quotation from Ezra 7:19", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#28", "verdict": "correct", "fix": "", "confidence": 0.85, "reason": "valid medieval Hebrew usage ('that arose/developed')", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#29", "verdict": "error", "fix": "אסתר", "confidence": 0.99, "reason": "typo for אסתר (ת misread as ח)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#30", "verdict": "error", "fix": "א'", "confidence": 0.98, "reason": "OCR misreading of geresh as comma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#31", "verdict": "error", "fix": "אלמא", "confidence": 0.99, "reason": "OCR misreading of ל as נ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#40", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Hebrew verb form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#41", "verdict": "error", "fix": "מדליקין", "confidence": 0.99, "reason": "scanning error of nun as vav in tractate Shabbat chapter title", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#42", "verdict": "error", "fix": "כירה", "confidence": 0.99, "reason": "scanning error of kaf as bet in Shabbat chapter title Perek Kirah", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#43", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "parentheses reflect editorial emendation present in printed source", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#44", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Aramaic prepositional phrase meaning 'on something'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#45", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "valid Hebrew negation/syntax in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#46", "verdict": "error", "fix": "ככולם", "confidence": 0.95, "reason": "scanning error of second kaf as bet in ככולם", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#47", "verdict": "error", "fix": "הציבור", "confidence": 0.95, "reason": "transposition/scanning error for הציבור", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#0", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid phrasing for day of resting in Shushan", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#1", "verdict": "error", "fix": "נמי", "confidence": 0.98, "reason": "OCR error: gimel for nun", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#2", "verdict": "error", "fix": "אין", "confidence": 0.95, "reason": "OCR error: vav for final nun", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#3", "verdict": "error", "fix": "חומה", "confidence": 0.98, "reason": "OCR error: samekh for chet", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#4", "verdict": "error", "fix": "ולא", "confidence": 0.95, "reason": "OCR error: gimel for lamed", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#5", "verdict": "error", "fix": "מועלת להם", "confidence": 0.98, "reason": "OCR errors for מועלת להם", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#6", "verdict": "error", "fix": "בכל", "confidence": 0.98, "reason": "OCR error: bet for kaf", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#7", "verdict": "error", "fix": "שהם", "confidence": 0.95, "reason": "OCR error: final tzadi for final mem", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#37", "verdict": "error", "fix": "שאין", "confidence": 0.99, "reason": "transposed letters for שאין", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#41", "verdict": "error", "fix": "במשניות", "confidence": 0.98, "reason": "missing letters in במשניות", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#42", "verdict": "error", "fix": "דפליג", "confidence": 0.92, "reason": "OCR misreading of דפליג (or דפליגי)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#45", "verdict": "error", "fix": "עלתה", "confidence": 1.0, "reason": "missing lamed in עלתה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#46", "verdict": "error", "fix": "ככר", "confidence": 1.0, "reason": "OCR misreading of כ as ב", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#51", "verdict": "error", "fix": "חכמים", "confidence": 0.98, "reason": "misreading/truncation of חכמים", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#55", "verdict": "error", "fix": "ברעך", "confidence": 1.0, "reason": "OCR misreading of ע as פ in biblical quote", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#59", "verdict": "error", "fix": "כאשר", "confidence": 1.0, "reason": "missing alef in כאשר", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#97", "verdict": "error", "fix": "אליבא", "confidence": 0.98, "reason": "typo/OCR error (ו for י) in common phrase אליבא דהילכתא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#104", "verdict": "error", "fix": "הן", "confidence": 0.95, "reason": "OCR misreading of ה as כ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#110", "verdict": "error", "fix": "אטו", "confidence": 0.95, "reason": "OCR misread ט as נו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#112", "verdict": "error", "fix": "לזה", "confidence": 0.98, "reason": "OCR misread ז as ה in לזה ורחוקין לזה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#123", "verdict": "error", "fix": "מ\"ס", "confidence": 0.99, "reason": "OCR misreading of ס as ם in abbreviation מ\"ס (מר סבר)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#124", "verdict": "error", "fix": "הוא.", "confidence": 0.98, "reason": "stray character ר before punctuation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#133", "verdict": "correct", "fix": "", "confidence": 0.85, "reason": "standard defective spelling of משום", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#138", "verdict": "error", "fix": "תלמידו", "confidence": 0.95, "reason": "OCR confusion of י and ו (תלמידו, not תלמודו)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#16", "verdict": "error", "fix": "ואם", "confidence": 0.95, "reason": "typo for ואם (ם/ין confusion)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#17", "verdict": "error", "fix": "כן", "confidence": 0.99, "reason": "typo for כן (כ/ב confusion)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#18", "verdict": "error", "fix": "ראו", "confidence": 0.9, "reason": "typo for ראו in idiom מה ראו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#19", "verdict": "error", "fix": "ככפר", "confidence": 0.98, "reason": "typo for ככפר (ב/כ confusion)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#20", "verdict": "error", "fix": "בית", "confidence": 0.99, "reason": "missing initial bet in בית הכנסת", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#21", "verdict": "error", "fix": "מקדימין", "confidence": 0.99, "reason": "OCR error ני for מ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#22", "verdict": "error", "fix": "הנס", "confidence": 0.99, "reason": "OCR error ם for ס", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#23", "verdict": "error", "fix": "זמן", "confidence": 0.98, "reason": "OCR error גין for מן", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Chiddushei_Ramban_on_Megillah#64", "verdict": "error", "fix": "ואעפי\"כ", "confidence": 0.98, "reason": "OCR error ב for כ in ואף על פי כן abbreviation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#8", "verdict": "error", "fix": "לפום מאי", "confidence": 0.98, "reason": "OCR error ס for ם (לפום)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#13", "verdict": "error", "fix": "שאין", "confidence": 0.99, "reason": "typo with transposed letters (שיאן for שאין)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#16", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Aramaic word for superfluous/redundant", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#19", "verdict": "error", "fix": "ודאי", "confidence": 0.97, "reason": "missing final yod in ודאי", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#23", "verdict": "error", "fix": "מעידין", "confidence": 0.98, "reason": "missing yod in the plural participle מעידין", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#31", "verdict": "correct", "fix": "", "confidence": 0.92, "reason": "legitimate abbreviation for מסכת", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#35", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew verbal form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#170", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "accurate quote from the Talmudic discussion", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#171", "verdict": "error", "fix": "היה", "confidence": 0.99, "reason": "typo for היה in the standard phrase כי היה לו לומר", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#182", "verdict": "error", "fix": "כר\"י", "confidence": 0.98, "reason": "OCR misread כ as פ in the abbreviation כר\"י", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#190", "verdict": "error", "fix": "דס\"ל", "confidence": 0.95, "reason": "missing abbreviation mark in דס\"ל", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#197", "verdict": "error", "fix": "מיירי", "confidence": 0.97, "reason": "missing final yod in מיירי", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#200", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Aramaic spelling variant for the entrance of the cave", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#214", "verdict": "error", "fix": "דקס\"ד השתא", "confidence": 0.98, "reason": "garbled abbreviation and typo for השתא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#218", "verdict": "error", "fix": "החוזר לא", "confidence": 0.99, "reason": "truncated negative particle לא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#300", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard abbreviation for מעשר ראשון", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#301", "verdict": "error", "fix": "שאכלה", "confidence": 0.98, "reason": "OCR error מ/א", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#305", "verdict": "error", "fix": "רבינא", "confidence": 0.99, "reason": "OCR error ד/ר in proper name", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#308", "verdict": "error", "fix": "לקלוט", "confidence": 0.98, "reason": "missing final letter", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#313", "verdict": "error", "fix": "דהא", "confidence": 0.9, "reason": "missing ה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#322", "verdict": "error", "fix": "אחת", "confidence": 0.98, "reason": "missing letter ח", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#324", "verdict": "error", "fix": "חמשתן", "confidence": 0.95, "reason": "missing final ן", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#328", "verdict": "error", "fix": "פשוטה", "confidence": 0.96, "reason": "letter metathesis of פ and ש", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#6", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Accurate biblical citation (Isa. 41:15)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#11", "verdict": "error", "fix": "מונח:", "confidence": 0.98, "reason": "Typo/OCR error for cantillation mark 'מונח:'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#18", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Valid term for cantillation/accentuation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#20", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Proper name Dunash ben Labrat", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#23", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Accurate biblical citation (Ps. 88:15)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#29", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Valid citation/lemma from Ps. 10:11", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#31", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "Standard rabbinic spelling with double yod and geresh", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#35", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "Valid phrase referring to the letter gimel", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#336", "verdict": "error", "fix": "שהתורה לא", "confidence": 0.99, "reason": "run-on words", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#338", "verdict": "error", "fix": "בא", "confidence": 0.95, "reason": "letter substitution", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#347", "verdict": "error", "fix": "שני", "confidence": 0.95, "reason": "letter substitution", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#348", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid abbreviation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#349", "verdict": "correct", "fix": "", "confidence": 0.92, "reason": "valid word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#357", "verdict": "error", "fix": "ודבר", "confidence": 0.93, "reason": "extraneous letter", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#358", "verdict": "error", "fix": "הדיינין", "confidence": 0.96, "reason": "typo", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#361", "verdict": "error", "fix": "המלקות", "confidence": 0.99, "reason": "metathesis", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#63", "verdict": "error", "fix": "עלול", "confidence": 0.85, "reason": "OCR error for עלול (based on Sotah 29a)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#66", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "standard abbreviation for בשחיטת", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#74", "verdict": "error", "fix": "שאם", "confidence": 0.98, "reason": "OCR error: ך for ם", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#76", "verdict": "error", "fix": "שאינה בזוממין", "confidence": 0.98, "reason": "missing ה in שאינה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#87", "verdict": "error", "fix": "טובי", "confidence": 0.9, "reason": "OCR error for טובי (Talmud text)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#94", "verdict": "error", "fix": "רבעו", "confidence": 0.95, "reason": "OCR error: ן for ו (Sanhedrin 9b)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#95", "verdict": "error", "fix": "להו", "confidence": 0.95, "reason": "missing ו in להו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#96", "verdict": "error", "fix": "לשיילינהו", "confidence": 0.9, "reason": "OCR error for לשיילינהו (Makkot 6a)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#94", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "accurate quotation from Psalms 35:2", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#96", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard rabbinic abbreviation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#99", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid biblical lemma from Psalms 46:4", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#102", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "acceptable defective spelling of דייק", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#104", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "standard phrasing referring to the Masoretic note", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#107", "verdict": "error", "fix": "שכתב", "confidence": 1.0, "reason": "typo missing kaf", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#113", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard rabbinic abbreviation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#122", "verdict": "error", "fix": "גורס", "confidence": 1.0, "reason": "OCR confusion of samekh and mem sofit", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#67", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "biblical word in commentary lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#69", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "defective biblical spelling cited in commentary lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#78", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "reference to the famous Hilleli codex (ספר הללי)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#81", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "biblical kethiv cited in commentary lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#82", "verdict": "error", "fix": "הלגרמיה", "confidence": 0.95, "reason": "missing lamed in name of cantillation accent הלגרמיה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#86", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "reference to R. Yehuda Hayyat's commentary on Ma'arekhet Ha-Elohut", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#89", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "traditional name of a cantillation accent in Sifrei Emet", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#92", "verdict": "error", "fix": "וכ\"כ", "confidence": 0.98, "reason": "transposed letters in standard abbreviation וכ\"כ (וכן כתב)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#268", "verdict": "error", "fix": "בלבד", "confidence": 0.99, "reason": "truncated word (בלבד)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#273", "verdict": "error", "fix": "דזר", "confidence": 0.95, "reason": "misread ז as ו (דזר)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#276", "verdict": "error", "fix": "שפיר", "confidence": 0.98, "reason": "misspelling or OCR error for שפיר", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#280", "verdict": "error", "fix": "בשדה", "confidence": 1.0, "reason": "missing letter (בשדה)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#282", "verdict": "error", "fix": "רבינו", "confidence": 0.9, "reason": "OCR misreading of רבינו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#293", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid phrasing (קדושת הארץ והעיר)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#294", "verdict": "error", "fix": "ודריש", "confidence": 1.0, "reason": "transposed letters (ודריש)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#296", "verdict": "error", "fix": "דליכא", "confidence": 1.0, "reason": "truncated word (דליכא)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#175", "verdict": "error", "fix": "למשך:", "confidence": 0.98, "reason": "Typo in Radak citation, meaning a mater lectionis (lengthening)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#179", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Valid chapter citation in Song of Songs", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#180", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Valid lemma and defective biblical spelling", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#182", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Valid grammatical term (ga'ya)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#183", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Valid root name in Radak's Sefer Hashorashim", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#189", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Valid lemma from Ps. 78:42", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#198", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Valid masoretic note referring to the majuscule letter kaf", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#200", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Valid grammatical term (ga'ya)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#245", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "header quoting the lemma כגבה from Ps 103:11", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#246", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "proper name, Rabbi Abraham de Balmes (דבלמ\"ש)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#257", "verdict": "error", "fix": "רל\"ב ובשוחר", "confidence": 0.99, "reason": "missing space between page number and conjunction", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#260", "verdict": "error", "fix": "חנין", "confidence": 0.98, "reason": "OCR error for חנין, as evident from the Gemara (Pesachim 117a) and the text immediately following", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#271", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Aramaic ordinal form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#278", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "lemma quoting בלאמים (בלֻאמים) from Ps 108:4", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#287", "verdict": "error", "fix": "מחץ", "confidence": 0.99, "reason": "OCR error for מחץ (Ps 110:5), misreading חץ as תן", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#291", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard term for the ga'ya cantillation mark", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#209", "verdict": "error", "fix": "כתיב", "confidence": 0.98, "reason": "transposition of bet and yod in masoretic phrase", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#217", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "correct lemma text; comma represents the paseq discussed", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#223", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew word meaning 'from their count'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#226", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "accurate quotation from Psalms 94:9", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#234", "verdict": "error", "fix": "עשיתני", "confidence": 0.98, "reason": "typo for עשיתני in quotation of Ezekiel 29:3", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#239", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "reference to Radak's grammatical work Mikhlol", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#240", "verdict": "error", "fix": "מנייהו", "confidence": 0.99, "reason": "OCR error confusing mem and pe in Aramaic מנייהו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#241", "verdict": "error", "fix": "כסאך", "confidence": 0.99, "reason": "OCR error confusing samekh and bet", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#36", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard masoretic term for the letters Heh with definite article", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#40", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "accurate lemma citing defective spelling in Ps. 17:5", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#46", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "accurate lemma from Ps. 18:27", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#51", "verdict": "error", "fix": "יגל.", "confidence": 0.98, "reason": "the verse (Ps. 21:2) and commentary discuss יגל without yod", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#59", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid word explaining the Midrashic interpretation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#60", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard abbreviation for Masorah Gedolah", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#61", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "accurate lemma from Ps. 27:11", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#63", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid masoretic note referring to the vowel under the letter Ayin", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#294", "verdict": "error", "fix": "בסימן", "confidence": 0.98, "reason": "OCR error of כ for ב ('in chapter/psalm')", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#302", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid phrase 'כן דינו' (such is its rule)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#305", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid mnemonic acronym for the six verses", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#310", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct biblical lemma with preposition", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#312", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard Hebrew 'from the six'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#317", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "name of a cantillation mark", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#324", "verdict": "error", "fix": "ולחמת", "confidence": 0.99, "reason": "OCR error: לח misread as א", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#325", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "exact biblical lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#128", "verdict": "error", "fix": "ירוצון", "confidence": 0.95, "reason": "typo in biblical lemma (Psalms 59:5), missing vav", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#133", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard masoretic term", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#143", "verdict": "error", "fix": "רפויה והה\"א", "confidence": 0.99, "reason": "two words mistakenly joined", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#147", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "correct biblical quotation (1 Samuel 25:14)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#154", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard masoretic term", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#158", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "correct spelling discussing the text of Psalms 69:33", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#159", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "valid biblical mnemonic catchword with print punctuation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#171", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "correct lemma and spelling discussed in the commentary", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#227", "verdict": "error", "fix": "דמצי", "confidence": 0.98, "reason": "OCR misreading of צ as נ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#230", "verdict": "error", "fix": "לאו דידיה", "confidence": 0.99, "reason": "two words wrongly joined", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#243", "verdict": "error", "fix": "התראה", "confidence": 0.99, "reason": "OCR misreading of ה as ס", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#249", "verdict": "error", "fix": "ור", "confidence": 0.92, "reason": "stray lamed before abbreviation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#250", "verdict": "error", "fix": "תותירו", "confidence": 0.93, "reason": "missing final vav", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#252", "verdict": "error", "fix": "תותירו:", "confidence": 0.99, "reason": "OCR misreading of ת as מ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#260", "verdict": "error", "fix": "לי", "confidence": 0.99, "reason": "dittography of lamed", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#267", "verdict": "error", "fix": "דה\"א", "confidence": 0.93, "reason": "OCR misreading of ה as ד", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#102", "verdict": "error", "fix": "פשוטו", "confidence": 0.95, "reason": "transposed letters", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#118", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Aramaic/rabbinic word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#121", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#133", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid prefixed form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#161", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid rabbinic usage", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#163", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "biblical quotation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#169", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#186", "verdict": "error", "fix": "ויאמר", "confidence": 0.95, "reason": "truncated word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#0", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid word from root בקר", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#1", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "biblical and midrashic reference (Topheth)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#2", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard abbreviation for רבותינו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#3", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard abbreviation for מלכות פרס citing Daniel 10:13", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#14", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#15", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid grammatical form of חבא in Niphal", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#22", "verdict": "error", "fix": "ופרק", "confidence": 0.95, "reason": "OCR error of ק as ש in chapter citation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#32", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "standard abbreviation/spelling with geresh for נראה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#192", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid rabbinic Hebrew word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#195", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid noun with pronominal suffix", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#196", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid participle with conjunction", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#203", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "correct quotation of biblical name", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#218", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid niphal verb form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#228", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid rabbinic abbreviation for HaKadosh Barukh Hu", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#245", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid medieval Hebrew form meaning noblewomen", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#265", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid prepositional phrase", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#140", "verdict": "error", "fix": "מולאחותו", "confidence": 0.9, "reason": "word wrongly split by OCR", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#141", "verdict": "error", "fix": "תבערו", "confidence": 0.98, "reason": "OCR error מ for ת", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#147", "verdict": "error", "fix": "כדכתיב", "confidence": 0.95, "reason": "OCR error for כדכתיב", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#148", "verdict": "error", "fix": "כותי", "confidence": 0.95, "reason": "OCR error for כותי", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#149", "verdict": "error", "fix": "מדקתני", "confidence": 0.99, "reason": "transposition of ק and ד", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#154", "verdict": "error", "fix": "קמייתא", "confidence": 0.95, "reason": "OCR error for קמייתא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#162", "verdict": "error", "fix": "דה", "confidence": 0.98, "reason": "scanning error ב for ד", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ritva_on_Makkot#166", "verdict": "error", "fix": "משפט", "confidence": 0.99, "reason": "typo inverting פ and ש", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#281", "verdict": "error", "fix": "הגבירות", "confidence": 0.95, "reason": "typo/OCR error for הגבירות (mistresses, contrasting with האמהות)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#286", "verdict": "error", "fix": "כלנו", "confidence": 0.98, "reason": "OCR error ט for כ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#309", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "valid noun meaning 'the vision' or 'what was seen'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#319", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "plene spelling of quotation from Genesis 41:30", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#323", "verdict": "error", "fix": "לגלות", "confidence": 0.95, "reason": "typo or OCR error for לגלות", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#333", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid abbreviation for שהקדוש ברוך הוא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#342", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "valid huf'al participle meaning 'falsely accused/framed'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#387", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "standard abbreviation for בן סירא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#694", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid word for incense/perfume", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#705", "verdict": "error", "fix": "אותן:", "confidence": 0.9, "reason": "transposition error for אותן:", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#715", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "preposition ב prefixed to quoted verse גד גדוד יגודנו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#718", "verdict": "error", "fix": "אעלה", "confidence": 0.98, "reason": "typo for אעלה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#726", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid spelling", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#727", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Aramaic form with prefix ד", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#734", "verdict": "error", "fix": "שאמר", "confidence": 0.98, "reason": "omitted מ in שאמר", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#742", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "standard abbreviation for רבותינו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#457", "verdict": "error", "fix": "דברים", "confidence": 0.98, "reason": "stray quote mark in biblical quote", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#458", "verdict": "error", "fix": "גדול", "confidence": 0.98, "reason": "letter transposition (גודל for גדול)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#463", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard biblical citation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#478", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "contextually appropriate reading", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#487", "verdict": "correct", "fix": "", "confidence": 0.97, "reason": "valid second-person past tense form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#498", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid poetic allusion to Exodus 28:32", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#506", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew participle", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#540", "verdict": "error", "fix": "בספל", "confidence": 0.99, "reason": "erroneously split word in biblical quote", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#397", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard gloss explaining biblical 'עין' as appearance", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#406", "verdict": "error", "fix": "האחרים", "confidence": 0.98, "reason": "OCR misread 'האחרים' (the others) as 'סוחרים' (הא -> סו)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#411", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard Hebrew word for footstool", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#424", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid rhyming absolute infinitive form in colophon poem", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#425", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid poetic phrase in colophon rhyming with הספר", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#427", "verdict": "error", "fix": "תקראנה", "confidence": 0.99, "reason": "typo in biblical quotation of Exodus 1:10 (missing resh)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#428", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid 3rd person past form of the root ק-ו-ץ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#456", "verdict": "correct", "fix": "", "confidence": 0.92, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#331", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid lemma and text", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#332", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid lemma word from Psalms 137:5", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#336", "verdict": "error", "fix": "מרחיק", "confidence": 0.98, "reason": "OCR typo (ו/י confusion) in grammatical term 'אתי מרחיק'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#340", "verdict": "correct", "fix": "", "confidence": 0.96, "reason": "valid plural of מאריך (meteg/ga'ya)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#344", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid lemma word from Psalms 145:12", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#346", "verdict": "error", "fix": "חדא מלה:", "confidence": 0.97, "reason": "typo for חדא מלה (one word) contrasting with תרתי מילין", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#347", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Masoretic mnemonic acronym (עיר, פתים, הן)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Minchat_Shai_on_Psalms#348", "verdict": "error", "fix": "כפורחת", "confidence": 0.99, "reason": "OCR misreading of ח as ת in quotation of Gen. 40:10", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#67", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Aramaic verbal form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#72", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "correct Hebrew word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#86", "verdict": "error", "fix": "עד", "confidence": 0.98, "reason": "typo for עד matching the cited phrase", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#89", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "correct citation of the mishnaic past-tense verb", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#95", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "correct reading in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#101", "verdict": "error", "fix": "הלשכה", "confidence": 1.0, "reason": "OCR typo (ב for כ) in הלשכה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#111", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard Hebrew word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#117", "verdict": "error", "fix": "אני", "confidence": 0.99, "reason": "OCR typo (כ for נ) in מתחרט אני", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#9", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard Aramaic word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#19", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard Aramaic word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#36", "verdict": "error", "fix": "היכי דמי", "confidence": 0.99, "reason": "extraneous yod in standard phrase", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#38", "verdict": "error", "fix": "מי", "confidence": 0.95, "reason": "misreading of interrogative word in lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#41", "verdict": "error", "fix": "נדר", "confidence": 0.99, "reason": "misreading of resh as yod and period", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#42", "verdict": "error", "fix": "נדר", "confidence": 0.95, "reason": "misreading of resh as resh-yod quoting the Mishnah", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#43", "verdict": "error", "fix": "[א]", "confidence": 0.98, "reason": "missing opening bracket of reference mark", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#49", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Talmudic spelling matching gemara text", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#39", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid phrasing introducing a midrashic citation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#47", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid prefixed proper noun", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#51", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid biblical name with punctuation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#65", "verdict": "error", "fix": "אחריה", "confidence": 0.85, "reason": "missing final heh in rabbinic idiom בדק אחריה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#82", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "authentic abbreviation of הקדוש ברוך הוא in source MS/edition", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#83", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "authentic abbreviation of הקדוש ברוך הוא in source MS/edition", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#85", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "authentic abbreviation of הקדוש ברוך הוא in source MS/edition", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#100", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid noun phrase ענן הגשמים", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#642", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "poetic phrase alluding to Isaiah 18:2", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#648", "verdict": "error", "fix": "ואנעלך", "confidence": 0.99, "reason": "transposed letters in citation of Ezekiel 16:10", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#652", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#664", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid defective spelling of כסידורו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#666", "verdict": "error", "fix": "מעץ", "confidence": 0.99, "reason": "typo for מעץ based on Menachot 28b", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#678", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "preposition ב prefixed to parashah name", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#689", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "standard abbreviation for הקדוש ברוך הוא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#691", "verdict": "error", "fix": "הורם", "confidence": 0.95, "reason": "OCR error for הורם", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#118", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid mishnaic/rabbinic form (ש-יפין)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#127", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Aramaic/rabbinic verb form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#132", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard talmudic term", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#136", "verdict": "error", "fix": "והותר", "confidence": 0.95, "reason": "misreading of והותר reflecting ו/י confusion", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#141", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard Aramaic verb meaning excluded/exempted", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#153", "verdict": "error", "fix": "עד", "confidence": 0.98, "reason": "typo or OCR error for עד quoting the mishnah", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#154", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard plene spelling", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#158", "verdict": "error", "fix": "בדמיו", "confidence": 0.98, "reason": "OCR misreading of בדמיו (מ misread as ל/י)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#485", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard abbreviation for י\"ב חודש", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#489", "verdict": "error", "fix": "בדין", "confidence": 0.95, "reason": "matches the Gemara lemma כגון שעמד בדין", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#490", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard bracketed editorial reading in the text", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#492", "verdict": "error", "fix": "אי", "confidence": 0.9, "reason": "matches the Gemara text and context (אי נשואין עושה... ואי אירוסין)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#506", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard biblical citation format", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#509", "verdict": "error", "fix": "כדפרישית", "confidence": 0.98, "reason": "scanning error of ד for ר", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#533", "verdict": "error", "fix": "דמי", "confidence": 0.98, "reason": "misreading of final yod as a dot", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#535", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "valid word with punctuation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#159", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Aramaic word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#167", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#170", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid word with punctuation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#182", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid plural noun", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#183", "verdict": "error", "fix": "שאדם", "confidence": 0.95, "reason": "OCR error misreading ש as כ in standard phrase", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#202", "verdict": "correct", "fix": "", "confidence": 0.8, "reason": "valid form as printed", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#210", "verdict": "error", "fix": "שכן", "confidence": 0.95, "reason": "OCR error misreading כ as ב and ן as ך", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#212", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Talmudic introductory word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#226", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct quotation from Talmud", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#245", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Talmudic/Rashi text", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#262", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Hebrew word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#265", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid rabbinic demonstrative pronoun", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#276", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Aramaic word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#277", "verdict": "error", "fix": "כדי", "confidence": 1.0, "reason": "OCR error: כ misread as ב", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#285", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid quotation from Mishnah", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#296", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Hebrew word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#550", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Aramaic compound", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#561", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Aramaic form for my property", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#571", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew feminine participle", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#574", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Aramaic participle", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#578", "verdict": "correct", "fix": "", "confidence": 0.92, "reason": "full spelling convention for tsere", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#581", "verdict": "error", "fix": "אחד", "confidence": 0.99, "reason": "resh-dalet confusion", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#597", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Aramaic interrogative pronoun", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#601", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid biblical and rabbinic word for aloes", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#298", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Hebrew word meaning 'to thick [food]'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#300", "verdict": "error", "fix": "חלו", "confidence": 0.98, "reason": "transcription error for חלו, matching the Talmudic lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#306", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Aramaic form matching the Talmudic lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#309", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Hebrew verbal form meaning 'that I will become wealthy'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#315", "verdict": "error", "fix": "דננא", "confidence": 0.96, "reason": "misreading of דננא, the Talmudic lemma commented upon", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#322", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Aramaic noun meaning 'dancing'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#336", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid Hebrew verbal form meaning 'squeezed'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#341", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "standard spelling of לוויי (epithet / modifier)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#24", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard abbreviation mark for feminine ending", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#25", "verdict": "error", "fix": "ט' באב", "confidence": 0.99, "reason": "OCR error confusing ב with כ in the date Tisha B'Av", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#26", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew word meaning congregation/assembly", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#27", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard abbreviation mark for plural ending -im", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#28", "verdict": "error", "fix": "את", "confidence": 0.99, "reason": "OCR misreading of א as ח", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#29", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard abbreviation mark for final heh", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#30", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard defective spelling of שופט", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#31", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard abbreviation mark for plural ending -im", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#0", "verdict": "error", "fix": "שהוא", "confidence": 0.95, "reason": "gender mismatch; typo for שהוא referring to נמצא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#1", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid biblical citation with terminating punctuation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#2", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard passive participle form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#3", "verdict": "error", "fix": "בשמחה", "confidence": 0.98, "reason": "typo with י instead of ה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#4", "verdict": "error", "fix": "ונתתי", "confidence": 0.99, "reason": "OCR error in quotation of Ezekiel 16:61", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#5", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid passive verb form in rabbinic Hebrew", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#6", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid abbreviation of the lemma (dibur hamatchil)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#7", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "valid word play on צהר/צהרים meaning light or illumination", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#32", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "Accurate quotation from I Chronicles 13:3", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#33", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "Valid spelling of Araunah (ארונה / ארנה)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#34", "verdict": "error", "fix": "בימי", "confidence": 0.9, "reason": "OCR confusion of ב and כ; parallels 'בימי דוד' earlier", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#35", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "Defective spelling of biblical תבואי common in rabbinic printings", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#36", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "Valid Hebrew word meaning 'acceptable/favored'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#37", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "Proper biblical name (Benaiah)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#38", "verdict": "error", "fix": "דודיך.", "confidence": 0.98, "reason": "Typo / OCR confusion of ו and י (quoting Song of Songs 4:10)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#39", "verdict": "error", "fix": "תטופנה", "confidence": 0.98, "reason": "OCR confusion of ה and ם (quoting Song of Songs 4:11)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#541", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid preposition connecting parallel phrases", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#561", "verdict": "correct", "fix": "", "confidence": 0.9, "reason": "valid reading in the printed source", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#574", "verdict": "error", "fix": "יהרסו", "confidence": 0.98, "reason": "missing letter ה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#581", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid grammatical form (root כחד)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#608", "verdict": "error", "fix": "עלויה", "confidence": 0.95, "reason": "transposed letters ו and י", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#618", "verdict": "error", "fix": "שכיר", "confidence": 0.98, "reason": "transposed letters י and כ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#622", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "preposition כ prefixed to שמא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Bekhor_Shor#626", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "legitimate defective spelling matching biblical text", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#16", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "standard abbreviation of הבנות in dibbur hamatchil", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#17", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#18", "verdict": "error", "fix": "שקוצי", "confidence": 0.98, "reason": "misreading of ו as י in quotation from Ezekiel 20:7", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#19", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#20", "verdict": "correct", "fix": "", "confidence": 0.93, "reason": "standard typographical abbreviation of ודומיהם", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#21", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#22", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#23", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#40", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid word and interpretation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#41", "verdict": "error", "fix": "את", "confidence": 0.95, "reason": "OCR error of ת as ם (ללמד דעת את העם)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#42", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid third-person form adapting biblical שלחיך", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#43", "verdict": "correct", "fix": "", "confidence": 0.85, "reason": "plausible reading/form for the Cushite war/nation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#44", "verdict": "error", "fix": "מן", "confidence": 0.99, "reason": "biblical lemma is ונוזלים מן לבנון (Song 4:15)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#45", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "standard plene spelling of biblical קוצותי", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#46", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard abbreviation for טובים", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#47", "verdict": "error", "fix": "מבחוץ", "confidence": 0.99, "reason": "OCR error of ץ as ז", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#8", "verdict": "error", "fix": "אם", "confidence": 0.99, "reason": "OCR error for אם quoting the verse", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#9", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#10", "verdict": "error", "fix": "מסב חילותינו", "confidence": 0.95, "reason": "OCR error (ח misread as ב) for חילותינו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#11", "verdict": "error", "fix": "אתה", "confidence": 0.95, "reason": "missing final ה in אתה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#12", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "quotation from Song of Songs 1:14", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#13", "verdict": "error", "fix": "שספרו", "confidence": 0.95, "reason": "OCR error (ו split into יו) for שספרו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#14", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "spelling variant of the biblical lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#15", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid inflected form of infinitive", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#56", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid Hebrew word meaning bracelets", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#57", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid form meaning his commandments", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#58", "verdict": "error", "fix": "את", "confidence": 0.99, "reason": "misreading of את in quotation of Isaiah 29:10", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#59", "verdict": "error", "fix": "(ו)", "confidence": 0.98, "reason": "typesetting tags unstripped around verse number", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#60", "verdict": "correct", "fix": "", "confidence": 0.85, "reason": "defective spelling of מילת (Miletian wool sheep kept indoors)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#61", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid phrase meaning congregation of the Lord", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#62", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew particle", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#63", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "biblical lemma from Song of Songs 7:4", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#72", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard adjective agreeing with מעשינו", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#73", "verdict": "error", "fix": "נערך", "confidence": 0.95, "reason": "masculine noun דבר requires the masculine participle נערך", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#74", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid rabbinic term for well-rounded scholars (from Sotah 47b)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#75", "verdict": "error", "fix": "יחזקו", "confidence": 0.98, "reason": "scanning confusion of ו/י after למען", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#76", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid noun with second-person suffix meaning 'your coming'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#0", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "lemma from the biblical verse (Ps. 1:3)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#7", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard plene spelling of חק", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#10", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "lemma from the biblical verse (Ps. 3:8)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#48", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "Accurate quotation from Jeremiah 8:16", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#49", "verdict": "error", "fix": "דגול.", "confidence": 0.99, "reason": "OCR error for lemma דגול from the biblical verse", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#50", "verdict": "error", "fix": "מגופו", "confidence": 0.98, "reason": "Typo/OCR error of yod for vav (referring to God)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#51", "verdict": "error", "fix": "האבות", "confidence": 0.99, "reason": "OCR error of chet for alef", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#52", "verdict": "error", "fix": "כענין", "confidence": 0.95, "reason": "OCR error of he for kaf", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#53", "verdict": "error", "fix": "וכמו כן", "confidence": 0.92, "reason": "Missing word כן dropped in OCR", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#54", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "Defective biblical spelling of עֶדְיָם as in Exodus 33:6", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#55", "verdict": "error", "fix": "כאמרו", "confidence": 0.99, "reason": "Typo of yod for vav in common citation formula", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#17", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Hebrew word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#20", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid lemma matching biblical verse", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#28", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid lemma matching biblical verse", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#31", "verdict": "error", "fix": "ה׳):", "confidence": 0.98, "reason": "OCR error ח/ה in biblical chapter reference (Leviticus 5)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#33", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid lemma matching biblical verse", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#39", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid grammatical form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#43", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid gloss in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#46", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "accurate quote from Jeremiah 46:7", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#119", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#122", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#130", "verdict": "error", "fix": "ובדרז״ל", "confidence": 0.99, "reason": "OCR error where רז was misread as ח", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#134", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#146", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#148", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#153", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#154", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid reading based on Radak", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#381", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Judeo-French gloss (la'az) in Rashi", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#384", "verdict": "error", "fix": "ידי", "confidence": 0.9, "reason": "typo / extra yod", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#404", "verdict": "error", "fix": "דבר", "confidence": 0.95, "reason": "typo / extra yod in quotation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#412", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Aramaic word defined as forest", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#424", "verdict": "error", "fix": "הוא:", "confidence": 1.0, "reason": "OCR error: ה misread as ת", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#436", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Hebrew word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#445", "verdict": "error", "fix": "מי רק", "confidence": 0.98, "reason": "OCR error: מי רק misread as מידק", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#469", "verdict": "error", "fix": "שאין", "confidence": 0.98, "reason": "OCR error: ש misread as כ", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#208", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "standard Hebrew word meaning setting/arranging", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#213", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid biblical citation chapter and verse", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#218", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid adjective meaning painful", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#229", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Hebrew noun meaning wearing out / decay", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#235", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid plene spelling of the lemma/word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#246", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid root/noun indicating dryness", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#252", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid plene spelling of the lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#257", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid noun meaning grace/pardon", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#65", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid biblical lemma", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#66", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid preposition meaning opposite or vis-a-vis", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#76", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid word meaning those who wait/anticipate", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#82", "verdict": "error", "fix": "ברזל", "confidence": 0.98, "reason": "OCR error for ברזל", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#83", "verdict": "error", "fix": "רבה:", "confidence": 0.92, "reason": "missing letter ה, feminine agreement with התבוננות", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#93", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid form meaning when enraged", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#105", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid noun meaning melting/dissolving", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#115", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid noun meaning joy", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#300", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Valid word in Metzudat Zion commentary", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#306", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Accurate lemma from Psalms 91:1", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#307", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Valid Hebrew word meaning continuity/persistence", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#311", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Accurate lemma from Psalms 92:11", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#328", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Accurate lemma from Psalms 102:4", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#335", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Accurate lemma from Psalms 104:7", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#336", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Valid word defining the animal in Psalms 104:18", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#347", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "Accurate lemma from Psalms 106:19", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#440", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid feminine pronoun referring to רוח", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#441", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "standard abbreviation for בראשית", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#442", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Hebrew word meaning 'cut off / destroy'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#444", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid lemma matching Psalms 144:2", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#453", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid lemma matching Psalms 147:7", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ibn_Ezra_on_Song_of_Songs#23", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Hebrew word meaning 'go'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ibn_Ezra_on_Song_of_Songs#36", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "Judeo-Arabic/Romance botanical loanword for clove/carnation (qaranful)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ibn_Ezra_on_Song_of_Songs#48", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "Italian/Romance gloss for lily (giglio)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#258", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid biblical lemma in commentary", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#259", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "plausible plene spelling of biblical citation (Jer. 4:29)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#264", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid biblical lemma in commentary", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#265", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid biblical lemma in commentary", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#271", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid chapter and verse citation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#274", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid biblical lemma in commentary", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#291", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid biblical lemma in commentary", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#293", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "author's consistent citation form", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#373", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid biblical citation form from the verse", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#379", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct lemma matching Ps. 119:21", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#382", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Hebrew word meaning fat", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#386", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid phrase in Metzudat Zion defining a trap", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#388", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct lemma matching Ps. 119:113", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#395", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct scripture citation", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#405", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid etymological gloss linking ידיד to the root נ-ד-ד", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#406", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct lemma matching Ps. 129:3", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#408", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct biblical citation word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#409", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid word and punctuation in commentary", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#412", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid abbreviation for Bereishit", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#414", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid psalm chapter citation with closing parenthesis", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#422", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct word from Nehemiah 5:13", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#424", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid commentary gloss word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#432", "verdict": "error", "fix": "חולין", "confidence": 0.98, "reason": "OCR error where ין was misread as ץ in the tractate name Chullin", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#435", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "correct chapter and verse reference in Deuteronomy", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#343", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "printed gloss marker or abbreviation convention", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#345", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#346", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid Aramaic word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#351", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid spelling for uncooked", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#355", "verdict": "error", "fix": "נמי", "confidence": 1.0, "reason": "OCR error for נמי", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#369", "verdict": "correct", "fix": "", "confidence": 1.0, "reason": "valid spelling variant of Talmudic word", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#375", "verdict": "error", "fix": "ילדה", "confidence": 1.0, "reason": "typo for ילדה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Rashi_on_Nedarim#376", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid proper name in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#155", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "plene spelling of the lemma יעז", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#169", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "biblical lemma as in Psalms 58:3", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#170", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "accurate biblical quotation from Proverbs 30:14", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#171", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "standard Hebrew idiom 'שרץ מה' (a certain reptile)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#190", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "biblical lemma as in Psalms 64:3", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#195", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "biblical lemma as in Psalms 65:14", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#196", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid Hebrew construct noun", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Metzudat_Zion_on_Psalms#198", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "biblical lemma as in Psalms 67:5", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ibn_Ezra_on_Song_of_Songs#99", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid first-person verb form meaning 'I do not know'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ibn_Ezra_on_Song_of_Songs#132", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "standard abbreviation for ישראל", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ibn_Ezra_on_Song_of_Songs#157", "verdict": "error", "fix": "מחשבה", "confidence": 0.95, "reason": "OCR error of ת for ה in absolute noun מחשבה", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ibn_Ezra_on_Song_of_Songs#211", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid verb form meaning 'birthed you/brought you forth'", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Ibn_Ezra_on_Song_of_Songs#226", "verdict": "error", "fix": "תתאוה", "confidence": 0.97, "reason": "OCR misreading of final ה as ן", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#64", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid word and commentary phrasing", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#65", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid particle", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#66", "verdict": "correct", "fix": "", "confidence": 0.98, "reason": "valid phrase (עדת ה')", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#67", "verdict": "error", "fix": "שם", "confidence": 0.99, "reason": "misreading of שם in quote from Ps. 44:21", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#68", "verdict": "correct", "fix": "", "confidence": 0.95, "reason": "valid word in context", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#69", "verdict": "error", "fix": "פתחינו.", "confidence": 0.98, "reason": "split word (על פתחינו)", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#70", "verdict": "error", "fix": "ליוהרא.", "confidence": 0.98, "reason": "letter transposition typo for ליוהרא", "model": "gemini-3.8-flash/b8", "error": ""}
+{"key": "Sforno_on_Song_of_Songs#71", "verdict": "correct", "fix": "", "confidence": 0.99, "reason": "valid word (allusion to Isa. 52:10)", "model": "gemini-3.8-flash/b8", "error": ""}

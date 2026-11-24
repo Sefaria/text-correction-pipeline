@@ -1,0 +1,80 @@
+{"id": "Minchat_Shai_on_Psalms#6", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Isa 41:15 \"וגבעות כמץ תשים\" quoted correctly"}
+{"id": "Minchat_Shai_on_Psalms#11", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "\"בטעם חונה\" is not a known accent name (perhaps מונח), but cannot confirm"}
+{"id": "Minchat_Shai_on_Psalms#18", "label": "correct", "fix": "", "confidence": 0.8, "reason": "\"נגינת סוף פסוק\" = the sof-pasuq accent; valid phrasing"}
+{"id": "Minchat_Shai_on_Psalms#20", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Dunash ben Labrat, proper name"}
+{"id": "Minchat_Shai_on_Psalms#23", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 88:15 \"למה ה' תזנח נפשי\""}
+{"id": "Minchat_Shai_on_Psalms#29", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 10:11 lemma \"שכח אל\"; bold tag is markup"}
+{"id": "Minchat_Shai_on_Psalms#31", "label": "correct", "fix": "", "confidence": 0.85, "reason": "ראיי' = abbreviation of ראיה (proof)"}
+{"id": "Minchat_Shai_on_Psalms#35", "label": "correct", "fix": "", "confidence": 0.9, "reason": "בגימ\"ל = on the gimel of יגל"}
+{"id": "Minchat_Shai_on_Psalms#36", "label": "correct", "fix": "", "confidence": 0.9, "reason": "הההי\"ן = the hehs (of השחיתו התעיבו)"}
+{"id": "Minchat_Shai_on_Psalms#40", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 17:5 \"תמך אשרי\"; markup only"}
+{"id": "Minchat_Shai_on_Psalms#46", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 18:27 \"עם נבר\""}
+{"id": "Minchat_Shai_on_Psalms#51", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ketiv יגיל with extra yod, explicitly discussed"}
+{"id": "Minchat_Shai_on_Psalms#59", "label": "correct", "fix": "", "confidence": 0.9, "reason": "מדליקין = burning, explains אשיא"}
+{"id": "Minchat_Shai_on_Psalms#60", "label": "correct", "fix": "", "confidence": 0.6, "reason": "מס\"ג plausibly = מסורה גדולה (the alphabetical list of small letters)"}
+{"id": "Minchat_Shai_on_Psalms#61", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 27:11 \"למען שוררי\""}
+{"id": "Minchat_Shai_on_Psalms#63", "label": "correct", "fix": "", "confidence": 0.9, "reason": "\"בג' נקודות העי\"ן\" = qubbuts on ayin of עזי"}
+{"id": "Minchat_Shai_on_Psalms#67", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Ps 30:8 להררי matches verse"}
+{"id": "Minchat_Shai_on_Psalms#69", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 31:16 \"בידך עתתי\""}
+{"id": "Minchat_Shai_on_Psalms#78", "label": "correct", "fix": "", "confidence": 0.65, "reason": "בהללי = in Sefer Hilleli (the model codex Minchat Shai cites)"}
+{"id": "Minchat_Shai_on_Psalms#81", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ps 38:21 ketiv רדופי, discussed as such"}
+{"id": "Minchat_Shai_on_Psalms#82", "label": "correct", "fix": "", "confidence": 0.85, "reason": "הגרמיה = the legarmeh accent"}
+{"id": "Minchat_Shai_on_Psalms#86", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Commentary of R. Yehuda Chayat on Ma'arekhet ha-Elohut"}
+{"id": "Minchat_Shai_on_Psalms#89", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "\"בטעם מרעיש\" is not a known accent name; possibly corrupted"}
+{"id": "Minchat_Shai_on_Psalms#92", "label": "error", "fix": "וכ\"כ", "confidence": 0.75, "reason": "Garbled abbreviation; should be וכ\"כ (and so wrote) Lonzano"}
+{"id": "Minchat_Shai_on_Psalms#94", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 35:2 \"וקומה בעזרתי\""}
+{"id": "Minchat_Shai_on_Psalms#96", "label": "correct", "fix": "", "confidence": 0.9, "reason": "כ\"כ = כן כתוב, used throughout"}
+{"id": "Minchat_Shai_on_Psalms#99", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 46:4 \"ירעשו הרים\""}
+{"id": "Minchat_Shai_on_Psalms#102", "label": "correct", "fix": "", "confidence": 0.8, "reason": "Aramaic דיק (= דייק) שפיר"}
+{"id": "Minchat_Shai_on_Psalms#104", "label": "correct", "fix": "", "confidence": 0.85, "reason": "\"המסורה עליו\" normal phrasing"}
+{"id": "Minchat_Shai_on_Psalms#107", "label": "error", "fix": "שכתב", "confidence": 0.9, "reason": "Missing kaf: שתב -> שכתב"}
+{"id": "Minchat_Shai_on_Psalms#113", "label": "correct", "fix": "", "confidence": 0.9, "reason": "כ\"כ = כן כתוב"}
+{"id": "Minchat_Shai_on_Psalms#122", "label": "error", "fix": "גורס", "confidence": 0.9, "reason": "ם/ס confusion: \"נראה שהוא גורס יגודו\""}
+{"id": "Minchat_Shai_on_Psalms#128", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 59:5 \"ירצון ויכוננו\""}
+{"id": "Minchat_Shai_on_Psalms#133", "label": "correct", "fix": "", "confidence": 0.9, "reason": "\"געיא בס\"ס\" standard phrase"}
+{"id": "Minchat_Shai_on_Psalms#143", "label": "error", "fix": "רפויה והה\"א", "confidence": 0.95, "reason": "Two words joined: רפויה + והה\"א"}
+{"id": "Minchat_Shai_on_Psalms#147", "label": "correct", "fix": "", "confidence": 0.9, "reason": "1 Sam 25:14 begins \"ולאביגיל\""}
+{"id": "Minchat_Shai_on_Psalms#154", "label": "correct", "fix": "", "confidence": 0.9, "reason": "\"געיא בס\"ס\" standard phrase"}
+{"id": "Minchat_Shai_on_Psalms#158", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ps 69:33 ישמחו without vav, discussed"}
+{"id": "Minchat_Shai_on_Psalms#159", "label": "error", "fix": "תבעטו.", "confidence": 0.5, "reason": "Stray unmatched \"(\" fused to the siman word תבעטו"}
+{"id": "Minchat_Shai_on_Psalms#171", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ps 73:5 \"אינמו\", markup only"}
+{"id": "Minchat_Shai_on_Psalms#175", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "\"שהיו\"ד לחשך\" looks corrupt (perhaps נוספת/לחנם) but correction unclear"}
+{"id": "Minchat_Shai_on_Psalms#179", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Reference to Song 8 (רשפיה רשפי אש)"}
+{"id": "Minchat_Shai_on_Psalms#180", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ps 76:12 defective יבילו, discussed as such"}
+{"id": "Minchat_Shai_on_Psalms#182", "label": "correct", "fix": "", "confidence": 0.9, "reason": "\"מפני הגעיא\" valid"}
+{"id": "Minchat_Shai_on_Psalms#183", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Radak Shorashim root תהם (כתהמות, Ps 78:15)"}
+{"id": "Minchat_Shai_on_Psalms#189", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 78:42 \"אשר פדם\""}
+{"id": "Minchat_Shai_on_Psalms#198", "label": "correct", "fix": "", "confidence": 0.9, "reason": "\"כף רבתי\" = large kaf of וכנה"}
+{"id": "Minchat_Shai_on_Psalms#200", "label": "correct", "fix": "", "confidence": 0.9, "reason": "\"מפני הגעיא\" valid"}
+{"id": "Minchat_Shai_on_Psalms#209", "label": "error", "fix": "כתיב", "confidence": 0.6, "reason": "Masoretic note \"לית כתיב כן\"; כתבי is a garble"}
+{"id": "Minchat_Shai_on_Psalms#217", "label": "correct", "fix": "", "confidence": 0.75, "reason": "Lemma for Ps 89:50; plene spelling in lemma, repeated in comment"}
+{"id": "Minchat_Shai_on_Psalms#223", "label": "correct", "fix": "", "confidence": 0.85, "reason": "ממניינם = from their count"}
+{"id": "Minchat_Shai_on_Psalms#226", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 94:9 \"אם יצר עין\""}
+{"id": "Minchat_Shai_on_Psalms#234", "label": "error", "fix": "עשיתני", "confidence": 0.6, "reason": "Ezek 29:3 reads \"ואני עשיתני\" (ו/י)"}
+{"id": "Minchat_Shai_on_Psalms#239", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Refers to Radak's Mikhlol"}
+{"id": "Minchat_Shai_on_Psalms#240", "label": "error", "fix": "מנייהו", "confidence": 0.85, "reason": "Aramaic \"וחד מנייהו\" (one of them); פ/מ confusion"}
+{"id": "Minchat_Shai_on_Psalms#241", "label": "error", "fix": "כסאך", "confidence": 0.9, "reason": "Lam 5:19 \"אתה ה' לעולם תשב כסאך\"; ב/ס confusion"}
+{"id": "Minchat_Shai_on_Psalms#245", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 103:11 \"כי כגבה\""}
+{"id": "Minchat_Shai_on_Psalms#246", "label": "correct", "fix": "", "confidence": 0.75, "reason": "R. Abraham de Balmes, written דבלמ\"ש"}
+{"id": "Minchat_Shai_on_Psalms#257", "label": "error", "fix": "רל\"ב ובשוחר", "confidence": 0.95, "reason": "Joined words: רל\"ב + ובשוחר (טוב)"}
+{"id": "Minchat_Shai_on_Psalms#260", "label": "error", "fix": "חנין", "confidence": 0.75, "reason": "Pesachim 117a: \"דבי רב חנין\"; ת/ח confusion"}
+{"id": "Minchat_Shai_on_Psalms#271", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Aramaic רביעתא = the fourth"}
+{"id": "Minchat_Shai_on_Psalms#278", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 108:4 \"בלאמים\""}
+{"id": "Minchat_Shai_on_Psalms#287", "label": "error", "fix": "מחץ", "confidence": 0.85, "reason": "Ps 110:5 \"מחץ ביום אפו\""}
+{"id": "Minchat_Shai_on_Psalms#291", "label": "correct", "fix": "", "confidence": 0.9, "reason": "\"אין געיא ביו\"ד\" valid"}
+{"id": "Minchat_Shai_on_Psalms#294", "label": "error", "fix": "בסימן", "confidence": 0.7, "reason": "Should be \"בסימן קמ\"ב\" (Ps 142:7); ב/כ confusion"}
+{"id": "Minchat_Shai_on_Psalms#302", "label": "correct", "fix": "", "confidence": 0.65, "reason": "\"בעבתים כן דינו חסר\" reads acceptably"}
+{"id": "Minchat_Shai_on_Psalms#305", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Mnemonic of the initial letters of the cited verses"}
+{"id": "Minchat_Shai_on_Psalms#310", "label": "correct", "fix": "", "confidence": 0.85, "reason": "\"בין זכרתי למשפטיך\" valid"}
+{"id": "Minchat_Shai_on_Psalms#312", "label": "correct", "fix": "", "confidence": 0.9, "reason": "מהששה = from the six"}
+{"id": "Minchat_Shai_on_Psalms#317", "label": "correct", "fix": "", "confidence": 0.5, "reason": "Probably an accent name in the edition's terminology; no clear error"}
+{"id": "Minchat_Shai_on_Psalms#324", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "\"שב לשנת ואמת\" seems to need חמת; possibly corrupt"}
+{"id": "Minchat_Shai_on_Psalms#325", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 132:12 \"ועדתי זו\""}
+{"id": "Minchat_Shai_on_Psalms#331", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ps 136:6 \"לרקע\" + במדויקים; markup only"}
+{"id": "Minchat_Shai_on_Psalms#332", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 137:5 \"ירושלם תשכח\""}
+{"id": "Minchat_Shai_on_Psalms#336", "label": "correct", "fix": "", "confidence": 0.55, "reason": "\"דחיק ואתי מרחוק\" is a Hebraized form of the term אתי מרחיק"}
+{"id": "Minchat_Shai_on_Psalms#340", "label": "correct", "fix": "", "confidence": 0.9, "reason": "\"בשני מאריכין\" valid"}
+{"id": "Minchat_Shai_on_Psalms#344", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Ps 145:12 \"וכבוד הדר\""}
+{"id": "Minchat_Shai_on_Psalms#346", "label": "error", "fix": "חדא מלה:", "confidence": 0.9, "reason": "Should be \"חדא מלה\" (one word) as elsewhere"}
+{"id": "Minchat_Shai_on_Psalms#347", "label": "unsure", "fix": "", "confidence": 0.35, "reason": "\"עפ\"ה\" is unclear; may be a garbled abbreviation"}
+{"id": "Minchat_Shai_on_Psalms#348", "label": "error", "fix": "כפורחת", "confidence": 0.9, "reason": "Gen 40:10 \"והיא כפרחת\"; ת/ח confusion"}

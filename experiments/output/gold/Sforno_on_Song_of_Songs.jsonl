@@ -1,0 +1,77 @@
+{"id": "Sforno_on_Song_of_Songs#0", "label": "error", "fix": "שהוא", "confidence": 0.55, "reason": "antecedent נמצא is masculine; ו/י confusion"}
+{"id": "Sforno_on_Song_of_Songs#1", "label": "correct", "fix": "", "confidence": 0.75, "reason": "Gen 41:33-34 ירא פרעה... ויפקד, cited for third-person king"}
+{"id": "Sforno_on_Song_of_Songs#2", "label": "correct", "fix": "", "confidence": 0.8, "reason": "valid: שתהיה נאהב, addressed to God"}
+{"id": "Sforno_on_Song_of_Songs#3", "label": "error", "fix": "בשמחה", "confidence": 0.8, "reason": "'run with joy'; בשמחי is garbled"}
+{"id": "Sforno_on_Song_of_Songs#4", "label": "error", "fix": "ונתתי", "confidence": 0.85, "reason": "Ezek 16:61 ונתתי אתהן לך לבנות"}
+{"id": "Sforno_on_Song_of_Songs#5", "label": "correct", "fix": "", "confidence": 0.65, "reason": "נקנו = acquired via habit; reads fine"}
+{"id": "Sforno_on_Song_of_Songs#6", "label": "correct", "fix": "", "confidence": 0.85, "reason": "abbreviation of בצהרים (lemma)"}
+{"id": "Sforno_on_Song_of_Songs#7", "label": "unsure", "fix": "", "confidence": 0.45, "reason": "could be deliberate pun on צהרים, or missing yod (בני יצהר, Zech 4:14 = scholars)"}
+{"id": "Sforno_on_Song_of_Songs#8", "label": "error", "fix": "<b>אם", "confidence": 0.9, "reason": "verse 1:8 אם לא תדעי לך"}
+{"id": "Sforno_on_Song_of_Songs#9", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid phrase"}
+{"id": "Sforno_on_Song_of_Songs#10", "label": "error", "fix": "מסב בינותינו", "confidence": 0.55, "reason": "בילותינו meaningless; likely בינותינו (among us)"}
+{"id": "Sforno_on_Song_of_Songs#11", "label": "error", "fix": "הוא", "confidence": 0.45, "reason": "את makes no sense; likely הוא/היה אצלי לראש"}
+{"id": "Sforno_on_Song_of_Songs#12", "label": "correct", "fix": "", "confidence": 0.95, "reason": "verse 1:14 בכרמי עין גדי"}
+{"id": "Sforno_on_Song_of_Songs#13", "label": "error", "fix": "שספרו", "confidence": 0.85, "reason": "standard כמו שספרו ז\"ל"}
+{"id": "Sforno_on_Song_of_Songs#14", "label": "error", "fix": "<b>רהיטנו.</b>", "confidence": 0.5, "reason": "verse 1:17 רהיטנו (qere); letters transposed"}
+{"id": "Sforno_on_Song_of_Songs#15", "label": "correct", "fix": "", "confidence": 0.85, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#16", "label": "correct", "fix": "", "confidence": 0.85, "reason": "abbreviation of הבנות from verse"}
+{"id": "Sforno_on_Song_of_Songs#17", "label": "correct", "fix": "", "confidence": 0.95, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#18", "label": "error", "fix": "שקוצי", "confidence": 0.85, "reason": "Ezek 20:7 איש שקוצי עיניו השליכו"}
+{"id": "Sforno_on_Song_of_Songs#19", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#20", "label": "correct", "fix": "", "confidence": 0.8, "reason": "abbreviation of ודומיהם"}
+{"id": "Sforno_on_Song_of_Songs#21", "label": "correct", "fix": "", "confidence": 0.95, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#22", "label": "correct", "fix": "", "confidence": 0.95, "reason": "recurring formula משיבה עדת ה'"}
+{"id": "Sforno_on_Song_of_Songs#23", "label": "correct", "fix": "", "confidence": 0.65, "reason": "rhetorical 'is there one who finds favor'; reads fine"}
+{"id": "Sforno_on_Song_of_Songs#24", "label": "correct", "fix": "", "confidence": 0.8, "reason": "abbreviation of בירידת"}
+{"id": "Sforno_on_Song_of_Songs#25", "label": "error", "fix": "ט' באב", "confidence": 0.9, "reason": "Tisha B'Av; ב/כ OCR"}
+{"id": "Sforno_on_Song_of_Songs#26", "label": "correct", "fix": "", "confidence": 0.95, "reason": "recurring formula משיבה עדת ה'"}
+{"id": "Sforno_on_Song_of_Songs#27", "label": "correct", "fix": "", "confidence": 0.95, "reason": "abbreviation of כרובים"}
+{"id": "Sforno_on_Song_of_Songs#28", "label": "error", "fix": "את", "confidence": 0.9, "reason": "המורים את החלק המעשי; ח/א confusion"}
+{"id": "Sforno_on_Song_of_Songs#29", "label": "correct", "fix": "", "confidence": 0.75, "reason": "abbreviation of המראה"}
+{"id": "Sforno_on_Song_of_Songs#30", "label": "correct", "fix": "", "confidence": 0.6, "reason": "defective spelling of שופט"}
+{"id": "Sforno_on_Song_of_Songs#31", "label": "correct", "fix": "", "confidence": 0.9, "reason": "abbreviation of החוחים"}
+{"id": "Sforno_on_Song_of_Songs#32", "label": "correct", "fix": "", "confidence": 0.9, "reason": "1 Chr 13:3 ונסבה את ארון"}
+{"id": "Sforno_on_Song_of_Songs#33", "label": "correct", "fix": "", "confidence": 0.65, "reason": "variant spelling of Araunah's name"}
+{"id": "Sforno_on_Song_of_Songs#34", "label": "correct", "fix": "", "confidence": 0.55, "reason": "כימי plausible (as in Solomon's days); בימי also possible"}
+{"id": "Sforno_on_Song_of_Songs#35", "label": "correct", "fix": "", "confidence": 0.65, "reason": "defective spelling of תבואי; acceptable"}
+{"id": "Sforno_on_Song_of_Songs#36", "label": "correct", "fix": "", "confidence": 0.85, "reason": "valid phrase"}
+{"id": "Sforno_on_Song_of_Songs#37", "label": "correct", "fix": "", "confidence": 0.95, "reason": "proper name Benaiah"}
+{"id": "Sforno_on_Song_of_Songs#38", "label": "error", "fix": "דודיך.</b>", "confidence": 0.8, "reason": "verse 4:10 מה יפו דדיך/דודיך; י for ו"}
+{"id": "Sforno_on_Song_of_Songs#39", "label": "error", "fix": "תטופנה", "confidence": 0.85, "reason": "verse 4:11 נפת תטפנה שפתותיך"}
+{"id": "Sforno_on_Song_of_Songs#40", "label": "correct", "fix": "", "confidence": 0.85, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#41", "label": "error", "fix": "את", "confidence": 0.85, "reason": "ללמד דעת את העם"}
+{"id": "Sforno_on_Song_of_Songs#42", "label": "correct", "fix": "", "confidence": 0.85, "reason": "paraphrase of verse's שלחיך"}
+{"id": "Sforno_on_Song_of_Songs#43", "label": "error", "fix": "הכושי", "confidence": 0.45, "reason": "Zerah the Cushite (2 Chr 14); feminine form odd"}
+{"id": "Sforno_on_Song_of_Songs#44", "label": "error", "fix": "מן", "confidence": 0.9, "reason": "verse 4:15 ונוזלים מן לבנון"}
+{"id": "Sforno_on_Song_of_Songs#45", "label": "correct", "fix": "", "confidence": 0.75, "reason": "plene spelling of קוצותי"}
+{"id": "Sforno_on_Song_of_Songs#46", "label": "correct", "fix": "", "confidence": 0.95, "reason": "abbreviation of טובים"}
+{"id": "Sforno_on_Song_of_Songs#47", "label": "error", "fix": "מבחוץ", "confidence": 0.9, "reason": "ז/ץ OCR; מבחוץ"}
+{"id": "Sforno_on_Song_of_Songs#48", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Jer 8:16 ויבואו ויאכלו ארץ ומלואה"}
+{"id": "Sforno_on_Song_of_Songs#49", "label": "error", "fix": "דגול.", "confidence": 0.9, "reason": "verse 5:10 דגול מרבבה"}
+{"id": "Sforno_on_Song_of_Songs#50", "label": "error", "fix": "מגופו", "confidence": 0.7, "reason": "חלק ממנו וחלק מגופו; ו/י"}
+{"id": "Sforno_on_Song_of_Songs#51", "label": "error", "fix": "האבות", "confidence": 0.85, "reason": "עניני האבות (cf. next item בענין האבות)"}
+{"id": "Sforno_on_Song_of_Songs#52", "label": "error", "fix": "כענין", "confidence": 0.8, "reason": "introduces examples; ה/כ OCR"}
+{"id": "Sforno_on_Song_of_Songs#53", "label": "error", "fix": "וכמו כן", "confidence": 0.45, "reason": "parallel 'וכמו כן מספרים' earlier; כן apparently dropped"}
+{"id": "Sforno_on_Song_of_Songs#54", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ex 33:6 עדים מהר חורב"}
+{"id": "Sforno_on_Song_of_Songs#55", "label": "error", "fix": "כאמרו", "confidence": 0.9, "reason": "standard citation formula כאמרו"}
+{"id": "Sforno_on_Song_of_Songs#56", "label": "correct", "fix": "", "confidence": 0.95, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#57", "label": "correct", "fix": "", "confidence": 0.8, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#58", "label": "error", "fix": "את", "confidence": 0.9, "reason": "Isa 29:10 ויעצם את עיניכם"}
+{"id": "Sforno_on_Song_of_Songs#59", "label": "error", "fix": "(ו)", "confidence": 0.55, "reason": "stray formatting codes @66/@77 around verse marker"}
+{"id": "Sforno_on_Song_of_Songs#60", "label": "error", "fix": "למכלה:", "confidence": 0.4, "reason": "למלת meaningless; likely a fold (מכלה/מכלאות)"}
+{"id": "Sforno_on_Song_of_Songs#61", "label": "correct", "fix": "", "confidence": 0.95, "reason": "recurring formula משיבה עדת ה'"}
+{"id": "Sforno_on_Song_of_Songs#62", "label": "correct", "fix": "", "confidence": 0.85, "reason": "אל נא תחסר valid"}
+{"id": "Sforno_on_Song_of_Songs#63", "label": "correct", "fix": "", "confidence": 0.95, "reason": "verse word with bold tag"}
+{"id": "Sforno_on_Song_of_Songs#64", "label": "correct", "fix": "", "confidence": 0.7, "reason": "infinitive: at the time of rebuke"}
+{"id": "Sforno_on_Song_of_Songs#65", "label": "correct", "fix": "", "confidence": 0.85, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#66", "label": "correct", "fix": "", "confidence": 0.95, "reason": "recurring formula משיבה עדת ה'"}
+{"id": "Sforno_on_Song_of_Songs#67", "label": "error", "fix": "שם", "confidence": 0.9, "reason": "Ps 44:21 אם שכחנו שם אלהינו"}
+{"id": "Sforno_on_Song_of_Songs#68", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'whether anyone goes forth to Mishnah'; plausible"}
+{"id": "Sforno_on_Song_of_Songs#69", "label": "error", "fix": "פתחינו.</b>", "confidence": 0.75, "reason": "verse 7:14 פתחינו wrongly split as פת חינו; preceding פת belongs to it"}
+{"id": "Sforno_on_Song_of_Songs#70", "label": "error", "fix": "ליוהרא.", "confidence": 0.85, "reason": "ליוהרא (for haughtiness); letters transposed"}
+{"id": "Sforno_on_Song_of_Songs#71", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Isa 52:10 חשף את זרוע קדשו"}
+{"id": "Sforno_on_Song_of_Songs#72", "label": "correct", "fix": "", "confidence": 0.95, "reason": "valid word"}
+{"id": "Sforno_on_Song_of_Songs#73", "label": "error", "fix": "נערך", "confidence": 0.8, "reason": "gender agreement with דבר"}
+{"id": "Sforno_on_Song_of_Songs#74", "label": "correct", "fix": "", "confidence": 0.8, "reason": "אשכולות = great scholars (Sotah 47a)"}
+{"id": "Sforno_on_Song_of_Songs#75", "label": "error", "fix": "תחזקו", "confidence": 0.8, "reason": "למען תחזקו ותזכו; ו/ת"}
+{"id": "Sforno_on_Song_of_Songs#76", "label": "correct", "fix": "", "confidence": 0.65, "reason": "ביאתך valid (your coming)"}

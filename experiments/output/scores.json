@@ -1,0 +1,332 @@
+{
+ "all": {
+  "flash-b1": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.954,
+   "fp_removed": 0.917,
+   "queue_precision": 0.888,
+   "queue_share": 0.438,
+   "fix_match": 0.85
+  },
+  "flash-b8": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.926,
+   "fp_removed": 0.946,
+   "queue_precision": 0.922,
+   "queue_share": 0.41,
+   "fix_match": 0.841
+  },
+  "flash-low-b8": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.88,
+   "fp_removed": 0.943,
+   "queue_precision": 0.914,
+   "queue_share": 0.393,
+   "fix_match": 0.759
+  },
+  "flash-medium-b8": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.935,
+   "fp_removed": 0.93,
+   "queue_precision": 0.902,
+   "queue_share": 0.423,
+   "fix_match": 0.862
+  },
+  "sonnet-low-b1": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.94,
+   "fp_removed": 0.448,
+   "queue_precision": 0.54,
+   "queue_share": 0.711,
+   "fix_match": 0.618
+  },
+  "sonnet-low-b8": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.834,
+   "fp_removed": 0.676,
+   "queue_precision": 0.64,
+   "queue_share": 0.532,
+   "fix_match": 0.497
+  },
+  "sonnet-medium-b8": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.816,
+   "fp_removed": 0.622,
+   "queue_precision": 0.598,
+   "queue_share": 0.556,
+   "fix_match": 0.531
+  },
+  "haiku-b8": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.71,
+   "fp_removed": 0.924,
+   "queue_precision": 0.865,
+   "queue_share": 0.335,
+   "fix_match": 0.714
+  },
+  "drop only if flash-low & sonnet-low agree correct": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.954,
+   "fp_removed": 0.657,
+   "queue_precision": 0.657,
+   "queue_share": 0.592,
+   "fix_match": 0.435
+  },
+  "cascade flash-low -> sonnet-low (flash correct@>=0.8 drops)": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.76,
+   "fp_removed": 0.962,
+   "queue_precision": 0.932,
+   "queue_share": 0.333,
+   "fix_match": 0.497
+  },
+  "sonnet-low-b8, drop only if correct@>=0.6": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.853,
+   "fp_removed": 0.644,
+   "queue_precision": 0.623,
+   "queue_share": 0.558,
+   "fix_match": 0.486
+  },
+  "sonnet-low-b8, drop only if correct@>=0.8": {
+   "n": 532,
+   "gold_errors": 217,
+   "error_recall": 0.908,
+   "fp_removed": 0.448,
+   "queue_precision": 0.531,
+   "queue_share": 0.697,
+   "fix_match": 0.457
+  }
+ },
+ "error-heavy": {
+  "flash-b1": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.957,
+   "fp_removed": 0.903,
+   "queue_precision": 0.897,
+   "queue_share": 0.501,
+   "fix_match": 0.855
+  },
+  "flash-b8": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.933,
+   "fp_removed": 0.932,
+   "queue_precision": 0.924,
+   "queue_share": 0.474,
+   "fix_match": 0.836
+  },
+  "flash-low-b8": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.89,
+   "fp_removed": 0.932,
+   "queue_precision": 0.921,
+   "queue_share": 0.454,
+   "fix_match": 0.758
+  },
+  "flash-medium-b8": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.943,
+   "fp_removed": 0.915,
+   "queue_precision": 0.908,
+   "queue_share": 0.488,
+   "fix_match": 0.858
+  },
+  "sonnet-low-b1": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.943,
+   "fp_removed": 0.407,
+   "queue_precision": 0.585,
+   "queue_share": 0.757,
+   "fix_match": 0.629
+  },
+  "sonnet-low-b8": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.842,
+   "fp_removed": 0.627,
+   "queue_precision": 0.667,
+   "queue_share": 0.593,
+   "fix_match": 0.5
+  },
+  "sonnet-medium-b8": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.818,
+   "fp_removed": 0.572,
+   "queue_precision": 0.629,
+   "queue_share": 0.611,
+   "fix_match": 0.538
+  },
+  "haiku-b8": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.708,
+   "fp_removed": 0.915,
+   "queue_precision": 0.881,
+   "queue_share": 0.378,
+   "fix_match": 0.723
+  },
+  "drop only if flash-low & sonnet-low agree correct": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.962,
+   "fp_removed": 0.61,
+   "queue_precision": 0.686,
+   "queue_share": 0.658,
+   "fix_match": 0.438
+  },
+  "cascade flash-low -> sonnet-low (flash correct@>=0.8 drops)": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.77,
+   "fp_removed": 0.949,
+   "queue_precision": 0.931,
+   "queue_share": 0.389,
+   "fix_match": 0.497
+  },
+  "sonnet-low-b8, drop only if correct@>=0.6": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.861,
+   "fp_removed": 0.602,
+   "queue_precision": 0.657,
+   "queue_share": 0.616,
+   "fix_match": 0.489
+  },
+  "sonnet-low-b8, drop only if correct@>=0.8": {
+   "n": 445,
+   "gold_errors": 209,
+   "error_recall": 0.914,
+   "fp_removed": 0.386,
+   "queue_precision": 0.568,
+   "queue_share": 0.755,
+   "fix_match": 0.461
+  }
+ },
+ "fp-heavy": {
+  "flash-b1": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.875,
+   "fp_removed": 0.962,
+   "queue_precision": 0.7,
+   "queue_share": 0.115,
+   "fix_match": 0.714
+  },
+  "flash-b8": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.75,
+   "fp_removed": 0.987,
+   "queue_precision": 0.857,
+   "queue_share": 0.08,
+   "fix_match": 1.0
+  },
+  "flash-low-b8": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.625,
+   "fp_removed": 0.975,
+   "queue_precision": 0.714,
+   "queue_share": 0.08,
+   "fix_match": 0.8
+  },
+  "flash-medium-b8": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.75,
+   "fp_removed": 0.975,
+   "queue_precision": 0.75,
+   "queue_share": 0.092,
+   "fix_match": 1.0
+  },
+  "sonnet-low-b1": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.875,
+   "fp_removed": 0.57,
+   "queue_precision": 0.171,
+   "queue_share": 0.471,
+   "fix_match": 0.286
+  },
+  "sonnet-low-b8": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.625,
+   "fp_removed": 0.823,
+   "queue_precision": 0.263,
+   "queue_share": 0.218,
+   "fix_match": 0.4
+  },
+  "sonnet-medium-b8": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.75,
+   "fp_removed": 0.772,
+   "queue_precision": 0.25,
+   "queue_share": 0.276,
+   "fix_match": 0.333
+  },
+  "haiku-b8": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.75,
+   "fp_removed": 0.949,
+   "queue_precision": 0.6,
+   "queue_share": 0.115,
+   "fix_match": 0.5
+  },
+  "drop only if flash-low & sonnet-low agree correct": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.75,
+   "fp_removed": 0.797,
+   "queue_precision": 0.273,
+   "queue_share": 0.253,
+   "fix_match": 0.333
+  },
+  "cascade flash-low -> sonnet-low (flash correct@>=0.8 drops)": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.5,
+   "fp_removed": 1.0,
+   "queue_precision": 1.0,
+   "queue_share": 0.046,
+   "fix_match": 0.5
+  },
+  "sonnet-low-b8, drop only if correct@>=0.6": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.625,
+   "fp_removed": 0.772,
+   "queue_precision": 0.217,
+   "queue_share": 0.264,
+   "fix_match": 0.4
+  },
+  "sonnet-low-b8, drop only if correct@>=0.8": {
+   "n": 87,
+   "gold_errors": 8,
+   "error_recall": 0.75,
+   "fp_removed": 0.633,
+   "queue_precision": 0.171,
+   "queue_share": 0.402,
+   "fix_match": 0.333
+  }
+ }
+}

@@ -1,0 +1,65 @@
+{"id": "Chiddushei_Ramban_on_Megillah#0", "label": "correct", "fix": "", "confidence": 0.8, "reason": "'yom noach shel Shushan' = day Shushan rested (15th); valid"}
+{"id": "Chiddushei_Ramban_on_Megillah#1", "label": "error", "fix": "נמי", "confidence": 0.95, "reason": "ג/נ OCR confusion; 'ובעובדי דגמרא נמי'"}
+{"id": "Chiddushei_Ramban_on_Megillah#2", "label": "error", "fix": "לא", "confidence": 0.55, "reason": "garbled; verse ketiv 'אשר לא חמה' (or 'אין'); 'איו' is not a word"}
+{"id": "Chiddushei_Ramban_on_Megillah#3", "label": "error", "fix": "חומה", "confidence": 0.95, "reason": "ס/ח confusion; 'אשר לו חומה'"}
+{"id": "Chiddushei_Ramban_on_Megillah#4", "label": "error", "fix": "והא", "confidence": 0.9, "reason": "ג/ה confusion; 'והא גרסינן בכתובות'"}
+{"id": "Chiddushei_Ramban_on_Megillah#5", "label": "error", "fix": "מועלת להם", "confidence": 0.9, "reason": "OCR garble of 'ומה החומה מועלת להם'"}
+{"id": "Chiddushei_Ramban_on_Megillah#6", "label": "error", "fix": "בכל", "confidence": 0.95, "reason": "ב/כ confusion; 'בכל העולם'"}
+{"id": "Chiddushei_Ramban_on_Megillah#7", "label": "error", "fix": "שהן", "confidence": 0.95, "reason": "ץ/ן confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#8", "label": "error", "fix": "לדבר", "confidence": 0.9, "reason": "נ/ל confusion; 'וראיה לדבר'"}
+{"id": "Chiddushei_Ramban_on_Megillah#9", "label": "error", "fix": "טעמא", "confidence": 0.5, "reason": "'כו' meaningless here; likely garbled 'טעמא'/'מ\"ט' introducing R. Yehoshua b. Korcha's reason"}
+{"id": "Chiddushei_Ramban_on_Megillah#10", "label": "error", "fix": "הם", "confidence": 0.9, "reason": "ס/ם confusion; 'שלא חלקו הם'"}
+{"id": "Chiddushei_Ramban_on_Megillah#11", "label": "correct", "fix": "", "confidence": 0.85, "reason": "'פרזי דתורה' = the open towns of the Torah (ערי הפרזי); valid"}
+{"id": "Chiddushei_Ramban_on_Megillah#12", "label": "error", "fix": "חומה", "confidence": 0.7, "reason": "garbled; should be 'חומה' (city whose wall...)"}
+{"id": "Chiddushei_Ramban_on_Megillah#13", "label": "error", "fix": "קורין", "confidence": 0.95, "reason": "ו/י confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#14", "label": "correct", "fix": "", "confidence": 0.95, "reason": "'היקפן' = their walled status; valid"}
+{"id": "Chiddushei_Ramban_on_Megillah#15", "label": "error", "fix": "זיל", "confidence": 0.6, "reason": "garbled; idiom 'זיל בתר רובא'"}
+{"id": "Chiddushei_Ramban_on_Megillah#16", "label": "correct", "fix": "", "confidence": 0.8, "reason": "'ואין ח\"ל כן' - ואין is fine; error is in following word"}
+{"id": "Chiddushei_Ramban_on_Megillah#17", "label": "error", "fix": "כן", "confidence": 0.9, "reason": "ב/כ confusion; 'ואין ח\"ל כן'"}
+{"id": "Chiddushei_Ramban_on_Megillah#18", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'(מה) יראו לחדש' reads as valid verb after editorial deletion"}
+{"id": "Chiddushei_Ramban_on_Megillah#19", "label": "error", "fix": "ככפר", "confidence": 0.9, "reason": "ב/כ confusion; context later 'נדון ככפר'"}
+{"id": "Chiddushei_Ramban_on_Megillah#20", "label": "error", "fix": "בית", "confidence": 0.95, "reason": "missing initial ב; 'בית הכנסת'"}
+{"id": "Chiddushei_Ramban_on_Megillah#21", "label": "error", "fix": "מקדימין", "confidence": 0.95, "reason": "OCR garble of 'מקדימין'"}
+{"id": "Chiddushei_Ramban_on_Megillah#22", "label": "error", "fix": "הנס", "confidence": 0.95, "reason": "ם/ס confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#23", "label": "error", "fix": "זמן", "confidence": 0.9, "reason": "OCR garble; 'וכל זמן ש...'"}
+{"id": "Chiddushei_Ramban_on_Megillah#24", "label": "error", "fix": "הארץ", "confidence": 0.95, "reason": "OCR garble; 'משבטלה הארץ'"}
+{"id": "Chiddushei_Ramban_on_Megillah#25", "label": "error", "fix": "מנה וטעה", "confidence": 0.9, "reason": "Gemara 'בלשאצר מנה וטעה'; ו/י confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#26", "label": "correct", "fix": "", "confidence": 0.65, "reason": "'בבית המקדש ובעם' = in the Temple and in the people; reads validly"}
+{"id": "Chiddushei_Ramban_on_Megillah#27", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Ezra 7:19 'קדם אלה ירושלם' as in the verse"}
+{"id": "Chiddushei_Ramban_on_Megillah#28", "label": "error", "fix": "שגרם", "confidence": 0.55, "reason": "'שצמח' meaningless; likely 'שגרם להרוג ושתי'"}
+{"id": "Chiddushei_Ramban_on_Megillah#29", "label": "error", "fix": "אסתר", "confidence": 0.95, "reason": "ח/ת confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#30", "label": "error", "fix": "א'", "confidence": 0.6, "reason": "comma fused for geresh; 'פסוק א''"}
+{"id": "Chiddushei_Ramban_on_Megillah#31", "label": "error", "fix": "אלמא", "confidence": 0.95, "reason": "נ/ל confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#32", "label": "error", "fix": "של", "confidence": 0.95, "reason": "ג/ל confusion; 'יריעה אחרונה של ס\"ת'"}
+{"id": "Chiddushei_Ramban_on_Megillah#33", "label": "error", "fix": "כתב", "confidence": 0.95, "reason": "ח/ת confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#34", "label": "error", "fix": "אחת", "confidence": 0.95, "reason": "OCR garble; 'אפילו אות אחת'"}
+{"id": "Chiddushei_Ramban_on_Megillah#35", "label": "correct", "fix": "", "confidence": 0.7, "reason": "'מצו את בני ישראל' = from 'Tzav et Bnei Yisrael' (Num 28:2)"}
+{"id": "Chiddushei_Ramban_on_Megillah#36", "label": "correct", "fix": "", "confidence": 0.6, "reason": "defective spelling of pual 'המשוירין' (remaining)"}
+{"id": "Chiddushei_Ramban_on_Megillah#37", "label": "error", "fix": "פסקיה", "confidence": 0.9, "reason": "ם/ה confusion; 'דלא פסקיה משה'"}
+{"id": "Chiddushei_Ramban_on_Megillah#38", "label": "error", "fix": "ושלח", "confidence": 0.95, "reason": "ה/ח confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#39", "label": "error", "fix": "לפי", "confidence": 0.85, "reason": "נ/ל confusion; 'לפי שאם'"}
+{"id": "Chiddushei_Ramban_on_Megillah#40", "label": "correct", "fix": "", "confidence": 0.8, "reason": "'האמצעי דילג' valid"}
+{"id": "Chiddushei_Ramban_on_Megillah#41", "label": "error", "fix": "מדליקין", "confidence": 0.95, "reason": "ו/ן confusion; Shabbat ch. 'במה מדליקין'"}
+{"id": "Chiddushei_Ramban_on_Megillah#42", "label": "error", "fix": "כירה", "confidence": 0.9, "reason": "ב/כ confusion; Shabbat ch. 'כירה' (muktzeh)"}
+{"id": "Chiddushei_Ramban_on_Megillah#43", "label": "correct", "fix": "", "confidence": 0.55, "reason": "parenthetical deleted reading followed by bracketed correction, as printed"}
+{"id": "Chiddushei_Ramban_on_Megillah#44", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "'אמידי' odd; possibly 'אדמי' (holiness transfers to the money), or Aramaic 'on something'"}
+{"id": "Chiddushei_Ramban_on_Megillah#45", "label": "correct", "fix": "", "confidence": 0.55, "reason": "'אין מקבלים' asyndetic clause plausible"}
+{"id": "Chiddushei_Ramban_on_Megillah#46", "label": "error", "fix": "ככולם", "confidence": 0.9, "reason": "ב/כ confusion; 'שלשה ... ככולם'"}
+{"id": "Chiddushei_Ramban_on_Megillah#47", "label": "error", "fix": "הצבור", "confidence": 0.9, "reason": "OCR garble; 'קבלו עליהם הצבור'"}
+{"id": "Chiddushei_Ramban_on_Megillah#48", "label": "error", "fix": "כלומר", "confidence": 0.95, "reason": "ג/כ confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#49", "label": "error", "fix": "ולהתנות", "confidence": 0.95, "reason": "נ/ל confusion; 'ולהתנות על השערים'"}
+{"id": "Chiddushei_Ramban_on_Megillah#50", "label": "correct", "fix": "", "confidence": 0.9, "reason": "'המתנין' = those who stipulate; valid"}
+{"id": "Chiddushei_Ramban_on_Megillah#51", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'נותן אותם' grammatical enough"}
+{"id": "Chiddushei_Ramban_on_Megillah#52", "label": "error", "fix": "וראיתי", "confidence": 0.95, "reason": "OCR garble"}
+{"id": "Chiddushei_Ramban_on_Megillah#53", "label": "error", "fix": "קמן", "confidence": 0.9, "reason": "ץ/ן confusion; 'כדבעינן למימר קמן'"}
+{"id": "Chiddushei_Ramban_on_Megillah#54", "label": "error", "fix": "א\"נ", "confidence": 0.75, "reason": "ג/נ confusion; 'אי נמי'"}
+{"id": "Chiddushei_Ramban_on_Megillah#55", "label": "error", "fix": "לאו", "confidence": 0.95, "reason": "ב/ו confusion; 'לאו למימרא'"}
+{"id": "Chiddushei_Ramban_on_Megillah#56", "label": "error", "fix": "וכן", "confidence": 0.9, "reason": "ב/כ confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#57", "label": "error", "fix": "ליהנות", "confidence": 0.85, "reason": "garble of 'ליהנות'/'להנות'"}
+{"id": "Chiddushei_Ramban_on_Megillah#58", "label": "error", "fix": "בכל", "confidence": 0.95, "reason": "ב/כ confusion; 'בכל מקום'"}
+{"id": "Chiddushei_Ramban_on_Megillah#59", "label": "error", "fix": "כגון", "confidence": 0.95, "reason": "ב/כ confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#60", "label": "error", "fix": "מקום", "confidence": 0.95, "reason": "OCR garble; 'מקום דחוק'"}
+{"id": "Chiddushei_Ramban_on_Megillah#61", "label": "error", "fix": "חוץ", "confidence": 0.9, "reason": "OCR garble; 'חוץ מד' דברים'"}
+{"id": "Chiddushei_Ramban_on_Megillah#62", "label": "error", "fix": "מינה ולפיכך", "confidence": 0.9, "reason": "garble of 'מינה ולפיכך'"}
+{"id": "Chiddushei_Ramban_on_Megillah#63", "label": "error", "fix": "לעצמו", "confidence": 0.95, "reason": "י/ו confusion"}
+{"id": "Chiddushei_Ramban_on_Megillah#64", "label": "error", "fix": "ואעפ\"כ", "confidence": 0.95, "reason": "garbled abbreviation; ואעפ\"כ"}

@@ -1,0 +1,80 @@
+{"id": "Rashi_on_Nedarim#9", "label": "correct", "fix": "", "confidence": 0.95, "reason": "חסורי מיחסרא is the standard Gemara idiom"}
+{"id": "Rashi_on_Nedarim#19", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Aramaic אית תנא 'there is a Tanna'"}
+{"id": "Rashi_on_Nedarim#36", "label": "error", "fix": "דמי", "confidence": 0.7, "reason": "Gemara reads היכי דמי; דימי is a misspelling"}
+{"id": "Rashi_on_Nedarim#38", "label": "correct", "fix": "", "confidence": 0.8, "reason": "לא שרי למישרי quotes the Gemara normally"}
+{"id": "Rashi_on_Nedarim#41", "label": "error", "fix": "נדר", "confidence": 0.85, "reason": "נדי is a garbled נדר ('is a vow')"}
+{"id": "Rashi_on_Nedarim#42", "label": "correct", "fix": "", "confidence": 0.85, "reason": "נדרי 'they vow' fits context"}
+{"id": "Rashi_on_Nedarim#43", "label": "error", "fix": "", "confidence": 0.75, "reason": "stray 'א]' marker/bracket fragment in running text"}
+{"id": "Rashi_on_Nedarim#49", "label": "error", "fix": "ידיהן", "confidence": 0.6, "reason": "ידייהן has a doubled yod; normal form על ידיהן"}
+{"id": "Rashi_on_Nedarim#67", "label": "correct", "fix": "", "confidence": 0.8, "reason": "Aramaic ליתרציה 'let him explain it'"}
+{"id": "Rashi_on_Nedarim#72", "label": "correct", "fix": "", "confidence": 0.9, "reason": "normal word בלבד"}
+{"id": "Rashi_on_Nedarim#86", "label": "error", "fix": "עד", "confidence": 0.6, "reason": "Mishnah reads עד החג; עדי is a corruption"}
+{"id": "Rashi_on_Nedarim#89", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Gemara: אכל קתני"}
+{"id": "Rashi_on_Nedarim#95", "label": "correct", "fix": "", "confidence": 0.6, "reason": "'by the life of the oath' (cf. חי קרבן); plausible"}
+{"id": "Rashi_on_Nedarim#101", "label": "error", "fix": "הלשכה", "confidence": 0.9, "reason": "תרומת הלשכה; ב/כ OCR confusion"}
+{"id": "Rashi_on_Nedarim#111", "label": "correct", "fix": "", "confidence": 0.85, "reason": "שעטופים בציצית fine"}
+{"id": "Rashi_on_Nedarim#117", "label": "error", "fix": "אני", "confidence": 0.75, "reason": "מתחרט אני; אכי is garbled"}
+{"id": "Rashi_on_Nedarim#118", "label": "correct", "fix": "", "confidence": 0.65, "reason": "שיפין: Rashi often uses -ין plural endings"}
+{"id": "Rashi_on_Nedarim#127", "label": "correct", "fix": "", "confidence": 0.85, "reason": "סתמה תנא 'the Tanna left it anonymous'"}
+{"id": "Rashi_on_Nedarim#132", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Gemara 25a: והא תניא"}
+{"id": "Rashi_on_Nedarim#136", "label": "error", "fix": "והותר", "confidence": 0.65, "reason": "should be והותר (נדר שהותר מקצתו); ו/י confusion"}
+{"id": "Rashi_on_Nedarim#141", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Aramaic אפיק fine"}
+{"id": "Rashi_on_Nedarim#153", "label": "error", "fix": "עד", "confidence": 0.7, "reason": "Mishnah/Gemara 28a: עד שיקצצו"}
+{"id": "Rashi_on_Nedarim#154", "label": "correct", "fix": "", "confidence": 0.9, "reason": "plene spelling עניין"}
+{"id": "Rashi_on_Nedarim#158", "label": "error", "fix": "בדמיו", "confidence": 0.85, "reason": "ואקח בדמיו עולה; ל/מ confusion"}
+{"id": "Rashi_on_Nedarim#159", "label": "correct", "fix": "", "confidence": 0.55, "reason": "Aramaic דאמינא 'that I say'; plausible"}
+{"id": "Rashi_on_Nedarim#167", "label": "correct", "fix": "", "confidence": 0.8, "reason": "חכמים begins a new dibbur on the Mishnah"}
+{"id": "Rashi_on_Nedarim#170", "label": "correct", "fix": "", "confidence": 0.9, "reason": "לירושלים followed by colon is normal"}
+{"id": "Rashi_on_Nedarim#182", "label": "correct", "fix": "", "confidence": 0.85, "reason": "ניחושין fine"}
+{"id": "Rashi_on_Nedarim#183", "label": "error", "fix": "שאדם", "confidence": 0.75, "reason": "idiom במדה שאדם מודד בה; ש/כ confusion"}
+{"id": "Rashi_on_Nedarim#202", "label": "correct", "fix": "", "confidence": 0.6, "reason": "Aramaic לחליה 'to make sanctity take effect'"}
+{"id": "Rashi_on_Nedarim#210", "label": "error", "fix": "שכך", "confidence": 0.85, "reason": "שכך כתב לה; ב/כ confusion"}
+{"id": "Rashi_on_Nedarim#212", "label": "correct", "fix": "", "confidence": 0.9, "reason": "normal word ומתרץ"}
+{"id": "Rashi_on_Nedarim#226", "label": "correct", "fix": "", "confidence": 0.6, "reason": "Gemara: באים דנבנתה; Rashi quoting verse word ונבנתה with ד prefix is plausible"}
+{"id": "Rashi_on_Nedarim#245", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Gemara 40a: ריעים כנעמן"}
+{"id": "Rashi_on_Nedarim#262", "label": "correct", "fix": "", "confidence": 0.9, "reason": "ברשותי fine"}
+{"id": "Rashi_on_Nedarim#265", "label": "unsure", "fix": "", "confidence": 0.45, "reason": "היאך makes little sense here (perhaps הנך/הוא) but correction unclear"}
+{"id": "Rashi_on_Nedarim#276", "label": "correct", "fix": "", "confidence": 0.6, "reason": "Aramaic emphatic מינס אניס"}
+{"id": "Rashi_on_Nedarim#277", "label": "error", "fix": "כדי", "confidence": 0.9, "reason": "Mishnah: כשיש בה כדי חלוקה; ב/כ confusion"}
+{"id": "Rashi_on_Nedarim#285", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Mishnah: בדבר של אותה העיר"}
+{"id": "Rashi_on_Nedarim#296", "label": "correct", "fix": "", "confidence": 0.85, "reason": "שמוטל fine"}
+{"id": "Rashi_on_Nedarim#298", "label": "correct", "fix": "", "confidence": 0.9, "reason": "לעבה fine"}
+{"id": "Rashi_on_Nedarim#300", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Gemara 49a: מאן חולין רבנן"}
+{"id": "Rashi_on_Nedarim#306", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Gemara: כמלוי ברבית"}
+{"id": "Rashi_on_Nedarim#309", "label": "correct", "fix": "", "confidence": 0.9, "reason": "שאתעשר fine"}
+{"id": "Rashi_on_Nedarim#315", "label": "correct", "fix": "", "confidence": 0.95, "reason": "Gemara 50b: הכי דנן"}
+{"id": "Rashi_on_Nedarim#322", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Gemara: ברקודא דאבוך"}
+{"id": "Rashi_on_Nedarim#336", "label": "correct", "fix": "", "confidence": 0.55, "reason": "סחט משקה awkward but readable"}
+{"id": "Rashi_on_Nedarim#341", "label": "correct", "fix": "", "confidence": 0.85, "reason": "שם לוויי = descriptive name, plene spelling"}
+{"id": "Rashi_on_Nedarim#343", "label": "unsure", "fix": "", "confidence": 0.4, "reason": "odd gloss 'גרי\"ס המור\"ה במסכת\"א ז\"ו' with spurious-looking gershayim; unclear"}
+{"id": "Rashi_on_Nedarim#345", "label": "correct", "fix": "", "confidence": 0.5, "reason": "דשביעית readable; may lack ב but not clearly an error"}
+{"id": "Rashi_on_Nedarim#346", "label": "correct", "fix": "", "confidence": 0.65, "reason": "Aramaic לדעתא דמ\"ד"}
+{"id": "Rashi_on_Nedarim#351", "label": "correct", "fix": "", "confidence": 0.9, "reason": "חיין with colon normal"}
+{"id": "Rashi_on_Nedarim#355", "label": "error", "fix": "נמי", "confidence": 0.9, "reason": "דגים נמי; ג/נ confusion"}
+{"id": "Rashi_on_Nedarim#369", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Gemara term קרביטין"}
+{"id": "Rashi_on_Nedarim#375", "label": "error", "fix": "ילדה", "confidence": 0.6, "reason": "Gemara 57b: ילדה שסיבכה"}
+{"id": "Rashi_on_Nedarim#376", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Gemara 57b: ישמעאל איש כפר ימא העלה בצל"}
+{"id": "Rashi_on_Nedarim#381", "label": "correct", "fix": "", "confidence": 0.9, "reason": "la'az לופינ\"א"}
+{"id": "Rashi_on_Nedarim#384", "label": "error", "fix": "ידי", "confidence": 0.75, "reason": "על ידי קרקע; doubled yod"}
+{"id": "Rashi_on_Nedarim#404", "label": "error", "fix": "דבר", "confidence": 0.7, "reason": "Gemara: על דבר זה"}
+{"id": "Rashi_on_Nedarim#412", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Gemara 62b: ההוא אבא (forest)"}
+{"id": "Rashi_on_Nedarim#424", "label": "error", "fix": "הוא:", "confidence": 0.9, "reason": "ת for ה: הוא"}
+{"id": "Rashi_on_Nedarim#436", "label": "correct", "fix": "", "confidence": 0.9, "reason": "ולאוהבו fine"}
+{"id": "Rashi_on_Nedarim#445", "label": "error", "fix": "מירק", "confidence": 0.8, "reason": "Gemara 66b: מירק על מני; ד/ר confusion"}
+{"id": "Rashi_on_Nedarim#469", "label": "error", "fix": "דאין", "confidence": 0.75, "reason": "וקתני דאין האב מיפר; ד/כ confusion"}
+{"id": "Rashi_on_Nedarim#485", "label": "correct", "fix": "", "confidence": 0.65, "reason": "י\"ב = twelve (months) abbreviation"}
+{"id": "Rashi_on_Nedarim#489", "label": "error", "fix": "בדין", "confidence": 0.7, "reason": "שעמד בדין; בדיין is wrong"}
+{"id": "Rashi_on_Nedarim#490", "label": "correct", "fix": "", "confidence": 0.8, "reason": "editorial bracketed addition"}
+{"id": "Rashi_on_Nedarim#492", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Gemara: או נשואין עושה"}
+{"id": "Rashi_on_Nedarim#506", "label": "correct", "fix": "", "confidence": 0.85, "reason": "formatted verse citation"}
+{"id": "Rashi_on_Nedarim#509", "label": "error", "fix": "כדפרישית", "confidence": 0.9, "reason": "ד/ר confusion"}
+{"id": "Rashi_on_Nedarim#533", "label": "error", "fix": "דמי", "confidence": 0.8, "reason": "כשמיעה בעלמא דמי; truncated"}
+{"id": "Rashi_on_Nedarim#535", "label": "correct", "fix": "", "confidence": 0.8, "reason": "עסקינן with period; fine"}
+{"id": "Rashi_on_Nedarim#550", "label": "correct", "fix": "", "confidence": 0.6, "reason": "ומדהך רישא readable"}
+{"id": "Rashi_on_Nedarim#561", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Aramaic לנכסאי"}
+{"id": "Rashi_on_Nedarim#571", "label": "correct", "fix": "", "confidence": 0.85, "reason": "שמעדפת fine"}
+{"id": "Rashi_on_Nedarim#574", "label": "correct", "fix": "", "confidence": 0.6, "reason": "plural משעבדין with ידיה plausible"}
+{"id": "Rashi_on_Nedarim#578", "label": "error", "fix": "ידי", "confidence": 0.8, "reason": "לא יצא ידי קריעה; doubled yod"}
+{"id": "Rashi_on_Nedarim#581", "label": "error", "fix": "אחד", "confidence": 0.9, "reason": "כל אחד ואחד; ד/ר confusion"}
+{"id": "Rashi_on_Nedarim#597", "label": "correct", "fix": "", "confidence": 0.9, "reason": "Aramaic הי 'which'"}
+{"id": "Rashi_on_Nedarim#601", "label": "correct", "fix": "", "confidence": 0.85, "reason": "אהלות = aloes"}

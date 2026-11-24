@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.idea/
+/data/
+.env
+# experiment outputs: keep the eval set, gold labels, model answers and scores; not full texts or private-dataset items
+experiments/output/*
+!experiments/output/evalset.jsonl
+!experiments/output/gold/
+!experiments/output/arms/
+!experiments/output/scores.json
+!experiments/output/human_check.json
+!experiments/output/reference/
+experiments/output/reference/*.txt

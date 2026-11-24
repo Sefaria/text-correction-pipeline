@@ -1,0 +1,80 @@
+{"id": "Ritva_on_Makkot#8", "label": "error", "fix": "לפום מאי", "confidence": 0.8, "reason": "לפוס is ס/ם misreading of Aramaic לפום"}
+{"id": "Ritva_on_Makkot#13", "label": "error", "fix": "שאין", "confidence": 0.9, "reason": "transposed letters; read שאין השמים צריכין"}
+{"id": "Ritva_on_Makkot#16", "label": "correct", "fix": "", "confidence": 0.85, "reason": "יתיר is valid Aramaic (the verse is superfluous for derivation)"}
+{"id": "Ritva_on_Makkot#19", "label": "error", "fix": "ודאי", "confidence": 0.75, "reason": "missing yod; אלא ודאי כדאמרינן"}
+{"id": "Ritva_on_Makkot#23", "label": "correct", "fix": "", "confidence": 0.65, "reason": "bold-tag markup at DH; מעידן is this text's defective spelling (also at 6b)"}
+{"id": "Ritva_on_Makkot#31", "label": "error", "fix": "מס׳", "confidence": 0.7, "reason": "garbled abbreviation for מסכת: במשנת מס׳ שביעית"}
+{"id": "Ritva_on_Makkot#35", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid verb: condition that he will not overcharge him"}
+{"id": "Ritva_on_Makkot#37", "label": "error", "fix": "שאין", "confidence": 0.9, "reason": "transposed letters; שאין תנאו כלום"}
+{"id": "Ritva_on_Makkot#41", "label": "error", "fix": "במשנה", "confidence": 0.6, "reason": "במשניו is not a word; likely במשנה (exact reading uncertain)"}
+{"id": "Ritva_on_Makkot#42", "label": "error", "fix": "דתני", "confidence": 0.6, "reason": "דפני meaningless; Rava's version where Rav teaches חסר קורטוב (ת/פ)"}
+{"id": "Ritva_on_Makkot#45", "label": "error", "fix": "עלתה", "confidence": 0.9, "reason": "לא עלתה לו טבילה; missing ל"}
+{"id": "Ritva_on_Makkot#46", "label": "error", "fix": "ככר", "confidence": 0.9, "reason": "כבר for ככר (loaf); cf. בין בגברא בין בככר"}
+{"id": "Ritva_on_Makkot#51", "label": "error", "fix": "חכמים", "confidence": 0.85, "reason": "missing מ: לא גזרו חכמים"}
+{"id": "Ritva_on_Makkot#55", "label": "error", "fix": "ברעך", "confidence": 0.95, "reason": "verse לא תענה ברעך; פ/ע misreading"}
+{"id": "Ritva_on_Makkot#59", "label": "error", "fix": "כאשר", "confidence": 0.9, "reason": "verse כאשר זמם; missing letters"}
+{"id": "Ritva_on_Makkot#63", "label": "error", "fix": "אב", "confidence": 0.85, "reason": "Sotah 29b: טבול יום ... אב הטומאה; stray ל"}
+{"id": "Ritva_on_Makkot#66", "label": "correct", "fix": "", "confidence": 0.9, "reason": "standard abbreviation בשחיטת חולין"}
+{"id": "Ritva_on_Makkot#74", "label": "error", "fix": "שאם", "confidence": 0.65, "reason": "שאך makes no sense; likely שאם באו שני עדים"}
+{"id": "Ritva_on_Makkot#76", "label": "error", "fix": "שאינה בזוממין", "confidence": 0.6, "reason": "truncated שאינ; should be שאינה"}
+{"id": "Ritva_on_Makkot#87", "label": "correct", "fix": "", "confidence": 0.5, "reason": "Gemara has טובא; טובה is a common Aramaic ה/א orthographic variant"}
+{"id": "Ritva_on_Makkot#94", "label": "error", "fix": "רבעו", "confidence": 0.75, "reason": "Sanhedrin 9b פלוני רבעו לאונסו; extra ן (cf. רבעו following)"}
+{"id": "Ritva_on_Makkot#95", "label": "error", "fix": "להו", "confidence": 0.6, "reason": "Aramaic הוו להו עדים; truncated"}
+{"id": "Ritva_on_Makkot#96", "label": "correct", "fix": "", "confidence": 0.85, "reason": "valid Aramaic infinitive with suffix (to ask them)"}
+{"id": "Ritva_on_Makkot#97", "label": "error", "fix": "אליבא", "confidence": 0.9, "reason": "אליבא דהלכתא; ו/י misreading"}
+{"id": "Ritva_on_Makkot#104", "label": "error", "fix": "הן", "confidence": 0.8, "reason": "שאלו הן זוממין; כ/ה misreading"}
+{"id": "Ritva_on_Makkot#110", "label": "error", "fix": "אטו", "confidence": 0.65, "reason": "rhetorical אטו אם אמרו שנים..., אנו makes no sense"}
+{"id": "Ritva_on_Makkot#112", "label": "error", "fix": "לזה", "confidence": 0.85, "reason": "קרובין לזה ורחוקין לזה; ה/ז"}
+{"id": "Ritva_on_Makkot#120", "label": "correct", "fix": "", "confidence": 0.6, "reason": "HTML line-break/bold markup between chapter title and DH, not a textual error"}
+{"id": "Ritva_on_Makkot#123", "label": "error", "fix": "מ\"ס", "confidence": 0.75, "reason": "parallel to ומ\"ס; ם/ס misreading"}
+{"id": "Ritva_on_Makkot#124", "label": "error", "fix": "הוא.", "confidence": 0.9, "reason": "stray ר: קרוב למזיד הוא"}
+{"id": "Ritva_on_Makkot#133", "label": "error", "fix": "משום", "confidence": 0.6, "reason": "טעמא דרבי משום מסורת; missing ו"}
+{"id": "Ritva_on_Makkot#138", "label": "error", "fix": "תלמידו", "confidence": 0.85, "reason": "Mishnah: הרב הרודה את תלמידו"}
+{"id": "Ritva_on_Makkot#140", "label": "error", "fix": "מולאחותו", "confidence": 0.7, "reason": "wrongly split: נפקא לן מ'ולאחותו' (join with following אחותו)"}
+{"id": "Ritva_on_Makkot#141", "label": "error", "fix": "תבערו", "confidence": 0.9, "reason": "verse לא תבערו אש; מלא תבערו"}
+{"id": "Ritva_on_Makkot#147", "label": "error", "fix": "דכתיב", "confidence": 0.75, "reason": "introduces verse וחי אחיך עמך; גדלתי is garbled"}
+{"id": "Ritva_on_Makkot#148", "label": "error", "fix": "כותי", "confidence": 0.75, "reason": "missing ת: דין כותי יש לו בהריגתו"}
+{"id": "Ritva_on_Makkot#149", "label": "correct", "fix": "", "confidence": 0.9, "reason": "valid: מדקתני with prefix מ"}
+{"id": "Ritva_on_Makkot#154", "label": "error", "fix": "מתניתא", "confidence": 0.5, "reason": "קומת meaningless here; exact original uncertain"}
+{"id": "Ritva_on_Makkot#162", "label": "error", "fix": "ה\"ה", "confidence": 0.5, "reason": "stray ב; ויש לפרש ה\"ה אם נפסק"}
+{"id": "Ritva_on_Makkot#166", "label": "error", "fix": "משפט", "confidence": 0.95, "reason": "verse ולו אין משפט מות; transposition"}
+{"id": "Ritva_on_Makkot#170", "label": "correct", "fix": "", "confidence": 0.85, "reason": "Gemara: בלשון עזה; bold markup only"}
+{"id": "Ritva_on_Makkot#171", "label": "error", "fix": "היה", "confidence": 0.9, "reason": "היה לו לומר"}
+{"id": "Ritva_on_Makkot#182", "label": "error", "fix": "כר\"י", "confidence": 0.85, "reason": "הלכתא כר\"י; פ/כ"}
+{"id": "Ritva_on_Makkot#190", "label": "error", "fix": "דכל", "confidence": 0.6, "reason": "ס/כ misreading: דכל מאי דאמרינן"}
+{"id": "Ritva_on_Makkot#197", "label": "error", "fix": "מיירי", "confidence": 0.75, "reason": "truncated מיירי"}
+{"id": "Ritva_on_Makkot#200", "label": "error", "fix": "פתחה", "confidence": 0.5, "reason": "baraita reads הלך אחר פתחה; א for ה"}
+{"id": "Ritva_on_Makkot#214", "label": "error", "fix": "דקס\"ד השתא", "confidence": 0.85, "reason": "garbled: דקס\"ד השתא"}
+{"id": "Ritva_on_Makkot#218", "label": "error", "fix": "החוזר לא", "confidence": 0.7, "reason": "נגע החוזר does not require spreading: לא בעינן פשיון"}
+{"id": "Ritva_on_Makkot#227", "label": "error", "fix": "דמצי", "confidence": 0.8, "reason": "דמצי למכתב; נ/צ"}
+{"id": "Ritva_on_Makkot#230", "label": "error", "fix": "לאו דידיה", "confidence": 0.9, "reason": "wrongly joined: לאו דידיה"}
+{"id": "Ritva_on_Makkot#243", "label": "error", "fix": "התראה", "confidence": 0.95, "reason": "שמיה התראה; ס/ה"}
+{"id": "Ritva_on_Makkot#249", "label": "error", "fix": "ור\"י", "confidence": 0.7, "reason": "rule: ר\"ל ור\"י הלכה כר\"י"}
+{"id": "Ritva_on_Makkot#250", "label": "error", "fix": "תותירו", "confidence": 0.6, "reason": "verse לא תותירו; missing ו"}
+{"id": "Ritva_on_Makkot#252", "label": "error", "fix": "תותירו:", "confidence": 0.65, "reason": "verse לא תותירו; מ/ת"}
+{"id": "Ritva_on_Makkot#260", "label": "error", "fix": "לי", "confidence": 0.85, "reason": "Nedarim: קונם שאשתי נהנית לי; doubled ל"}
+{"id": "Ritva_on_Makkot#267", "label": "error", "fix": "דא\"כ", "confidence": 0.5, "reason": "דד\"א unintelligible; likely דא\"כ (for if so he'd get eleven)"}
+{"id": "Ritva_on_Makkot#268", "label": "error", "fix": "בלבד", "confidence": 0.85, "reason": "truncated בלבד"}
+{"id": "Ritva_on_Makkot#273", "label": "error", "fix": "דזר", "confidence": 0.8, "reason": "non-priest (זר) eating bechor; ו/ז"}
+{"id": "Ritva_on_Makkot#276", "label": "error", "fix": "שפיר", "confidence": 0.7, "reason": "Aramaic שפיר; ס/ש"}
+{"id": "Ritva_on_Makkot#280", "label": "error", "fix": "בשדה", "confidence": 0.95, "reason": "verse ובשר בשדה טרפה"}
+{"id": "Ritva_on_Makkot#282", "label": "error", "fix": "ר׳", "confidence": 0.6, "reason": "stray ק after ר׳ (ר׳ מאיר)"}
+{"id": "Ritva_on_Makkot#293", "label": "correct", "fix": "", "confidence": 0.6, "reason": "קדושת הארץ והעיר reads fine"}
+{"id": "Ritva_on_Makkot#294", "label": "error", "fix": "ודריש", "confidence": 0.9, "reason": "transposition: ודריש ר\"ש"}
+{"id": "Ritva_on_Makkot#296", "label": "error", "fix": "דליכא", "confidence": 0.8, "reason": "truncated דליכא"}
+{"id": "Ritva_on_Makkot#300", "label": "correct", "fix": "", "confidence": 0.7, "reason": "מ\"ר = מעשר ראשון"}
+{"id": "Ritva_on_Makkot#301", "label": "error", "fix": "שאכלה", "confidence": 0.8, "reason": "וזר שאכלה; מ/א"}
+{"id": "Ritva_on_Makkot#305", "label": "error", "fix": "<b>רבינא", "confidence": 0.9, "reason": "Gemara 20a: רבינא אמר; ד/ר"}
+{"id": "Ritva_on_Makkot#308", "label": "error", "fix": "לקלוט", "confidence": 0.85, "reason": "truncated לקלוט (cf. earlier לקלוט)"}
+{"id": "Ritva_on_Makkot#313", "label": "error", "fix": "דהא", "confidence": 0.65, "reason": "דהא נזיר...; missing ה"}
+{"id": "Ritva_on_Makkot#322", "label": "error", "fix": "אחת", "confidence": 0.9, "reason": "חתיכה אחת ... חתיכה אחרת"}
+{"id": "Ritva_on_Makkot#324", "label": "error", "fix": "חמשתן", "confidence": 0.65, "reason": "להשחית חמשתן בבת אחת; missing ן"}
+{"id": "Ritva_on_Makkot#328", "label": "error", "fix": "פשוטה", "confidence": 0.85, "reason": "לפי פשוטה של תוספתא; transposition"}
+{"id": "Ritva_on_Makkot#336", "label": "error", "fix": "שהתורה לא", "confidence": 0.95, "reason": "two words wrongly joined"}
+{"id": "Ritva_on_Makkot#338", "label": "unsure", "fix": "", "confidence": 0.45, "reason": "התם הא לאשמועינן is awkward (maybe אתא) but possibly elliptical"}
+{"id": "Ritva_on_Makkot#347", "label": "error", "fix": "שני", "confidence": 0.9, "reason": "שני דיני; ל/נ"}
+{"id": "Ritva_on_Makkot#348", "label": "correct", "fix": "", "confidence": 0.9, "reason": "standard abbreviation of יצחק"}
+{"id": "Ritva_on_Makkot#349", "label": "correct", "fix": "", "confidence": 0.55, "reason": "המקודשים is a valid word (המוקדשים); any issue lies elsewhere"}
+{"id": "Ritva_on_Makkot#357", "label": "error", "fix": "והדבר", "confidence": 0.55, "reason": "ומדבר ידוע awkward; likely והדבר ידוע"}
+{"id": "Ritva_on_Makkot#358", "label": "error", "fix": "הדיינין", "confidence": 0.55, "reason": "כלי הדיינין (Sanhedrin 7b); missing yod"}
+{"id": "Ritva_on_Makkot#361", "label": "error", "fix": "המלקות", "confidence": 0.85, "reason": "transposition: המלקות מפטירן"}
