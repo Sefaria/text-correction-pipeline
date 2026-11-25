@@ -20,7 +20,8 @@ from pipeline.llm_filter import ModelSpec
 from pipeline.reference import load_text
 
 from . import db, review
-from .jobs import DEFAULT_LLM, Worker
+from .jobs import DEFAULT_LLM, Worker, realign
+from pipeline.letter_pairs import SCRIPTS, SOURCES, allowed_pairs
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 WEB = Path(__file__).resolve().parent.parent / "web"
@@ -157,10 +158,22 @@ def _progress(p: dict) -> dict:
             "queue_position": worker.queue_position(p["id"]), "error": p["error"]}
 
 
+def _swaps(p: dict) -> dict | None:
+    """The stored swap map, each pair marked allowed or not for the project's script."""
+    if not p["ocr_swaps"]:
+        return None
+    m = json.loads(p["ocr_swaps"])
+    ok = allowed_pairs(p["script"] or "square", p["source"] or "ocr")
+    for x in m["pairs"]:
+        x["allowed"] = x["pair"] in ok
+    return m
+
+
 def _summary(p: dict) -> dict:
     return {k: p[k] for k in ("id", "owner", "name", "title", "version_title", "ref_filename", "threshold", "llm", "words", "archived",
-                              "created_at", "updated_at")} | {"progress": _progress(p), "counts": review.counts(p["id"]),
-                                                              "usage": json.loads(p["usage"] or "{}")}
+                              "source", "script", "created_at", "updated_at")} | {"progress": _progress(p), "counts": review.counts(p["id"]),
+                                                              "usage": json.loads(p["usage"] or "{}"),
+                                                              "ocr_swaps": _swaps(p)}
 
 
 @app.get("/api/projects")
@@ -172,10 +185,13 @@ def projects(all: bool = False, archived: bool = False, u: str = Depends(user)):
 
 @app.post("/api/projects")
 async def create_project(title: str = Form(...), version_title: str = Form(...), name: str = Form(""),
-                         threshold: float | None = Form(None), llm: str = Form(""),
+                         threshold: float | None = Form(None), llm: str = Form(""), source: str = Form("ocr"),
+                         script: str = Form("square"),
                          reference: UploadFile | None = File(None), u: str = Depends(user)):
     if llm:
         ModelSpec.parse(llm)
+    if script not in SCRIPTS or source not in SOURCES:
+        raise HTTPException(400, f"source must be one of {', '.join(SOURCES)} and script one of {', '.join(SCRIPTS)}")
     ref_text = None
     if reference is not None and reference.filename:
         data = await reference.read()
@@ -189,10 +205,10 @@ async def create_project(title: str = Form(...), version_title: str = Form(...),
             raise HTTPException(400, "no text could be read from the reference file")
     t = db.now()
     cur = db.conn().execute(
-        "INSERT INTO projects (owner, name, title, version_title, ref_filename, threshold, llm, created_at, updated_at) "
-        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO projects (owner, name, title, version_title, ref_filename, threshold, llm, source, script, created_at, "
+        "updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         (u, name.strip() or f"{title} — {version_title}", title, version_title, reference.filename if ref_text else None,
-         threshold, llm or None, t, t))
+         threshold, llm or None, source, script, t, t))
     pid = cur.lastrowid
     assert pid is not None                                      # always set after an INSERT
     if ref_text:
@@ -215,11 +231,15 @@ def progress(pid: int, u: str = Depends(user)):
 class Patch(BaseModel):
     name: str | None = None
     archived: bool | None = None
+    source: str | None = None
+    script: str | None = None
 
 
 @app.patch("/api/projects/{pid}")
 def patch_project(pid: int, body: Patch, u: str = Depends(user)):
     _project(pid)
+    if body.script is not None and body.script not in SCRIPTS or body.source is not None and body.source not in SOURCES:
+        raise HTTPException(400, f"source must be one of {', '.join(SOURCES)} and script one of {', '.join(SCRIPTS)}")
     fields = {k: (int(v) if isinstance(v, bool) else v) for k, v in body.model_dump().items() if v is not None}
     if fields:
         db.update_project(pid, **fields)
@@ -250,6 +270,18 @@ def retry(pid: int, u: str = Depends(user)):
     db.update_project(pid, status=status, cancel_requested=0, error=None)
     worker.wake.set()
     return _progress(_project(pid))
+
+
+@app.post("/api/projects/{pid}/auto")
+def auto(pid: int, realign_reference: bool = False, u: str = Depends(user)):
+    """Run the automatic decisions (review.auto_decide) over the whole project. With a reference, first build the swap map if the
+    project predates it, or (realign_reference) align every candidate again with the current aligner."""
+    p = _project(pid)
+    if p["status"] == "running" or p["stage"] != "ready":
+        raise HTTPException(409, "wait until the project is ready")
+    if p["ref_filename"] and (realign_reference or not p["ocr_swaps"]):
+        realign(pid)
+    return {"decided": review.auto_decide(pid), "ocr_swaps": _swaps(_project(pid))}
 
 
 @app.delete("/api/projects/{pid}")

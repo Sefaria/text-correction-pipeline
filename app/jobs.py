@@ -17,11 +17,12 @@ import traceback
 
 from pipeline import sefaria_client
 from pipeline.candidates import CandidateFinder, excerpt
-from pipeline.llm_filter import Item, Judge, ModelSpec, Stop, Usage
+from pipeline.llm_filter import Item, Judge, ModelSpec, Stop, Usage, Verdict
+from pipeline.ocr_swaps import build_map
 from pipeline.reference import Reference
 from pipeline.windows import build_windows
 
-from . import db
+from . import db, review
 
 log = logging.getLogger("jobs")
 DETECT_BLOCK = 64                     # windows per saved batch
@@ -169,6 +170,7 @@ class Worker:
                 db.update_project(pid, stage_done=n)
         with db.tx() as c:
             c.executemany("UPDATE candidates SET align_status = ?, ref_words = ?, ref_excerpt = ? WHERE project_id = ? AND id = ?", out)
+        build_swaps(pid, ref)
         db.update_project(pid, stage_done=len(rows))
 
     # ---- LLM thread -----------------------------------------------------------------------------------------------------------------
@@ -234,6 +236,7 @@ class Worker:
                                "llm_error = ?, proposed_fix = ?, fix_source = ?, bucket = ? WHERE project_id = ? AND id = ?", rows)
             done += len(verdicts)
             db.update_project(pid, stage_done=done, usage=db.dumps(usage.to_dict()))
+            review.auto_decide(pid, [int(v.key) for v in verdicts])
 
         # one continuous pool (bounded by the shared semaphore): a slow call never holds up the others
         try:
@@ -244,6 +247,42 @@ class Worker:
         note = (f"{failed} candidate(s) could not be checked by the LLM (provider errors); they are in the review queue unchecked. "
                 "Retry LLM check runs only those.") if failed else None
         db.update_project(pid, status="ready", stage="ready", stage_done=total - failed, stage_total=total, stage_started=None, error=note)
+
+
+def build_swaps(pid: int, ref: Reference | None = None) -> dict | None:
+    """Build and store the project's OCR swap map from the whole version and its reference (None: no reference)."""
+    if ref is None:
+        path = db.ref_path(pid)
+        if not path.exists():
+            return None
+        ref = Reference(path.read_text(encoding="utf-8"))
+    texts = [r["original"] for r in db.conn().execute("SELECT original FROM segments WHERE project_id = ? ORDER BY idx", (pid,))]
+    m = build_map(texts, ref).to_dict()
+    db.update_project(pid, ocr_swaps=db.dumps(m))
+    return m
+
+
+def realign(pid: int) -> dict | None:
+    """Align every candidate with the reference again, rebuild the swap map, and re-triage the pending candidates the LLM has checked
+    from their stored verdicts (no LLM calls). For projects aligned by an older version of the aligner. None: no reference."""
+    path = db.ref_path(pid)
+    if not path.exists():
+        return None
+    ref = Reference(path.read_text(encoding="utf-8"))
+    rows = [dict(r) for r in db.conn().execute("SELECT * FROM candidates WHERE project_id = ? ORDER BY seg, c0", (pid,))]
+    align, triage = [], []
+    for r in rows:
+        a = ref.align(r["before"], r["words"], r["after"])
+        align.append((a.status, a.ref_words, a.excerpt, pid, r["id"]))
+        if r["decision"] == "pending" and r["llm_verdict"] is not None:
+            r.update(align_status=a.status, ref_words=a.ref_words)
+            v = Verdict(str(r["id"]), r["llm_verdict"], r["llm_fix"] or "", r["llm_confidence"], r["llm_reason"] or "", r["llm_model"] or "")
+            triage.append(classify(r, v) + (pid, r["id"]))
+    with db.tx() as c:
+        c.executemany("UPDATE candidates SET align_status = ?, ref_words = ?, ref_excerpt = ? WHERE project_id = ? AND id = ?", align)
+        c.executemany("UPDATE candidates SET llm_verdict = ?, llm_fix = ?, llm_confidence = ?, llm_reason = ?, llm_model = ?, "
+                      "llm_error = ?, proposed_fix = ?, fix_source = ?, bucket = ? WHERE project_id = ? AND id = ?", triage)
+    return build_swaps(pid, ref)
 
 
 def classify(r: dict, v) -> tuple:

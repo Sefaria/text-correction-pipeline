@@ -74,7 +74,8 @@ def wait_ready(client, pid, timeout=20):
 def test_end_to_end(client):
     ref = ("ויאמר משה אל העם אל תיראו התיצבו וראו את ישועת ה' אשר יעשה לכם היום כי אשר ראיתם את מצרים היום לא "
            "תספו לראתם עוד עד עולם ה' ילחם לכם ואתם תחרשון ויאמר ה' אל משה מה תצעק אלי")
-    r = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1"},
+    # typed: no OCR letter-swap fixes, so ישועח/ישועת stays for the reviewer (automatic decisions: test_automatic_decisions)
+    r = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1", "source": "typed"},
                     files={"reference": ("ref.txt", ref.encode(), "text/plain")})
     assert r.status_code == 200, r.text
     pid = r.json()["id"]
@@ -238,3 +239,87 @@ def test_failed_llm_calls_stay_unchecked_and_retry_runs_only_them(client):
     assert calls == ["תספו"]                                          # only the failed candidate was re-checked
     by = {c["words"]: c for c in client.get(f"/api/projects/{pid}/candidates?filter=all").json()}
     assert by["תספו"]["bucket"] == "likely_ok"
+
+
+def test_automatic_decisions(client, monkeypatch):
+    """ישועח: the reference reads ישועת (ח/ת, an OCR pair) and the LLM agrees -> accepted. ראיחם: the LLM proposes a different fix than
+    the reference -> stays. לאבא: same letters, the reference divides לא בא -> accepted. ר״הי: the LLM only moves the gershayim ->
+    dismissed (rejected). Then a reviewer resets one, and running the automatic pass again leaves it alone."""
+    base = ("ויאמר משה אל העם אל תיראו התיצבו וראו את ישועת ה' אשר יעשה לכם היום כי אשר ראיתם את מצרים היום לא "
+            "בא לראתם עוד עד עולם ה' ילחם לכם ואתם תחרשון ויאמר רה״י ה' אל משה מה תצעק אלי")
+    segs = [("Test Book 1:1", "ויאמר משה אל העם אל תיראו התיצבו וראו את <i>ישועח</i> ה' אשר יעשה לכם היום"),
+            ("Test Book 1:2", "כי אשר ראיחם את מצרים היום לאבא לראתם עוד עד עולם"),
+            ("Test Book 2:1", "ה' ילחם לכם ואתם תחרשון ויאמר ר״הי ה' אל משה מה תצעק אלי")]
+    monkeypatch.setitem(globals(), "SEGMENTS", segs)
+    monkeypatch.setitem(globals(), "FLAG", {"<i>ישועח</i>", "ראיחם", "לאבא", "ר״הי"})
+    monkeypatch.setitem(globals(), "LLM", {"ישועח": ("error", "ישועת"), "ראיחם": ("error", "ראיתים"), "לאבא": ("error", "לא בא"),
+                                           "ר״הי": ("error", "רה״י")})
+    pid = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1"},
+                      files={"reference": ("ref.txt", base.encode(), "text/plain")}).json()["id"]
+    assert wait_ready(client, pid)["status"] == "ready"
+
+    p = client.get(f"/api/projects/{pid}").json()
+    assert p["script"] == "square" and {"pair": "ח/ת", "allowed": True} .items() <= p["ocr_swaps"]["pairs"][0].items()
+    assert p["counts"]["auto"] == 3 and p["counts"]["todo"] == 1
+    auto = {c["words"]: c for c in client.get(f"/api/projects/{pid}/candidates?filter=auto").json()}
+    assert {w: c["decision"] for w, c in auto.items()} == {"<i>ישועח</i>": "accepted", "לאבא": "accepted", "ר״הי": "rejected"}
+    assert {h["user"] for h in client.get(f"/api/projects/{pid}/history").json()} == {"auto: OCR swaps", "auto: spacing", "auto: gershayim"}
+    assert exported(client, pid) == [["Test Book 1:1", segs[0][1].replace("ישועח", "ישועת")],
+                                     ["Test Book 1:2", segs[1][1].replace("לאבא", "לא בא")]]
+
+    # a reviewer resets one; the automatic pass never overrides a reviewer
+    assert decide(client, pid, auto["<i>ישועח</i>"]["id"], "reject").json()["decision"] == "rejected"
+    r = client.post(f"/api/projects/{pid}/auto?realign_reference=true").json()
+    assert r["decided"] == {} and client.get(f"/api/projects/{pid}").json()["counts"]["auto"] == 2
+
+    assert client.patch(f"/api/projects/{pid}", json={"script": "rashi"}).json()["script"] == "rashi"
+    assert client.patch(f"/api/projects/{pid}", json={"script": "gothic"}).status_code == 400
+
+    # a typed text gets no letter-swap fixes: after a reset, only the spacing fix comes back
+    assert client.patch(f"/api/projects/{pid}", json={"source": "typed"}).json()["source"] == "typed"
+    assert not any(s["allowed"] for s in client.get(f"/api/projects/{pid}").json()["ocr_swaps"]["pairs"])
+    decide(client, pid, auto["<i>ישועח</i>"]["id"], "reset"); decide(client, pid, auto["לאבא"]["id"], "reset")
+    assert client.post(f"/api/projects/{pid}/auto").json()["decided"] == {"auto: spacing": 1}
+
+
+def test_typed_source_moves_a_letter_across_a_space(client, monkeypatch):
+    """אל ⟦אהוא⟧: only אהוא is flagged, but the fix is in the space before it (אלא הוא): the segment is edited automatically."""
+    ref = "ויאמר משה אל העם דאמר משעת הנחתו אלא הוא ר' יהושע דמתני' בר פלוגתיה דר' אליעזר ועוד דברים רבים כאן"
+    monkeypatch.setitem(globals(), "SEGMENTS", [("Test Book 1:1", "ויאמר משה אל העם דאמר משעת הנחתו אל אהוא ר' יהושע דמתני' בר "
+                                                                  "פלוגתיה דר' אליעזר ועוד דברים רבים כאן")])
+    monkeypatch.setitem(globals(), "FLAG", {"אהוא"})
+    monkeypatch.setitem(globals(), "LLM", {"אהוא": ("error", "הוא")})
+    pid = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1", "source": "typed"},
+                      files={"reference": ("ref.txt", ref.encode(), "text/plain")}).json()["id"]
+    assert wait_ready(client, pid)["status"] == "ready"
+    (c,) = client.get(f"/api/projects/{pid}/candidates?filter=auto").json()
+    assert c["decision"] == "overridden"
+    assert exported(client, pid) == [["Test Book 1:1", "ויאמר משה אל העם דאמר משעת הנחתו אלא הוא ר' יהושע דמתני' בר "
+                                                       "פלוגתיה דר' אליעזר ועוד דברים רבים כאן"]]
+    assert client.get(f"/api/projects/{pid}/history").json()[0]["user"] == "auto: spacing"
+
+
+def test_two_cross_word_fixes_in_one_segment(client, monkeypatch):
+    """העי ⟦רהיה⟧ and ⟦הי⟧ העיר in one segment: the second is fixed in the text the first one edited."""
+    ref = "ומי אמר כן וכי בתוך העיר היה יער ומכל זה מוכח שלא היה עיר ויישוב שם ואין לומר שאחר כך דברים רבים"
+    monkeypatch.setitem(globals(), "SEGMENTS", [("Test Book 1:1", "ומי אמר כן וכי בתוך העי רהיה יער ומכל זה מוכח שלא הי העיר "
+                                                                  "ויישוב שם ואין לומר שאחר כך דברים רבים")])
+    monkeypatch.setitem(globals(), "FLAG", {"רהיה", "הי"})
+    monkeypatch.setitem(globals(), "LLM", {"רהיה": ("error", "היה"), "הי": ("error", "היה")})
+    pid = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1", "source": "typed"},
+                      files={"reference": ("ref.txt", ref.encode(), "text/plain")}).json()["id"]
+    assert wait_ready(client, pid)["status"] == "ready"
+    assert client.get(f"/api/projects/{pid}").json()["counts"]["auto"] == 2
+    assert exported(client, pid) == [["Test Book 1:1", "ומי אמר כן וכי בתוך העיר היה יער ומכל זה מוכח שלא היה עיר ויישוב שם "
+                                                       "ואין לומר שאחר כך דברים רבים"]]
+
+
+def test_automatic_pass_without_a_reference_only_handles_gershayim(client, monkeypatch):
+    monkeypatch.setitem(globals(), "SEGMENTS", [("Test Book 1:1", "ויאמר ר״הי משה לאבא")])
+    monkeypatch.setitem(globals(), "FLAG", {"ר״הי", "לאבא"})
+    monkeypatch.setitem(globals(), "LLM", {"ר״הי": ("error", "רה״י"), "לאבא": ("error", "לא בא")})
+    pid = client.post("/api/projects", data={"title": "Test Book", "version_title": "V1"}).json()["id"]
+    wait_ready(client, pid)
+    by = {c["words"]: c["decision"] for c in client.get(f"/api/projects/{pid}/candidates?filter=all").json()}
+    assert by == {"ר״הי": "rejected", "לאבא": "pending"}
+    assert client.post(f"/api/projects/{pid}/auto").json()["decided"] == {}

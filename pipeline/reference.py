@@ -126,6 +126,22 @@ class Reference:
             cands.sort(key=lambda b: (b * 3 < self.last, abs(b * 3 - self.last)))
         return cands[0] * 3, best
 
+    def _narrow(self, span: list[str], r0: int, r1: int) -> tuple[int, int]:
+        """The run of reference words in [r0, r1) whose letters best match the span. When the editions order words differently, the
+        diff can give the span extra words: "שאין בעקמומיתו צריך ⟦כלים⟧" against "שאין צריך בעקמימותו כלום" maps כלים to
+        "בעקמימותו כלום"; the best run is כלום. Narrowed only if strictly better than the whole range, so a word the reference divides
+        (לאבא / לא בא) keeps both reference words."""
+        if r1 - r0 < 2 or not span:
+            return r0, r1
+        mine = "".join(span)
+        score = lambda a, b: SequenceMatcher(None, mine, "".join(self.keys[a:b]), autojunk=False).ratio()  # noqa: E731
+        best, best_score = (r0, r1), score(r0, r1)
+        for a in range(r0, r1):
+            for b in range(a + 1, r1 + 1):
+                if (a, b) != (r0, r1) and score(a, b) > best_score:
+                    best, best_score = (a, b), score(a, b)
+        return best
+
     def align(self, before: str, span: str, after: str) -> Alignment:
         b = [k for k in (match_key(w) for w in before.split()) if k][-SIDE:]
         a = [k for k in (match_key(w) for w in after.split()) if k][:SIDE]
@@ -145,7 +161,8 @@ class Reference:
                 if tag == "insert" and i1 == s0 == s1:              # empty span (punctuation only)
                     r0 = lo + j1 if r0 is None else r0; r1 = lo + j2
                 continue
-            if tag == "equal":
+            if tag == "equal" or (tag == "replace" and i2 - i1 == j2 - j1):
+                # word for word: in "דקירה משו׳" against "דקורה משום" the span דקירה is דקורה, not both words
                 j_start = j1 + max(0, s0 - i1); j_end = j1 + min(i2, s1) - i1
             else:
                 j_start, j_end = j1, j2
@@ -155,6 +172,7 @@ class Reference:
             # place an empty marker at the boundary after the matched `before`
             r0 = r1 = lo + next((j2 for tag, i1, i2, j1, j2 in sm.get_opcodes() if i2 >= s0), 0)
         assert r1 is not None                                       # r0 and r1 are always set together
+        r0, r1 = self._narrow(s, r0, r1)
         self.last = r0
         ref_keys = self.keys[r0:r1]
         w0 = self.kept[r0] if r0 < len(self.kept) else len(self.words)

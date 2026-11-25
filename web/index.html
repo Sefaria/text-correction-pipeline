@@ -33,6 +33,12 @@
       <label>Reference text <span class="muted">(optional · .txt, .html, .docx, .pdf, .csv)</span>
         <input id="reference" type="file" accept=".txt,.text,.md,.html,.htm,.docx,.pdf,.csv">
       </label>
+      <label>Text source <span class="muted">(which error patterns are fixed automatically)</span>
+        <select id="source"><option value="ocr">OCR</option><option value="typed">Typed / converted</option><option value="mixed">Mixed / unclear</option></select>
+      </label>
+      <label id="script-field">Script of the edition <span class="muted">(which OCR letter swaps are fixed automatically)</span>
+        <select id="script"><option value="square">Square (מרובע)</option><option value="rashi">Rashi script</option></select>
+      </label>
       <label>Project name <span class="muted">(optional)</span>
         <input id="name" placeholder="Defaults to book — version">
       </label>

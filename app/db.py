@@ -31,6 +31,9 @@ CREATE TABLE IF NOT EXISTS projects (
     detect_next_window INTEGER DEFAULT 0,  -- resume point for the detector
     words INTEGER DEFAULT 0,
     usage TEXT DEFAULT '{}',
+    source TEXT DEFAULT 'ocr',         -- how the text was digitized: ocr | typed (typed or converted) | mixed (unclear: both)
+    script TEXT DEFAULT 'square',      -- typeface of the edition: square | rashi (which OCR letter swaps are allowed)
+    ocr_swaps TEXT,                    -- JSON pipeline.ocr_swaps.SwapMap: letter swaps between the version and its reference
     error TEXT,
     cancel_requested INTEGER DEFAULT 0,
     archived INTEGER DEFAULT 0,
@@ -101,6 +104,12 @@ def init():
     cols = {r[1] for r in c.execute("PRAGMA table_info(projects)")}
     if "stage_base" not in cols:                      # databases created before the column existed
         c.execute("ALTER TABLE projects ADD COLUMN stage_base INTEGER DEFAULT 0")
+    if "ocr_swaps" not in cols:
+        c.execute("ALTER TABLE projects ADD COLUMN ocr_swaps TEXT")
+    if "script" not in cols:
+        c.execute("ALTER TABLE projects ADD COLUMN script TEXT DEFAULT 'square'")
+    if "source" not in cols:
+        c.execute("ALTER TABLE projects ADD COLUMN source TEXT DEFAULT 'ocr'")
     (DATA_DIR / "refs").mkdir(parents=True, exist_ok=True)
 
 

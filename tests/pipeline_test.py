@@ -165,3 +165,187 @@ def test_overload_backoff_waits_longer():
     over = RuntimeError("ServerError: 503 UNAVAILABLE. This model is currently experiencing high demand")
     assert overloaded(over) and not overloaded(ValueError("Expecting value: line 1 column 1"))
     assert backoff(4, over) >= 30 and backoff(4, ValueError("x")) <= 8 * 1.25
+
+
+# ---- automatic fixes -------------------------------------------------------------------------------------------------------------
+
+from pipeline.letter_pairs import allowed_pairs  # noqa: E402
+from pipeline.ocr_swaps import (SwapMap, abbreviation_of, abbreviation_ref, auto_fix, build_map,  # noqa: E402
+                                gershayim_moved, letter_diff, spacing_confirmed)
+
+
+def test_letter_diff_substitutions_only():
+    assert letter_diff("סבר", "כבר") == [(0, 1, "ס", "כ")]
+    assert letter_diff("וזלק", "חלק") == [(0, 2, "וז", "ח")]
+    assert letter_diff("שלומ", "שלום") == []                  # final form alone is not a difference
+    assert letter_diff("שלום", "שלומו") is None                 # letters added: a variant, not a swap
+    assert letter_diff("שלום", "שלומו"[:3] + "מו") is None      # ם→מו is a letter added too
+    assert letter_diff("אבגדה", "אזחטה") is None                 # a substitution longer than 2 letters
+
+
+def test_allowed_pairs_by_script():
+    sq, ra = allowed_pairs("square"), allowed_pairs("rashi")
+    assert {"ב/כ", "ה/ח", "ם/ס", "ו/י", "ח/ת", "ו/ן"} <= sq and {"ב/כ", "ם/ס", "ו/ן"} <= ra     # hand-picked, every script
+    assert "ל/נ" in ra and "ל/נ" not in sq                                      # Rashi script only
+    assert "וז/ח" in ra                                                          # look-alike two-for-one, from the glyph map
+    assert "א/ה" not in sq | ra                                                  # spelling (יהודא/יהודה), not OCR
+    assert allowed_pairs("rashi", "typed") == frozenset()                        # typed texts: keyboard slips, not yet listed
+
+
+def fix(words, ref, script="square"):
+    got = auto_fix(words, ref, allowed_pairs(script))
+    return got and got[0]
+
+
+def test_auto_fix_swaps():
+    assert fix("<b>ובית</b>,", "וכית") == "<b>וכית</b>,"
+    assert fix("וזלק", "חלק.", "rashi") == "חלק"
+    assert fix("שלוס", "שלום") == "שלום"
+    assert fix("דקירה", "דקורה") == "דקורה"
+    assert fix("סאיו", "סאין") == "סאין"                        # ו/ן (final nun)
+    assert fix("שכתובה.", "שבחובה,") == "שבחובה."               # adjacent swaps (כ/ב, ת/ח) come out of the diff as one block
+    assert fix("שכאובה", "שבחובה") is None                      # ...and each letter must be an allowed pair (א/ח: Rashi only)
+    assert fix("שכאובה", "שבחובה", "rashi") == "שבחובה"
+    # the diff pairs the two ל's (drop צ, add ל); the letter-by-letter alignment finds the swap צ→ל (Rashi script only)
+    assert fix("בכצל", "בכלל", "rashi") == "בכלל" and fix("בכצל", "בכלל") is None
+    assert fix("יהודא", "יהודה") is None                     # א/ה is not an OCR pair
+    assert fix("ולא", "ונא") is None and fix("ולא", "ונא", "rashi") == "ונא"
+    assert fix("וּבית", "וכית") is None                       # niqqud in the span: left to the reviewer
+    assert fix("ובית", "וכיתו") is None                       # also a letter added
+    assert fix("ובית", "") is None and fix("ובית", "ובית") is None
+
+
+def test_auto_fix_spacing():
+    assert auto_fix("לאבא", "לא בא", allowed_pairs()) == ("לא בא", "spacing")
+    assert fix("ותדע שאלו לאבא אלא", "ותדע שאלו לא בא אלא") == "ותדע שאלו לא בא אלא"
+    assert fix("היה מחיצה", "היהמחיצה") == "היהמחיצה"         # joining works too
+    assert fix("שלומו", "שלום ו") == "שלום ו"                  # final form follows the new division
+    assert fix("כמו כן", "כמוכן") == "כמוכן"
+    assert fix("<b>לא</b>בא", "לא בא") == "<b>לא</b> בא"
+    assert fix("לא, בא", "לאבא") is None                      # only a plain space can be dropped
+    assert auto_fix("לאכא", "לא בא", allowed_pairs()) == ("לא בא", "OCR swaps + spacing")
+    assert fix("על־פי", "על פי") is None                      # maqaf and space both divide words: no change
+
+
+def test_auto_fix_one_yod_or_vav():
+    known = {match_key(w) for w in "הכי היכי לשתוף לשתף הא היא אמר אמרו".split()}
+    f = lambda w, r: (auto_fix(w, r, allowed_pairs("rashi"), known) or (None, None))  # noqa: E731
+    assert f("שאנם", "שאינם") == ("שאינם", "י/ו")                 # dropped inside a word
+    assert f("טעמאי", "טעמא") == ("טעמא", "י/ו")                  # stray last letter
+    assert f("לביתוי,", "לביתו") == ("לביתו,", "י/ו")
+    assert f("חים", "חיים")[0] == "חיים" and f("וכין", "וכיון")[0] == "וכיון"
+    assert f("דשמוחל", "דשמואל")[1] == "OCR swaps"
+    assert f("ובעילה", "ובעי ליה") == ("ובעי ליה", "spacing + י/ו")
+    assert f("ודבקעה", "דבקעה") == (None, None)                    # a word's first letter (the conjunction ו)
+    assert f("אמר", "אמרו") == (None, None) and f("כתב", "כתבי") == (None, None)   # added at the end: grammar
+    assert f("הכי", "היכי") == (None, None)                         # Sefaria's word is a real word in the reference
+    assert f("לשתוף", "לשתף") == (None, None)
+    assert f("סיד", 'ס"ד') == (None, None) and f("אחריות", "(אחרות)") == (None, None)   # gershayim, brackets
+    assert f("שאנם", "שאינמו") == (None, None)                      # two letters added
+    assert auto_fix("שאנם", "שאינם", allowed_pairs("rashi")) is None  # no reference words given: rule off
+
+
+def test_yod_vav_shuffle_is_not_the_yod_vav_rule():
+    known: set = set()
+    f = lambda w, r: auto_fix(w, r, allowed_pairs("rashi"), known)  # noqa: E731
+    assert f("ותלו", "ותלוי") is None                              # = a letter added at the end
+    assert f("מכחל", "מכותל") == ("מכותל", "OCR swaps + י/ו")       # a real swap next to the added ו is fine
+
+
+def test_abbreviation_of():
+    assert abbreviation_of("פפ׳", "פפא") and abbreviation_of("לרב פפ׳", "לרב פפא,")
+    assert abbreviation_of("המד׳ השלישי׳", "המדה השלישית") and abbreviation_of("משו'", "משום")
+    assert abbreviation_of("ג״ה", "גירסת הספרים") and abbreviation_of("ר״הי", "רשות היחיד")
+    assert not abbreviation_of("ומרי׳", "אומרים")                    # a letter missing: an error with a geresh
+    assert not abbreviation_of("חושיבנ׳", "חושבנא") and not abbreviation_of("פט׳", "פפא")
+    assert not abbreviation_of("פפא", "פפא") and not abbreviation_of("לרחב״ן", "לרחבן")
+    assert not abbreviation_of("החי צונו׳", "החיצונות")              # the error is the space
+    assert not abbreviation_of("פפ׳ בכצל", "פפא בכלל")               # an abbreviation and an error
+
+
+def test_auto_fix_typed_patterns():
+    known = {match_key(w) for w in "האי היא אל לא שעה ההר".split()}
+    typed = lambda w, r: auto_fix(w, r, allowed_pairs("square", "typed"), known, ocr=False, typed=True)  # noqa: E731
+    assert typed("הזכהר", "הזכרה") == ("הזכרה", "transposed")
+    assert typed("לורמ", "לומר") == ("לומר", "transposed")           # final forms follow
+    assert typed("הההרים", "ההרים") == ("ההרים", "doubled letter")
+    assert typed("שעים", "שערים") == ("שערים", "missing/extra letter")
+    assert typed("תקי ות", "תקיעות") == ("תקיעות", "spacing + missing/extra letter")   # a space took the letter's place
+    assert typed("הברהכה", "הברכה") == ("הברכה", "missing/extra letter")
+    assert typed("אל אהוא", "אלא הוא") == ("אלא הוא", "spacing")
+    assert typed("שעה", "שערה") is None                              # Sefaria's word is a word of the reference
+    assert typed("השופרו", "השופרות") is None                         # missing at the end: not inside the word
+    assert typed("א", "לא") is None                                   # missing at the start
+    assert typed("בדבר", "דבר") is None                               # an extra first letter (a prefix)
+    assert typed("הפלה", "תפלה") is None                              # an OCR swap: not a typed pattern
+    mixed = lambda w, r: auto_fix(w, r, allowed_pairs("rashi", "mixed"), known, ocr=True, typed=True)  # noqa: E731
+    assert mixed("הן", "הר") is None and mixed("בכצל", "בכלל") == ("בכלל", "OCR swaps")
+    assert mixed("הזכהר", "הזכרה") == ("הזכרה", "transposed") and mixed("טעמאי", "טעמא")[1] == "י/ו"
+    ocr = lambda w, r: auto_fix(w, r, allowed_pairs("rashi", "ocr"), known)  # noqa: E731
+    assert ocr("הזכהר", "הזכרה") is None and ocr("שעים", "שערים") is None   # typed patterns are off for OCR
+
+
+def test_abbreviations_keep_their_letter_forms_and_marks():
+    assert fix('ע"ב', 'ע"כ') == 'ע"כ' and fix('א"ג', 'א"נ') == 'א"נ'       # not ע"ך / א"ן
+    assert fix('רמב"ס', 'רמב"ם') == 'רמב"ם'                                  # the reference's final form where it has one
+    cut = abbreviation_ref("ולא חחמו'", "ולא תחמוד")
+    assert cut == "ולא תחמו" and fix("ולא חחמו'", cut) == "ולא תחמו'"        # the abbreviation is fixed and kept
+    assert abbreviation_ref("ולא חחמוד", "ולא תחמוד") is None
+
+
+def test_spacing_confirmed_by_the_reference():
+    assert spacing_confirmed("לאהיה", "לא היה", "לא הוה")                    # the reference's letters differ, its space agrees
+    assert spacing_confirmed("בעלמ'ליקני", "בעלמ' ליקני", "בעלמא ליקני")
+    assert not spacing_confirmed("לאהיה", "לאה יה", "לא הוה")                # the space is elsewhere in the reference
+    assert not spacing_confirmed("לאהיה", "לא הוה", "לא הוה")                # the fix changes letters: not spacing only
+    assert not spacing_confirmed("לא היה", "לא היה", "לא הוה")               # nothing to change
+
+
+def test_vocabulary_backs_a_fix_without_a_reference():
+    from collections import Counter
+    from app.review import _vocabulary_backs
+    ref, ver = Counter({"תופס": 4, "ופירש": 2}), Counter({"חופס": 1, "באריכותופירש": 1, "באריכות": 2, "שזה": 3})
+    assert _vocabulary_backs("שזה חופס", "שזה תופס", ref, ver)
+    assert _vocabulary_backs("באריכותופירש", "באריכות ופירש", ref, ver)
+    assert not _vocabulary_backs("שזה", "שזו", ref, ver)                     # שזה is a word elsewhere
+    assert not _vocabulary_backs("חופס", "חופש", ref, ver)                   # חופש occurs nowhere
+
+
+def test_gershayim_moved():
+    assert gershayim_moved("ר״הי", "רה״י") and gershayim_moved('ר"הי', "רה״י")
+    assert not gershayim_moved("לרחב״ן", "לרחבן")             # removed, not moved
+    assert not gershayim_moved("ר״הי", "ר״הי") and not gershayim_moved("ר״הי", None)
+    assert not gershayim_moved("ר״הי", "רה״ח")                # letters changed too
+
+
+def test_reference_maps_a_replaced_run_word_for_word():
+    base = "תחת הקורה דעלמא מתיר כאן פי' או משום דקורה משום היכירא והיכירא מלגאו בעינן או משום דקורה משום מחיצה וסל דחודו הפנימי"
+    ref = Reference(base)
+    sef = base.split()
+    i = sef.index("דקורה")
+    a = ref.align(" ".join(sef[:i]), "דקירה", "משו׳ " + " ".join(sef[i + 2:]))
+    assert a.status == "differs" and a.ref_words == "דקורה"
+
+
+def test_reference_narrows_to_the_matching_word_when_word_order_differs():
+    tail = " אתה עושה כניסתו ויציאתו כשני ראשים וכאילו הוא מפולש שנמצא"
+    ref = Reference("סגי כמפולש דעלמא דהא אם תמצא לומר שאין צריך בעקמימותו כלום" + tail)
+    a = ref.align("סגי כמפולש דעלמא דהא אם תמצא לומר שאין בעקמומיתו צריך", "כלים", tail)
+    assert a.status == "differs" and a.ref_words == "כלום"
+    a = ref.align("סגי כמפולש דעלמא דהא אם תמצא לומר שאין צריך בעקמימותו", "כלום", tail)
+    assert a.status == "agrees" and a.ref_words == "כלום"
+    split = Reference("ותדע שאלו לא בא אלא לומר שאין צריך בעקמימותו כלום" + tail)
+    assert split.align("ותדע שאלו", "לאבא", "אלא לומר שאין צריך בעקמימותו כלום" + tail).ref_words == "לא בא"
+
+
+def test_swap_map_counts_substitutions():
+    base = ("ויאמר משה אל העם אל תיראו התיצבו וראו את ישועת ה' אשר יעשה לכם היום כי אשר ראיתם את מצרים "
+            "היום לא תספו לראתם עוד עד עולם ה' ילחם לכם ואתם תחרשון ויאמר ה' אל משה מה תצעק אלי דבר אל בני ישראל ויסעו "
+            "ואתה הרם את מטך ונטה את ידך על הים ובקעהו ויבאו בני ישראל בתוך הים ביבשה ואני הנני מחזק את לב מצרים ויבאו אחריהם")
+    sef = base.replace("ישועת", "ישועח").replace("ראיתם", "ראיחם").replace("לראתם", "לראחם").replace("ובקעהו", "ובקעחו")
+    sef = sef.replace("בתוך", "בתור").replace("אחריהם", "אחריחם") + " " + base     # longer than one block
+    ref = Reference(base.replace("ידך", "ידיך") + " " + base)             # a spelling variant (letter added) is not counted
+    m = build_map([sef], ref)
+    assert m.counts == {"ח/ת": 3, "ה/ח": 2, "ך/ר": 1}
+    back = SwapMap.from_dict(m.to_dict())
+    assert back.counts == m.counts and back.total == 6 and m.to_dict()["pairs"][0]["examples"][0] == "ישועח→ישועת"
