@@ -2,6 +2,10 @@
 import { api, esc, isActive, postJSON, progressHTML, toast } from "./common.js";
 
 const $ = (s) => document.querySelector(s);
+
+// the script only matters for OCR'd texts (which look-alike letters are confused)
+$("#source").onchange = () => { $("#script-field").hidden = $("#source").value === "typed"; };
+const SOURCES = { ocr: "OCR", typed: "Typed / converted", mixed: "Mixed / unclear" };
 let projects = [];
 let pollTimer;
 
@@ -73,6 +77,8 @@ $("#new").addEventListener("submit", async (e) => {
   fd.append("title", chosenBook);
   fd.append("version_title", version.value);
   fd.append("name", $("#name").value);
+  fd.append("source", $("#source").value);
+  fd.append("script", $("#script").value);
   if ($("#threshold").value) fd.append("threshold", $("#threshold").value);
   if ($("#llm").value.trim()) fd.append("llm", $("#llm").value.trim());
   const f = $("#reference").files[0];
@@ -101,6 +107,17 @@ function ago(t) {
   return new Date(t * 1000).toLocaleDateString();
 }
 
+function swapsHTML(p) {
+  if (p.source === "typed") return `<div class="muted">Typed / converted text: no letter-swap fixes</div>`;
+  const script = `<div class="muted">${p.script === "rashi" ? "Rashi script" : "Square script"}</div>`;
+  const m = p.ocr_swaps;
+  if (!m) return script;
+  const ok = m.pairs.filter((s) => s.allowed).slice(0, 8);
+  return script + `<div class="muted" dir="rtl" title="Letter swaps seen between this version and the reference that are fixed automatically (hover a pair for examples)">`
+    + (ok.length ? ok.map((s) => `<span title="${esc(s.examples.join(", "))}">${esc(s.pair)} ×${s.count}</span>`).join(" · ") : "no OCR swaps seen")
+    + `</div>`;
+}
+
 function render() {
   const tb = $("#projects");
   $("#no-projects").hidden = projects.length > 0;
@@ -111,9 +128,9 @@ function render() {
     return `<tr data-id="${p.id}">
       <td><a href="/review?id=${p.id}"><b>${esc(p.name)}</b></a><div class="small muted">${esc(p.owner)}</div></td>
       <td>${esc(p.title)}<div class="small muted">${esc(p.version_title)}${p.words ? ` · ${p.words.toLocaleString()} words` : ""}</div></td>
-      <td class="small">${p.ref_filename ? esc(p.ref_filename) : `<span class="muted">—</span>`}</td>
+      <td class="small">${p.ref_filename ? esc(p.ref_filename) + swapsHTML(p) : `<span class="muted">—</span>`}</td>
       <td>${progressHTML(pr)}</td>
-      <td class="small">${c.todo} to review<br><span class="muted">${c.accepted} accepted · ${c.rejected} rejected · ${c.overridden} edited${cost}</span></td>
+      <td class="small">${c.todo} to review<br><span class="muted">${c.accepted} accepted · ${c.rejected} rejected · ${c.overridden} edited${c.auto ? ` · ${c.auto} automatic` : ""}${cost}</span></td>
       <td class="small muted">${ago(p.updated_at)}</td>
       <td><div class="actions">
         <button data-a="open">Open</button>
@@ -122,6 +139,9 @@ function render() {
         ${running ? `<button data-a="cancel">Cancel</button>` : ""}
         ${pr.status === "failed" || pr.status === "cancelled" ? `<button data-a="retry">Retry</button>` : ""}
         ${pr.status === "ready" && pr.error ? `<button data-a="retry">Retry LLM check</button>` : ""}
+        ${pr.status === "ready" ? `<button data-a="auto" title="Accept OCR swaps and spacing the reference confirms; dismiss fixes that only move gershayim">Run automatic fixes</button>` : ""}
+        <button data-a="source" title="How the text was digitized: which error patterns are fixed automatically (click to change)">Source: ${SOURCES[p.source] || "OCR"}</button>
+        ${p.source !== "typed" ? `<button data-a="script" title="Switch the edition's script (changes which letter swaps are fixed automatically)">${p.script === "rashi" ? "Script: Rashi" : "Script: square"}</button>` : ""}
         <button data-a="archive">${p.archived ? "Unarchive" : "Archive"}</button>
         ${running ? "" : `<button data-a="delete" class="danger">Delete</button>`}
       </div></td></tr>`;
@@ -153,6 +173,20 @@ $("#projects").addEventListener("click", async (e) => {
       }
       case "cancel": await api(`/api/projects/${id}/cancel`, { method: "POST" }); break;
       case "retry": await api(`/api/projects/${id}/retry`, { method: "POST" }); break;
+      case "auto": {
+        b.disabled = true;
+        const r = await api(`/api/projects/${id}/auto`, { method: "POST" });
+        const n = Object.values(r.decided).reduce((x, y) => x + y, 0);
+        toast(n ? `${n} automatic decision${n === 1 ? "" : "s"}: ` + Object.entries(r.decided).map(([k, v]) => `${v} ${k.replace("auto: ", "")}`).join(", ")
+                : "No new automatic decisions");
+        break;
+      }
+      case "source": {
+        const keys = Object.keys(SOURCES);
+        await postJSON(`/api/projects/${id}`, { source: keys[(keys.indexOf(p.source) + 1) % keys.length] }, "PATCH");
+        break;
+      }
+      case "script": await postJSON(`/api/projects/${id}`, { script: p.script === "rashi" ? "square" : "rashi" }, "PATCH"); break;
       case "archive": await postJSON(`/api/projects/${id}`, { archived: !p.archived }, "PATCH"); break;
       case "delete":                                     // two clicks: the first arms the button
         if (b.dataset.armed !== "1") {

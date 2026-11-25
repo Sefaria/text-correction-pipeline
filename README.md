@@ -27,6 +27,52 @@ The last row is a backstop. In testing, dismissing every candidate the reference
 
 The model choice and these rules come from the Phase 0 experiment in `experiments/`. That experiment compared models against Opus gold labels on 532 flagged words from the 8 worst versions in the translation-scope quality pass, and checked against human labels.
 
+### Automatic decisions
+
+Each project records how its text was made: **OCR**, **typed / converted** (typing errors, or damage from old software), or
+**mixed / unclear** (both sets of rules), and for OCR the edition's **script** (square or Rashi). Both can be
+changed on the dashboard. As the LLM pass saves each batch, these rules run on the candidates the LLM calls errors:
+
+| Rule | Decision | When |
+|---|---|---|
+| OCR swaps | accept, as `auto: OCR swaps` | The reference reads differently, and every letter difference is an allowed pair: up to 2 letters for up to 2 (ב/כ, וז/ח) |
+| Spacing | accept, as `auto: spacing` | Same letters, words divided differently (לאבא / לא בא). Can combine with OCR swaps |
+| One י/ו (OCR only) | accept, as `auto: י/ו` | One י or ו dropped inside a word or stray at its end on Sefaria's side (שאנם→שאינם, טעמאי→טעמא). Never a word's first letter, never added at the end (אמר/אמרו), only when Sefaria's word never appears in the reference (so not הכי/היכי or לשתוף/לשתף), and not when the reference reading has gershayim or brackets (ס"ד, (אחרות)). Can combine with the rules above |
+| Transposed (typed) | accept, as `auto: transposed` | Two neighbouring letters in the other order (הזכהר→הזכרה, ואניו→ואינו). Not combined with an added or dropped letter |
+| Doubled letter (typed) | accept, as `auto: doubled letter` | Sefaria repeats a letter (הההרים→ההרים), not the word's first |
+| Missing/extra letter (typed) | accept, as `auto: missing/extra letter` | One letter of any kind missing inside a word (שעים→שערים), also where a space took its place (תקי ות→תקיעות), or one extra inside a word (הברהכה→הברכה); only when Sefaria's word never appears in the reference |
+| Space across two words (typed) | edit the segment, as `auto: spacing` | Only one word was flagged, but the error is in the space next to it (אל ⟦אהוא⟧→אלא הוא, העי ⟦רהיה⟧→העיר היה). The neighbouring word must be in the same segment and not part of another candidate |
+| Spacing the reference confirms | accept, as `auto: spacing` | The LLM's fix only moves spaces, and the reference divides there, even where its letters differ (לאהיה→לא היה against "לא הוה"; בעלמ'ליקני→בעלמ' ליקני, the abbreviation kept). Sefaria's letters and marks stay |
+| Abbreviation with an error | accept, as `auto: OCR swaps` (etc.) | Sefaria's abbreviation is compared with the start of the reference's full word, so it is fixed and stays an abbreviation (חחמו'→תחמו' against תחמוד). Letters in abbreviations keep the reference's form: ע"כ, א"נ, not ע"ך, א"ן |
+| No reference here | accept, as `auto: … (no reference)` | The aligner found no reading for this passage: the LLM's fix, if it is an allowed kind (OCR swaps, spacing, transposed) and the vocabulary backs it: the words it removes occur nowhere else, in the reference or the version, and the words it brings in occur somewhere (חופס→תופס, באריכותופירש→באריכות ופירש) |
+| Abbreviation | reject, as `auto: abbreviation` | Sefaria abbreviates what the reference writes in full (פפ׳/פפא, ג״ה/גירסת הספרים): not an error |
+| Gershayim | reject, as `auto: gershayim` | The LLM's fix only moves a geresh or gershayim (ר״הי → רה״י): not worth changing |
+
+For the first two rules, any fix the LLM proposed must match the reference reading. The fix changes only those letters and spaces in
+Sefaria's text, so punctuation, gershayim and markup stay as they are, and final forms follow the new word division. Spans with niqqud
+are left to the reviewer.
+
+**Allowed pairs** (`pipeline/letter_pairs.py`) are the only pairs the OCR rule accepts:
+- *Hand-picked:* ה/ח ד/ר ס/ם י/ו ב/כ ג/נ ו/ז ת/ח ו/ן for every script, plus א/ח ל/נ ו/נ א/מ צ/ל for Rashi script.
+- *Look-alike letters:* `experiments/letter_similarity.py` draws every letter in square fonts (Frank Ruhl Libre, David Libre) and a Rashi
+  font (Noto Rashi Hebrew), then scores how much each pair's strokes overlap, two-for-one pairs included. Pairs scoring at least 0.70
+  are added: in square script ט/ס ד/ך כ/פ; in Rashi script כ/פ ן/ץ ב/פ ק/ת ח/ר וז/ח. The scores are in `pipeline/letter_similarity.json`.
+- *Typed / converted texts* get no letter-swap fixes (`TYPED_PAIRS` is empty, ready for keyboard slips); *mixed* uses the OCR pairs.
+
+The align stage also counts the letter substitutions between the whole version and its reference. The dashboard shows the allowed pairs
+among them. The counts are only evidence: frequent substitutions include spelling and censorship differences (יהודא/יהודה, עכו״ם/גוי),
+so they never allow a pair by themselves.
+
+Automatic decisions are ordinary decisions. They show in the history, the **Automatic decisions** filter lists them, and a reviewer can
+reset or change any of them. Automatic decisions never override a decision a reviewer has made. **Run automatic fixes** on the dashboard
+runs the rules over a whole project, for example after changing its script. For projects created before these rules,
+`POST /api/projects/{id}/auto?realign_reference=true` first re-aligns them with the current aligner, without new LLM calls.
+
+On the Phase 0 reference experiment (`experiments/ocr_swaps_experiment.py`), the rules accepted 47 fixes in square script and 56 in Rashi
+script, out of 225 candidates the LLM flagged, all matching the gold fix. The one-י/ו rule adds 10 more right and 1 wrong: a deliberate
+rare spelling (איבך) that the simulated reference spelled אבך. A rare word can't be told from OCR damage by counting, so expect the
+occasional spelling change from this rule.
+
 ## Review shortcuts
 
 Shortcuts use physical keys, so they work with a Hebrew keyboard layout.
