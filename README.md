@@ -147,6 +147,20 @@ This follows the translation-review app: one container, one replica, and a volum
    - A small version runs end to end.
    - A project survives a redeploy.
 
+**Deploying a change.** Merging to `main` deploys. A GitHub webhook on this repo (push events) calls Coolify's manual webhook,
+`https://coolify.sefaria.org/webhooks/source/github/events/manual`, signed with the app's GitHub webhook secret from Coolify
+(the app's Webhooks tab). Coolify then builds the tip of `main`. The app uses the public-GitHub source, so without this webhook
+nothing tells Coolify about a push. To deploy by hand, press **Deploy** in Coolify, or:
+
+```
+curl -X POST -H "Authorization: Bearer $COOLIFY_TOKEN" \
+  "https://coolify.sefaria.org/api/v1/deploy?uuid=<app uuid>"
+```
+
+The endpoint is POST only. Follow a deploy with `GET /api/v1/deployments/<deployment_uuid>` until `status` is `finished`. The reply
+embeds the build log with raw control characters, so parse it leniently (Python: `json.loads(text, strict=False)`). Schema changes
+need no migration step: `app/db.py` adds missing columns at startup.
+
 **LLM cost.** The default Gemini 3.8 Flash pass costs about $5.50 per 1,000 candidates at the 2027 list price, and about half that until 2026-12-31. At 10 flags per 1,000 words, a 50,000-word version costs about $3. Per-project cost is shown on the dashboard.
 
 ## Verified upload
